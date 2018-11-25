@@ -8,7 +8,7 @@ syntax enable
 " YAML syntax
 au BufNewFile,BufRead *.yaml,*.yml,*.yaml.jinja2 so ~/.vim/local/yaml.vim
 " Jenkinsfile
-autocmd BufRead,BufNewFile Jenkinsfile* set syntax=groovy
+autocmd BufRead,BufNewFile Jenkinsfile*,*.jobdsl set syntax=groovy
 filetype plugin indent on
 
 
