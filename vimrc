@@ -9,6 +9,8 @@ syntax enable
 au BufNewFile,BufRead *.yaml,*.yml,*.yaml.jinja2 so ~/.vim/local/yaml.vim
 " Jenkinsfile
 autocmd BufRead,BufNewFile Jenkinsfile*,*.jobdsl set syntax=groovy
+" Dockerfile
+autocmd BufRead,BufNewFile Dockerfile*, set syntax=dockerfile
 filetype plugin indent on
 
 
