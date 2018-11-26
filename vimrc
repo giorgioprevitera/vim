@@ -15,6 +15,16 @@ filetype plugin indent on
 
 
 "--------------------------------------------------
+" Ctrl space
+"--------------------------------------------------
+nnoremap <C-space> :CtrlSpace<CR>
+set hidden
+set nocompatible
+
+
+
+
+"--------------------------------------------------
 " General settings
 "--------------------------------------------------
 set expandtab
