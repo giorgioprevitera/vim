@@ -27,6 +27,8 @@ https://github.com/ddrscott/vim-side-search.git \
 https://github.com/tpope/vim-unimpaired.git \
 https://github.com/terryma/vim-multiple-cursors.git \
 https://github.com/vim-ctrlspace/vim-ctrlspace.git \
+https://github.com/scrooloose/nerdcommenter.git \
+https://github.com/Yggdroot/indentLine.git \
 "
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/local 
