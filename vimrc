@@ -183,7 +183,7 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 "--------------------------------------------------
 " Git Fugitive
 "--------------------------------------------------
-nnoremap <Leader>gs :Gstatus<CR><c-w>T
+nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
 set diffopt+=vertical
