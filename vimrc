@@ -176,6 +176,7 @@ cabbrev SS SideSearch
 " Tagbar
 "--------------------------------------------------
 nmap <silent> <leader>t :TagbarToggle<CR>
+nmap <silent> <leader>tr :!ctags -R --tag-relative -o .git/tags .<CR>
 
 
 
