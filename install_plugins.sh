@@ -39,5 +39,5 @@ pushd ~/.vim/bundle/
 
 for URL in $PLUGIN_URLS;do
     echo "INSTALLING ${URL}"
-    git clone "${URL}"
+    git clone "${URL}" 2>/dev/null || echo "already installed"
 done
