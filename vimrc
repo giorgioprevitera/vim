@@ -93,6 +93,7 @@ let g:ctrlp_prompt_mappings = {
 "--------------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='minimalist'
 
 
 
@@ -100,12 +101,11 @@ let g:airline#extensions#tabline#enabled = 1
 "--------------------------------------------------
 "Colors
 "--------------------------------------------------
-set background=dark
-"set background=light
 "set term=xterm-256color
 "set t_Co=256
-set termguicolors
-colorscheme monokai-chris
+"set termguicolors
+set background=dark
+colorscheme minimalist
 
 
 
