@@ -42,8 +42,8 @@ set clipboard=unnamed
 "Set encryption method to blowfish - DOESN'T SEEM TO WORK WITH nvim
 "set cm=blowfish2
 
-" Copy paste - NOT REQUIRED ON nvim
-"vmap <C-C> "+y
+" Copy paste
+vmap <C-c> "+y
 
 
 
