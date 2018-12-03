@@ -218,4 +218,19 @@ let g:indentLine_char = '⎸'
 "let g:indentLine_char = '|' 
 
 
+
+
+"--------------------------------------------------
+" Pyenv
+"--------------------------------------------------
 let g:pyenv#auto_activate = 0
+
+
+
+
+"--------------------------------------------------
+" Git gutter
+"--------------------------------------------------
+let g:gitgutter_sign_modified = "✎"
+let g:gitgutter_sign_added = ""
+let g:gitgutter_sign_removed = ""
