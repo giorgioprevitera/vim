@@ -80,10 +80,10 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 nnoremap <leader>. :CtrlPTag<cr>
 
 " ctrl+p open in tab by default
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+"let g:ctrlp_prompt_mappings = {
+    "\ 'AcceptSelection("e")': ['<c-t>'],
+    "\ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    "\ }
 
 
 
