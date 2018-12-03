@@ -31,6 +31,8 @@ https://github.com/scrooloose/nerdcommenter.git \
 https://github.com/Yggdroot/indentLine.git \
 https://github.com/lambdalisue/vim-pyenv.git \
 https://github.com/ryanoasis/vim-devicons \
+https://github.com/w0rp/ale.git \
+https://github.com/hashivim/vim-terraform.git \
 "
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/local 
