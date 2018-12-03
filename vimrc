@@ -223,7 +223,7 @@ let g:indentLine_char = '⎸'
 "--------------------------------------------------
 " Pyenv
 "--------------------------------------------------
-let g:pyenv#auto_activate = 0
+let g:pyenv#auto_activate = 1
 
 
 
@@ -234,3 +234,16 @@ let g:pyenv#auto_activate = 0
 let g:gitgutter_sign_modified = "✎"
 let g:gitgutter_sign_added = ""
 let g:gitgutter_sign_removed = ""
+
+
+
+
+"--------------------------------------------------
+" Ale
+"--------------------------------------------------
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'terraform': ['terraform'],
+\   'sh': ['shfmt'],
+\}
