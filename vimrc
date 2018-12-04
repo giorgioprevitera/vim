@@ -215,7 +215,7 @@ nnoremap <Leader>st :SyntasticToggleMode<CR>
 let g:indentLine_setConceal = 1
 let g:indentLine_char = '⎸'
 " if the above doesn't work (no utf-8 file), use the pipe character
-"let g:indentLine_char = '|' 
+"let g:indentLine_char = '|'
 
 
 
@@ -231,7 +231,7 @@ let g:pyenv#auto_activate = 1
 "--------------------------------------------------
 " Git gutter
 "--------------------------------------------------
-let g:gitgutter_sign_modified = "✎"
+let g:gitgutter_sign_modified = ""
 let g:gitgutter_sign_added = ""
 let g:gitgutter_sign_removed = ""
 
