@@ -249,7 +249,7 @@ let g:ale_fixers = {
 \}
 
 
-" keep multicursor 
+" keep multicursor
 let g:multi_cursor_exit_from_insert_mode = 0
 
 " Don't fold git diffs
