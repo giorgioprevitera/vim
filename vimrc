@@ -247,3 +247,13 @@ let g:ale_fixers = {
 \   'terraform': ['terraform'],
 \   'sh': ['shfmt'],
 \}
+
+
+" keep multicursor 
+let g:multi_cursor_exit_from_insert_mode = 0
+
+" Don't fold git diffs
+augroup git
+    au!
+    autocmd FileType git :setlocal foldlevel=99
+augroup END
