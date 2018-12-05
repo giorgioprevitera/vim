@@ -257,3 +257,7 @@ augroup git
     au!
     autocmd FileType git :setlocal foldlevel=99
 augroup END
+
+"source ~/.vim/.simplenoterc
+
+nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>:colo blue<CR>
