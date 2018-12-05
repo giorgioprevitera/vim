@@ -6,7 +6,7 @@ execute pathogen#infect()
 syntax on
 syntax enable
 " YAML syntax
-au BufNewFile,BufRead *.yaml,*.yml,*.yaml.jinja2 so ~/.vim/local/yaml.vim
+au BufNewFile,BufRead *.yaml.*,*.yml.* so ~/.vim/local/yaml.vim
 " Jenkinsfile
 autocmd BufRead,BufNewFile Jenkinsfile*,*.jobdsl set syntax=groovy
 " Dockerfile
