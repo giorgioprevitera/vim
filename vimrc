@@ -39,8 +39,8 @@ set updatetime=100
 set mouse=nicr
 set clipboard=unnamed
 
-"Set encryption method to blowfish - DOESN'T SEEM TO WORK WITH nvim
-"set cm=blowfish2
+"Set encryption method to blowfish
+set cm=blowfish2
 
 " Copy paste
 vmap <C-c> "+y
