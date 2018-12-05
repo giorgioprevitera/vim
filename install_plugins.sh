@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-
 PLUGIN_URLS="\
 https://github.com/flazz/vim-colorschemes.git \
 https://github.com/ctrlpvim/ctrlp.vim \
@@ -33,15 +32,16 @@ https://github.com/lambdalisue/vim-pyenv.git \
 https://github.com/ryanoasis/vim-devicons \
 https://github.com/w0rp/ale.git \
 https://github.com/hashivim/vim-terraform.git \
+https://github.com/junegunn/goyo.vim.git \
 "
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/local 
+mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/local
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-curl -LSso ~/.vim/local/yaml.vim https://raw.githubusercontent.com/vim-scripts/yaml.vim/master/colors/yaml.vim 
+curl -LSso ~/.vim/local/yaml.vim https://raw.githubusercontent.com/vim-scripts/yaml.vim/master/colors/yaml.vim
 
 pushd ~/.vim/bundle/
 
-for URL in $PLUGIN_URLS;do
+for URL in $PLUGIN_URLS; do
     echo "INSTALLING ${URL}"
     git clone "${URL}" 2>/dev/null || echo "already installed"
 done
