@@ -161,7 +161,7 @@ let g:side_search_splitter = 'vnew'
 let g:side_search_split_pct = 0.1
 
 " SideSearch current word and return to original window
-nnoremap <Leader>ss :SideSearch <C-r><C-w><CR> | wincmd p
+nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
 
 " Create an shorter `SS` command
 command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
