@@ -1,4 +1,38 @@
-execute pathogen#infect()
+"execute pathogen#infect()
+call plug#begin()
+
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/flazz/vim-colorschemes.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/nwochaadim/git-remote-open.git'
+Plug 'https://github.com/gregsexton/gitv'
+Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/davidhalter/jedi-vim.git'
+Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'https://github.com/majutsushi/tagbar'
+Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/dkprice/vim-easygrep.git'
+Plug 'https://github.com/tommcdo/vim-fubitive.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/tpope/vim-sensible.git'
+Plug 'https://github.com/ddrscott/vim-side-search.git'
+Plug 'https://github.com/tpope/vim-unimpaired.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
+Plug 'https://github.com/scrooloose/nerdcommenter.git'
+Plug 'https://github.com/Yggdroot/indentLine.git'
+"Plug 'https://github.com/lambdalisue/vim-pyenv.git'
+Plug 'https://github.com/ryanoasis/vim-devicons'
+Plug 'https://github.com/w0rp/ale.git'
+Plug 'https://github.com/junegunn/goyo.vim.git'
+Plug 'https://github.com/hashivim/vim-terraform.git'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+call plug#end()
 
 "--------------------------------------------------
 " Syntax
