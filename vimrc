@@ -89,7 +89,9 @@ set mouse=nicr
 set clipboard=unnamed
 
 "Set encryption method to blowfish
-set cm=blowfish2
+if ! has('nvim')
+    set cm=blowfish2
+end
 
 " Copy paste
 vmap <C-c> "+y
