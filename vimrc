@@ -38,6 +38,31 @@ call plug#end()
 
 
 "--------------------------------------------------
+"Colors
+"--------------------------------------------------
+"set term=xterm-256color
+"set t_Co=256
+"set termguicolors
+set background=dark
+"colorscheme minimalist
+colorscheme hybrid_material
+"colorscheme gruvbox
+
+
+
+
+"--------------------------------------------------
+"Airline config
+"--------------------------------------------------
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='hybrid'
+"let g:airline_theme='gruvbox'
+
+
+
+
+"--------------------------------------------------
 " Use deoplete.
 "--------------------------------------------------
 let g:deoplete#enable_at_startup = 1
