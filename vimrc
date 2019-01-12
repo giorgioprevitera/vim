@@ -268,6 +268,7 @@ set diffopt+=vertical
 "--------------------------------------------------
 "let g:indentLine_setConceal = 1
 let g:indentLine_char = '⎸'
+let g:indentLine_color_term = 235
 " if the above doesn't work (no utf-8 file), use the pipe character
 "let g:indentLine_char = '|'
 
