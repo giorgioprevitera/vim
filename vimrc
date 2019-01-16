@@ -317,3 +317,10 @@ augroup git
 augroup END
 
 nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
+
+command! FZFTagFile if !empty(tagfiles()) | call fzf#run({
+\   'source': "cat " . tagfiles()[0] . ' | grep "' . expand('%:@') . '"' . " | sed -e '/^\\!/d;s/\t.*//' ". ' |  uniq',
+\   'sink':   'tag',
+\   'options':  '+m',
+\   'down':     '20%',
+\ }) | else | echo 'No tags' | endif
