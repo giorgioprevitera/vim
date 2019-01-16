@@ -31,6 +31,9 @@ Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'https://github.com/TaDaa/vimade'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
