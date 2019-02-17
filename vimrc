@@ -23,17 +23,24 @@ Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'
-"Plug 'https://github.com/lambdalisue/vim-pyenv.git'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/w0rp/ale.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
 Plug 'https://github.com/hashivim/vim-terraform.git'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'https://github.com/TaDaa/vimade'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
+Plug 'https://github.com/vim-python/python-syntax.git'
+Plug 'https://github.com/svermeulen/vim-cutlass.git'
+Plug 'https://github.com/svermeulen/vim-yoink.git'
+Plug 'https://github.com/rakr/vim-one.git'
+Plug 'tpope/vim-surround'
+Plug 'jacoborus/tender.vim'
 
 call plug#end()
 
@@ -45,12 +52,18 @@ call plug#end()
 "--------------------------------------------------
 "set term=xterm-256color
 "set t_Co=256
-"set termguicolors
+set termguicolors
 set background=dark
-"colorscheme minimalist
-colorscheme hybrid_material
+"colorscheme hybrid_material
+"colorscheme darkspectrum
 "colorscheme gruvbox
-
+"colorscheme NeoSolarized
+"colorscheme materialtheme_vilelm
+"colorscheme ayu
+"colorscheme palenight
+"colorscheme minimalist
+"colorscheme onedark
+colorscheme one
 
 
 
@@ -59,8 +72,7 @@ colorscheme hybrid_material
 "--------------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='hybrid'
-"let g:airline_theme='gruvbox'
+let g:airline_theme='one'
 
 
 
@@ -68,11 +80,20 @@ let g:airline_theme='hybrid'
 "--------------------------------------------------
 " Use deoplete.
 "--------------------------------------------------
-let g:deoplete#enable_at_startup = 1
+if has('nvim')
+    let g:deoplete#enable_at_startup = 1
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+    let g:deoplete#omni_patterns = {}
+    let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+    let g:deoplete#enable_at_startup = 1
+    call deoplete#initialize()
+endif
+
 
 
 
@@ -88,6 +109,8 @@ au BufNewFile,BufRead *.yaml.*,*.yml.* so ~/.vim/local/yaml.vim
 autocmd BufRead,BufNewFile Jenkinsfile*,*.jobdsl set syntax=groovy
 " Dockerfile
 autocmd BufRead,BufNewFile Dockerfile*, set syntax=dockerfile
+au BufRead,BufNewFile Dockerfile.* set filetype=Dockerfile
+au BufRead,BufNewFile *.sh.tpl set filetype=sh
 filetype plugin indent on
 
 
@@ -115,14 +138,19 @@ set nu
 set updatetime=100
 set mouse=nicr
 set clipboard=unnamed
+set foldmethod=indent
+set foldlevel=99
 
 "Set encryption method to blowfish
 if ! has('nvim')
     set cm=blowfish2
 end
 
-" Copy paste
-vmap <C-c> "+y
+"make jj do esc"
+inoremap jk <Esc>
+
+"make esc do nothing"
+inoremap <Esc> <Nop>
 
 
 
@@ -131,23 +159,15 @@ vmap <C-c> "+y
 "Tab navigation like Firefox.
 "--------------------------------------------------
 nnoremap <C-t>     :tabnew<CR>
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
+
+
 
 
 "--------------------------------------------------
 "NerdTree toggler
 "--------------------------------------------------
 nmap <silent> <leader>p :NERDTreeToggle<CR>
+nnoremap <leader>rf :NERDTreeFind<CR>
 
 
 
@@ -155,14 +175,10 @@ nmap <silent> <leader>p :NERDTreeToggle<CR>
 "--------------------------------------------------
 "Enable ctrl+P
 "--------------------------------------------------
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 nnoremap <leader>. :CtrlPTag<cr>
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
 
-" ctrl+p open in tab by default
-"let g:ctrlp_prompt_mappings = {
-    "\ 'AcceptSelection("e")': ['<c-t>'],
-    "\ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    "\ }
 
 
 
@@ -188,13 +204,13 @@ nnoremap <leader>. :CtrlPTag<cr>
 " The Silver Searcher
 "--------------------------------------------------
 if executable('ag')
-  " Use ag over grep
+  "Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  "Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  "ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
@@ -212,10 +228,10 @@ let g:side_search_prg = 'ag '
   \. " --heading --stats -B 1 -A 4"
 
 " Can use `vnew` or `new`
-let g:side_search_splitter = 'vnew'
+let g:side_search_splitter = 'new'
 
 " I like 40% splits, change it if you don't
-let g:side_search_split_pct = 0.1
+let g:side_search_split_pct = 0.3
 
 " SideSearch current word and return to original window
 nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
@@ -232,7 +248,7 @@ cabbrev SS SideSearch
 "--------------------------------------------------
 " Tagbar
 "--------------------------------------------------
-nmap <silent> <leader>t :TagbarToggle<CR>
+nmap <silent> <leader>t :TagbarOpen fj<CR>
 nmap <silent> <leader>tr :!ctags -R --tag-relative -o .git/tags .<CR>
 
 
@@ -304,23 +320,89 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform'],
 \   'sh': ['shfmt'],
+\   'python': ['autopep8'],
 \}
 
 
 " keep multicursor
 let g:multi_cursor_exit_from_insert_mode = 0
 
+
+
+
+
+"--------------------------------------------------
+" Gitv
+"--------------------------------------------------
 " Don't fold git diffs
 augroup git
     au!
     autocmd FileType git :setlocal foldlevel=99
 augroup END
 
-nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
+let g:Gitv_OpenHorizontal = 1
 
-command! FZFTagFile if !empty(tagfiles()) | call fzf#run({
-\   'source': "cat " . tagfiles()[0] . ' | grep "' . expand('%:@') . '"' . " | sed -e '/^\\!/d;s/\t.*//' ". ' |  uniq',
-\   'sink':   'tag',
-\   'options':  '+m',
-\   'down':     '20%',
-\ }) | else | echo 'No tags' | endif
+
+
+
+
+"--------------------------------------------------
+" Misc
+"--------------------------------------------------
+nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
+nnoremap <leader>no :tabnew ~/src/notes/ee-ni.notes<CR>
+
+
+
+
+
+"--------------------------------------------------
+" Terminal
+"--------------------------------------------------
+
+" Exit terminal mode using Esc
+tnoremap jk <C-\><C-n>
+" Toggle 'default' terminal
+nnoremap <M-`> :call ChooseTerm("terminal", 1)<CR>A<CR>
+tnoremap <M-`> <C-\><C-n>:call ChooseTerm("terminal", 1)<CR>
+" Start terminal in current pane
+nnoremap <M-CR> :call ChooseTerm("term-pane", 0)<CR>
+
+function! ChooseTerm(termname, slider)
+    let pane = bufwinnr(a:termname)
+    let buf = bufexists(a:termname)
+    if pane > 0
+        " pane is visible
+        if a:slider > 0
+            :exe pane . "wincmd c"
+        else
+            :exe "e #"
+        endif
+    elseif buf > 0
+        " buffer is not in pane
+        if a:slider
+            :exe "botright split"
+        endif
+        :exe "buffer " . a:termname
+    else
+        " buffer is not loaded, create
+        if a:slider
+            :exe "botright split"
+        endif
+        :terminal
+        :exe "f " a:termname
+    endif
+endfunction
+
+
+
+
+
+"--------------------------------------------------
+" Yoink
+"--------------------------------------------------
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+let g:yoinkIncludeDeleteOperations = 1
