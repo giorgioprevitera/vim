@@ -419,3 +419,9 @@ nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 let g:yoinkIncludeDeleteOperations = 1
+
+nnoremap <leader>tp :Pytest function<CR>
+nnoremap <leader>tps :Pytest function -s<CR>
+nnoremap <leader>tpfs :Pytest file -s<CR>
+nnoremap <leader>tpf :Pytest file<CR>
+
