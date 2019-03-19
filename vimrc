@@ -64,16 +64,16 @@ call plug#end()
 "set t_Co=256
 set termguicolors
 set background=dark
-"colorscheme hybrid_material
-"colorscheme darkspectrum
-"colorscheme gruvbox
-"colorscheme NeoSolarized
-"colorscheme materialtheme_vilelm
-"colorscheme ayu
-"colorscheme palenight
-"colorscheme minimalist
-"colorscheme onedark
-colorscheme one
+" colorscheme hybrid_material
+" colorscheme darkspectrum
+" colorscheme gruvbox
+" colorscheme NeoSolarized
+" colorscheme material-theme
+" colorscheme ayu
+" colorscheme minimalist
+" colorscheme onedark
+" colorscheme one
+colorscheme palenight
 
 
 
@@ -81,8 +81,10 @@ colorscheme one
 "Airline config
 "--------------------------------------------------
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='one'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_theme='base16_classic'
+let g:airline_section_a = '%t'
+let g:airline_section_c = ''
 
 
 
@@ -93,7 +95,7 @@ let g:airline_theme='one'
 if has('nvim')
     let g:deoplete#enable_at_startup = 1
 
-    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsExpandTrigger="<S-tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -104,6 +106,7 @@ if has('nvim')
     call deoplete#initialize()
 endif
 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 
