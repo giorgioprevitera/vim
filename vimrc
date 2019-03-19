@@ -148,30 +148,25 @@ set softtabstop=4
 set hlsearch
 set splitright
 set nu
-set updatetime=100
+set updatetime=500
 set mouse=nicr
 set clipboard=unnamed
 set foldmethod=indent
 set foldlevel=99
+set splitright
+set splitbelow
 
 "Set encryption method to blowfish
 if ! has('nvim')
     set cm=blowfish2
 end
 
-"make jj do esc"
-inoremap jk <Esc>
+"make jk do esc"
+"inoremap jk <Esc>
 
 "make esc do nothing"
-inoremap <Esc> <Nop>
+"inoremap <Esc> <Nop>
 
-
-
-
-"--------------------------------------------------
-"Tab navigation like Firefox.
-"--------------------------------------------------
-nnoremap <C-t>     :tabnew<CR>
 
 
 
@@ -189,8 +184,8 @@ nnoremap <leader>rf :NERDTreeFind<CR>
 "Enable ctrl+P
 "--------------------------------------------------
 nnoremap <leader>. :CtrlPTag<cr>
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
+"let g:ctrlp_match_window_bottom = 0
+"let g:ctrlp_match_window_reversed = 0
 
 
 
@@ -241,7 +236,7 @@ let g:side_search_prg = 'ag '
   \. " --heading --stats -B 1 -A 4"
 
 " Can use `vnew` or `new`
-let g:side_search_splitter = 'new'
+let g:side_search_splitter = 'vnew'
 
 " I like 40% splits, change it if you don't
 let g:side_search_split_pct = 0.3
@@ -303,6 +298,8 @@ let g:indentLine_char = '⎸'
 let g:indentLine_color_term = 235
 " if the above doesn't work (no utf-8 file), use the pipe character
 "let g:indentLine_char = '|'
+let g:indentLine_faster = 1
+let g:indentLine_setConceal = 0
 
 
 
@@ -374,7 +371,7 @@ nnoremap <leader>no :tabnew ~/src/notes/ee-ni.notes<CR>
 "--------------------------------------------------
 
 " Exit terminal mode using Esc
-tnoremap jk <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 " Toggle 'default' terminal
 nnoremap <M-`> :call ChooseTerm("terminal", 1)<CR>A<CR>
 tnoremap <M-`> <C-\><C-n>:call ChooseTerm("terminal", 1)<CR>
@@ -425,3 +422,8 @@ nnoremap <leader>tps :Pytest function -s<CR>
 nnoremap <leader>tpfs :Pytest file -s<CR>
 nnoremap <leader>tpf :Pytest file<CR>
 
+
+augroup DetectIndent
+   autocmd!
+   autocmd BufReadPost *  DetectIndent
+augroup END
