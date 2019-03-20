@@ -3,6 +3,12 @@
 set -x
 set -euo pipefail
 
+# Check dependencies
+command -v brew >/dev/null 2>&1 || (
+    echo "ERROR: Homebrew is required - https://brew.sh/"
+    exit 1
+)
+
 # Install neovim and all dependencies
 _dependencies="\
     neovim \
@@ -32,6 +38,11 @@ curl -fLSs \
     --create-dirs \
     -o ~/.vim/local/yaml.vim \
     https://raw.githubusercontent.com/vim-scripts/yaml.vim/master/colors/yaml.vim
+
+# Create vimrc
+cat <<EOF >~/.vimrc
+source ~/.vim/vimrc
+EOF
 
 # Link config for neovim
 ln -fs ~/.vim/vimrc ~/.config/nvim/init.vim
