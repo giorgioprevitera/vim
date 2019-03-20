@@ -17,3 +17,5 @@ Run the installation script:
 ```
 ~/.vim/install.sh
 ```
+
+Change your terminal to use the `robotomono-nerd-font-mono` font
