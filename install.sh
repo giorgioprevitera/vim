@@ -55,32 +55,32 @@ esac
 
 # Create directory structure
 mkdir -vp \
-    ~/.vim/autoload \
-    ~/.vim/bundle \
-    ~/.vim/local \
-    ~/.config/nvim \
-    ~/bin
+    ${HOME}/.vim/autoload \
+    ${HOME}/.vim/bundle \
+    ${HOME}/.vim/local \
+    ${HOME}/.config/nvim \
+    ${HOME}/bin
 
 # Install vim plug
 curl -fLSs \
     --create-dirs \
-    -o ~/.vim/autoload/plug.vim \
+    -o ${HOME}/.vim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Add yaml syntax
 curl -fLSs \
     --create-dirs \
-    -o ~/.vim/local/yaml.vim \
+    -o ${HOME}/.vim/local/yaml.vim \
     https://raw.githubusercontent.com/vim-scripts/yaml.vim/master/colors/yaml.vim
 
 # Create vimrc
-cat <<EOF >~/.vimrc
-source ~/.vim/vimrc
+cat <<EOF >${HOME}/.vimrc
+source ${HOME}/.vim/vimrc
 EOF
 
 # Link config for neovim
-ln -vfs ~/.vim/vimrc ~/.config/nvim/init.vim
-ln -vfs ~/.vim/autoload ~/.config/nvim/autoload
+ln -vfs ${HOME}/.vim/vimrc ${HOME}/.config/nvim/init.vim
+ln -vfs ${HOME}/.vim/autoload ${HOME}/.config/nvim/autoload
 
 # Configures CoC
 cp -v ./coc-settings.json ~/.config/nvim/coc-settings.json
@@ -91,5 +91,5 @@ pip install --user neovim jedi autopep8 flake8
 # Install all plugins
 nvim +PlugInstall +qall
 
-ln -vfs "${NVIM_PATH}" ~/bin/vim
-ln -vfs "${NVIM_PATH}" ~/bin/vi
+ln -vfs "${NVIM_PATH}" ${HOME}/bin/vim
+ln -vfs "${NVIM_PATH}" ${HOME}/bin/vi
