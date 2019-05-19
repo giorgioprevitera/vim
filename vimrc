@@ -1,61 +1,126 @@
 "execute pathogen#infect()
 call plug#begin()
 
-Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/ajmwagar/vim-deus.git'
+Plug 'https://github.com/mhartington/oceanic-next.git'
 Plug 'https://github.com/flazz/vim-colorschemes.git'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-Plug 'https://github.com/nwochaadim/git-remote-open.git'
-Plug 'https://github.com/gregsexton/gitv'
+Plug 'https://github.com/Nequo/vim-allomancer.git'
+Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
+Plug 'https://github.com/arcticicestudio/nord-vim.git'
+Plug 'https://github.com/rakr/vim-one.git'
 Plug 'https://github.com/morhetz/gruvbox'
-Plug 'https://github.com/davidhalter/jedi-vim.git'
-Plug 'https://github.com/majutsushi/tagbar'
+Plug 'https://github.com/jacoborus/tender.vim.git'
+Plug 'https://github.com/joshdick/onedark.vim'
+
+Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/dkprice/vim-easygrep.git'
-Plug 'https://github.com/tommcdo/vim-fubitive.git'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/tpope/vim-sensible.git'
-Plug 'https://github.com/ddrscott/vim-side-search.git'
-Plug 'https://github.com/tpope/vim-unimpaired.git'
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
+
+Plug 'https://github.com/davidhalter/jedi-vim.git'
+Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'
-Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'https://github.com/w0rp/ale.git'
-Plug 'https://github.com/junegunn/goyo.vim.git'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/alfredodeza/pytest.vim'
+Plug 'https://github.com/alxpettit/detectindent.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/ddrscott/vim-side-search.git'
+Plug 'https://github.com/dkprice/vim-easygrep.git'
+Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/hashivim/vim-terraform.git'
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-endif
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'https://github.com/honza/vim-snippets.git'
+Plug 'https://github.com/iamcco/markdown-preview.nvim.git'
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
-Plug 'https://github.com/vim-python/python-syntax.git'
+Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
+Plug 'https://github.com/junegunn/goyo.vim.git'
+Plug 'https://github.com/majutsushi/tagbar'
+Plug 'https://github.com/nwochaadim/git-remote-open.git'
+Plug 'https://github.com/rhysd/clever-f.vim.git'
+Plug 'https://github.com/rstacruz/vim-closer.git'
+Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
-Plug 'https://github.com/rakr/vim-one.git'
-Plug 'tpope/vim-surround'
-Plug 'jacoborus/tender.vim'
-Plug 'https://github.com/alfredodeza/pytest.vim'
-Plug 'https://github.com/rhysd/clever-f.vim.git'
-Plug 'https://github.com/easymotion/vim-easymotion.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/rstacruz/vim-closer.git'
-Plug 'https://github.com/tpope/vim-endwise.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/tommcdo/vim-fubitive.git'
 Plug 'https://github.com/tommcdo/vim-lion.git'
-Plug 'https://github.com/alxpettit/detectindent.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/tpope/vim-endwise.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/tpope/vim-rhubarb.git'
+Plug 'https://github.com/tpope/vim-sensible.git'
+Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/tpope/vim-unimpaired.git'
+Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
+Plug 'https://github.com/vim-python/python-syntax.git'
 Plug 'https://github.com/vim-scripts/highlight.vim.git'
-Plug 'iamcco/markdown-preview.vim'
-
+Plug 'https://github.com/vimwiki/vimwiki.git'
+Plug 'https://github.com/w0rp/ale.git'
+if has('nvim')
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'zchee/deoplete-jedi'
+    " Plug 'https://github.com/carlitux/deoplete-ternjs.git', { 'do': 'npm install -g tern' }
+endif
 
 call plug#end()
 
 
+"--------------------------------------------------
+"Coc
+"--------------------------------------------------
+let g:coc_global_extensions = ['coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml']
 
+" Better display for messages
+" set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+" set shortmess+=c
+" always show signcolumns
+" set signcolumn=yes
+
+" Use `lp` and `ln` for navigate diagnostics
+nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lf <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>lr <Plug>(coc-rename)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" use <tab> for trigger completion and navigate next complete item
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 "--------------------------------------------------
 "Colors
@@ -73,8 +138,11 @@ set background=dark
 " colorscheme minimalist
 " colorscheme onedark
 " colorscheme one
-colorscheme palenight
-
+" colorscheme allomancer
+" colorscheme nord
+" colorscheme snazzy
+colorscheme OceanicNext
+" colorscheme deus
 
 
 "--------------------------------------------------
@@ -82,31 +150,47 @@ colorscheme palenight
 "--------------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme='base16_classic'
+" let g:airline_theme='base16_classic'
+let g:airline_theme='one'
 let g:airline_section_a = '%t'
 let g:airline_section_c = ''
 
 
+" use error & warning count of diagnostics form coc.nvim
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+" create a part for server status.
+function! GetServerStatus()
+  return get(g:, 'coc_status', '')
+endfunction
+call airline#parts#define_function('coc', 'GetServerStatus')
+function! AirlineInit()
+  let g:airline_section_b = airline#section#create(['coc'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+" exclude overwrite statusline of list filetype
+let g:airline_exclude_filetypes = ["list"]
 
 
 "--------------------------------------------------
 " Use deoplete.
 "--------------------------------------------------
 if has('nvim')
-    let g:deoplete#enable_at_startup = 1
+    " let g:deoplete#enable_at_startup = 1
 
     let g:UltiSnipsExpandTrigger="<S-tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-    let g:deoplete#omni_patterns = {}
-    let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
-    let g:deoplete#enable_at_startup = 1
-    call deoplete#initialize()
+    " let g:deoplete#omni_patterns = {}
+    " let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+    " let g:deoplete#enable_at_startup = 1
+    " call deoplete#initialize()
 endif
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 
@@ -148,7 +232,7 @@ set softtabstop=4
 set hlsearch
 set splitright
 set nu
-set updatetime=500
+" set updatetime=1000
 set mouse=nicr
 set clipboard=unnamed
 set foldmethod=indent
@@ -236,7 +320,7 @@ let g:side_search_prg = 'ag '
   \. " --heading --stats -B 1 -A 4"
 
 " Can use `vnew` or `new`
-let g:side_search_splitter = 'vnew'
+let g:side_search_splitter = 'new'
 
 " I like 40% splits, change it if you don't
 let g:side_search_split_pct = 0.3
@@ -326,6 +410,9 @@ let g:gitgutter_sign_removed = ""
 " Ale
 "--------------------------------------------------
 let g:ale_fix_on_save = 1
+let g:ale_linters = {
+    \ 'sh': ['language_server'],
+    \ }
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform'],
@@ -333,9 +420,10 @@ let g:ale_fixers = {
 \   'python': ['autopep8'],
 \}
 
+let g:ale_completion_enabled = 0
 
-" keep multicursor
-let g:multi_cursor_exit_from_insert_mode = 0
+command! ALEDisableFixers       let g:ale_fix_on_save=0
+command! ALEEnableFixers        let g:ale_fix_on_save=1
 
 
 
@@ -427,3 +515,6 @@ augroup DetectIndent
    autocmd!
    autocmd BufReadPost *  DetectIndent
 augroup END
+
+" keep multicursor
+let g:multi_cursor_exit_from_insert_mode = 0
