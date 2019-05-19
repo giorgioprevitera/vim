@@ -83,7 +83,7 @@ ln -vfs ${HOME}/.vim/vimrc ${HOME}/.config/nvim/init.vim
 ln -vfs ${HOME}/.vim/autoload ${HOME}/.config/nvim/autoload
 
 # Configures CoC
-cp -v ./coc-settings.json ~/.config/nvim/coc-settings.json
+ln -vfs ${HOME}/.vim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json
 
 # Install python dependencies
 pip install --user neovim jedi autopep8 flake8
