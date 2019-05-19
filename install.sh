@@ -3,29 +3,64 @@
 set -x
 set -euo pipefail
 
-# Check dependencies
-command -v brew >/dev/null 2>&1 || (
-    echo "ERROR: Homebrew is required - https://brew.sh/"
-    exit 1
-)
-
 # Install neovim and all dependencies
-_dependencies="\
+_common_dependencies="\
     neovim \
-    the_silver_searcher \
-    shfmt \
     shellcheck \
     ctags \
     git \
+    yarn \
 "
 
-brew install ${_dependencies} || brew upgrade ${_dependencies}
+_Darwin_dependencies="\
+    node \
+    the_silver_searcher \
+    shfmt \
+"
+
+_Linux_dependencies="\
+    python3-pip \
+    silversearcher-ag \
+"
+
+_environment_dependencies="_$(uname -s)_dependencies"
+
+case "$(uname -s)" in
+Darwin)
+    command -v brew >/dev/null 2>&1 || (
+        echo "ERROR: Homebrew is required - https://brew.sh/"
+        exit 1
+    )
+    brew install ${_common_dependencies} ${!_environment_dependencies} || brew upgrade ${_common_dependencies} ${!_environment_dependencies}
+    # Install nerd font
+    brew tap homebrew/cask-fonts
+    brew cask install font-robotomono-nerd-font-mono
+    NVIM_PATH="/usr/local/bin/nvim"
+    ;;
+Linux)
+    export LC_ALL="en_US.UTF-8"
+    export LC_CTYPE="en_US.UTF-8"
+    command -v node || curl -sL install-node.now.sh/lts | sudo FORCE=1 bash
+
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo add-apt-repository ppa:neovim-ppa/stable -y
+    sudo apt-get update -y
+    sudo apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
+
+    sudo snap install shfmt
+    pip3 install -U pip
+    NVIM_PATH="/usr/bin/nvim"
+    ;;
+esac
 
 # Create directory structure
-mkdir -p \
+mkdir -vp \
     ~/.vim/autoload \
     ~/.vim/bundle \
-    ~/.vim/local
+    ~/.vim/local \
+    ~/.config/nvim \
+    ~/bin
 
 # Install vim plug
 curl -fLSs \
@@ -45,15 +80,17 @@ source ~/.vim/vimrc
 EOF
 
 # Link config for neovim
-ln -fs ~/.vim/vimrc ~/.config/nvim/init.vim
-ln -fs ~/.vim/autoload ~/.config/nvim/autoload
+ln -vfs ~/.vim/vimrc ~/.config/nvim/init.vim
+ln -vfs ~/.vim/autoload ~/.config/nvim/autoload
+
+# Configures CoC
+cp -v ./coc-settings.json ~/.config/nvim/coc-settings.json
 
 # Install python dependencies
-pip install neovim jedi autopep8
-
-# Install nerd font
-brew tap homebrew/cask-fonts
-brew cask install font-robotomono-nerd-font-mono
+pip install --user neovim jedi autopep8 flake8
 
 # Install all plugins
 nvim +PlugInstall +qall
+
+ln -vfs "${NVIM_PATH}" ~/bin/vim
+ln -vfs "${NVIM_PATH}" ~/bin/vi
