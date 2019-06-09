@@ -34,7 +34,7 @@ Darwin)
     brew install ${_common_dependencies} ${!_environment_dependencies} || brew upgrade ${_common_dependencies} ${!_environment_dependencies}
     # Install nerd font
     brew tap homebrew/cask-fonts
-    brew cask install font-robotomono-nerd-font-mono
+    brew cask install font-robotomono-nerd-font-mono font-hack-nerd-font-mono
     NVIM_PATH="/usr/local/bin/nvim"
     ;;
 Linux)
