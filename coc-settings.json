@@ -1,14 +1,7 @@
 {
-  "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    }
-  },
-  "python.jediEnabled": true,
+  "codeLens.enable": true,
+  "python.jediEnabled": false,
   "python.linting.enabled": false,
-  "python.linting.flake8Enabled": false,
+  "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false
 }

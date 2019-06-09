@@ -11,11 +11,14 @@ Plug 'https://github.com/rakr/vim-one.git'
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/jacoborus/tender.vim.git'
 Plug 'https://github.com/joshdick/onedark.vim'
+Plug 'https://github.com/jaredgorski/SpaceCamp.git'
+Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
 
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
+Plug 'https://github.com/dyng/ctrlsf.vim.git'
 Plug 'https://github.com/davidhalter/jedi-vim.git'
 Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'
@@ -40,7 +43,7 @@ Plug 'https://github.com/rstacruz/vim-closer.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+" Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/tommcdo/vim-fubitive.git'
 Plug 'https://github.com/tommcdo/vim-lion.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -68,12 +71,12 @@ call plug#end()
 "--------------------------------------------------
 "Coc
 "--------------------------------------------------
-let g:coc_global_extensions = ['coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml']
+let g:coc_global_extensions = ['coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go']
 
 " Better display for messages
 " set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+set updatetime=1000
 " don't give |ins-completion-menu| messages.
 " set shortmess+=c
 " always show signcolumns
@@ -141,8 +144,11 @@ set background=dark
 " colorscheme allomancer
 " colorscheme nord
 " colorscheme snazzy
-colorscheme OceanicNext
 " colorscheme deus
+" colorscheme palenight
+" colorscheme SpaceCamp
+" colorscheme OceanicNext
+colorscheme mysticaltutor
 
 
 "--------------------------------------------------
@@ -151,7 +157,7 @@ colorscheme OceanicNext
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
 " let g:airline_theme='base16_classic'
-let g:airline_theme='one'
+let g:airline_theme='onedark'
 let g:airline_section_a = '%t'
 let g:airline_section_c = ''
 
@@ -315,24 +321,24 @@ endif
 " How should we execute the search?
 " --heading and --stats are required!
 "let g:side_search_prg = 'ag --word-regexp'
-let g:side_search_prg = 'ag '
-  \. " --nogroup"
-  \. " --heading --stats -B 1 -A 4"
+" let g:side_search_prg = 'ag '
+"   \. " --nogroup"
+"   \. " --heading --stats -B 1 -A 4"
 
 " Can use `vnew` or `new`
-let g:side_search_splitter = 'new'
+" let g:side_search_splitter = 'new'
 
 " I like 40% splits, change it if you don't
-let g:side_search_split_pct = 0.3
+" let g:side_search_split_pct = 0.3
 
 " SideSearch current word and return to original window
-nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
+" nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
 
 " Create an shorter `SS` command
-command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
+" command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
 
 " or command abbreviation
-cabbrev SS SideSearch
+" cabbrev SS SideSearch
 
 
 
@@ -410,14 +416,17 @@ let g:gitgutter_sign_removed = ""
 " Ale
 "--------------------------------------------------
 let g:ale_fix_on_save = 1
-let g:ale_linters = {
-    \ 'sh': ['language_server'],
-    \ }
+" let g:ale_linters_explicit = 1
+" let g:ale_linters = {
+"     \ 'sh': ['shellcheck'],
+"     \ }
+
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace', 'prettier'],
 \   'terraform': ['terraform'],
 \   'sh': ['shfmt'],
 \   'python': ['autopep8'],
+\   'go': ['gofmt'],
 \}
 
 let g:ale_completion_enabled = 0
@@ -517,4 +526,33 @@ augroup DetectIndent
 augroup END
 
 " keep multicursor
-let g:multi_cursor_exit_from_insert_mode = 0
+" let g:multi_cursor_exit_from_insert_mode = 0
+
+
+
+"--------------------------------------------------
+" Terraform docs lookup
+"--------------------------------------------------
+command! -nargs=* Tfdoc :call system('tfdoc' . ' ' . <q-args>)
+nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
+nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
+
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+
+
+
+
+"--------------------------------------------------
+" CtrlSF
+"--------------------------------------------------
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>s <Plug>CtrlSFCwordPath<CR>
+nmap     <C-F>w <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>

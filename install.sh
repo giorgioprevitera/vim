@@ -15,6 +15,7 @@ _Darwin_dependencies="\
     node \
     the_silver_searcher \
     shfmt \
+    prettier \
 "
 
 _Linux_dependencies="\
@@ -49,6 +50,7 @@ Linux)
 
     sudo snap install shfmt
     pip3 install -U pip
+    yarn global add prettier
     NVIM_PATH="/usr/bin/nvim"
     ;;
 esac
@@ -72,6 +74,12 @@ curl -fLSs \
     --create-dirs \
     -o ${HOME}/.vim/local/yaml.vim \
     https://raw.githubusercontent.com/vim-scripts/yaml.vim/master/colors/yaml.vim
+
+curl -fLSs \
+    --create-dirs \
+    -o ${HOME}/bin/tfdoc \
+    https://raw.githubusercontent.com/giorgioprevitera/sysadmin-tools/master/tfdoc &&
+    chmod +x ${HOME}/bin/tfdoc
 
 # Create vimrc
 cat <<EOF >${HOME}/.vimrc
