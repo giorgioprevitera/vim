@@ -30,6 +30,7 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/ddrscott/vim-side-search.git'
 Plug 'https://github.com/dkprice/vim-easygrep.git'
 Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/honza/vim-snippets.git'
@@ -60,7 +61,7 @@ Plug 'https://github.com/vim-scripts/highlight.vim.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/w0rp/ale.git'
 if has('nvim')
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'zchee/deoplete-jedi'
     " Plug 'https://github.com/carlitux/deoplete-ternjs.git', { 'do': 'npm install -g tern' }
@@ -75,13 +76,13 @@ call plug#end()
 let g:coc_global_extensions = ['coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go']
 
 " Better display for messages
-" set cmdheight=2
+set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=1000
+set updatetime=300
 " don't give |ins-completion-menu| messages.
-" set shortmess+=c
+set shortmess+=c
 " always show signcolumns
-" set signcolumn=yes
+set signcolumn=yes
 
 " Use `lp` and `ln` for navigate diagnostics
 nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
@@ -162,7 +163,7 @@ let g:airline#extensions#tabline#enabled = 0
 " let g:airline_theme='base16_classic'
 let g:airline_theme='onedark'
 let g:airline_section_a = '%t'
-let g:airline_section_c = ''
+" let g:airline_section_c = ''
 
 
 " use error & warning count of diagnostics form coc.nvim
@@ -175,7 +176,7 @@ function! GetServerStatus()
 endfunction
 call airline#parts#define_function('coc', 'GetServerStatus')
 function! AirlineInit()
-  let g:airline_section_b = airline#section#create(['coc'])
+  let g:airline_section_c = airline#section#create(['coc'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
