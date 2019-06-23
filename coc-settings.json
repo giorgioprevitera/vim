@@ -1,7 +1,7 @@
 {
   "suggest.snippetIndicator": "►",
   "codeLens.enable": true,
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
   "python.linting.enabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false
