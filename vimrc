@@ -20,7 +20,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
-Plug 'https://github.com/davidhalter/jedi-vim.git'
+" Plug 'https://github.com/davidhalter/jedi-vim.git'
 Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'
 Plug 'https://github.com/airblade/vim-gitgutter'
