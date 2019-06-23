@@ -13,6 +13,7 @@ Plug 'https://github.com/jacoborus/tender.vim.git'
 Plug 'https://github.com/joshdick/onedark.vim'
 Plug 'https://github.com/jaredgorski/SpaceCamp.git'
 Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
+Plug 'https://github.com/flrnprz/taffy.vim'
 
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline'
@@ -147,9 +148,11 @@ set background=dark
 " colorscheme deus
 " colorscheme palenight
 " colorscheme SpaceCamp
+" colorscheme mysticaltutor
+" colorscheme solarized8_dark_flat
+" colorscheme  desertedoceanburnt
 " colorscheme OceanicNext
-colorscheme mysticaltutor
-
+colorscheme taffy
 
 "--------------------------------------------------
 "Airline config
