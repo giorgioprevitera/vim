@@ -34,7 +34,7 @@ Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/honza/vim-snippets.git'
-Plug 'https://github.com/iamcco/markdown-preview.nvim.git'
+Plug 'https://github.com/iamcco/markdown-preview.nvim.git', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
@@ -45,7 +45,7 @@ Plug 'https://github.com/rstacruz/vim-closer.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
-" Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/tommcdo/vim-fubitive.git'
 Plug 'https://github.com/tommcdo/vim-lion.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -520,8 +520,10 @@ let g:yoinkIncludeDeleteOperations = 1
 
 nnoremap <leader>tp :Pytest function<CR>
 nnoremap <leader>tps :Pytest function -s<CR>
-nnoremap <leader>tpfs :Pytest file -s<CR>
 nnoremap <leader>tpf :Pytest file<CR>
+nnoremap <leader>tpfs :Pytest file -s<CR>
+nnoremap <leader>tpp :Pytest project<CR>
+nnoremap <leader>tpps :Pytest project -s<CR>
 
 
 augroup DetectIndent
@@ -530,7 +532,7 @@ augroup DetectIndent
 augroup END
 
 " keep multicursor
-" let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
 
 
 
