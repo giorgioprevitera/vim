@@ -13,13 +13,15 @@ Plug 'https://github.com/jacoborus/tender.vim.git'
 Plug 'https://github.com/joshdick/onedark.vim'
 Plug 'https://github.com/jaredgorski/SpaceCamp.git'
 Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
+Plug 'https://github.com/flrnprz/candid.vim.git'
+Plug 'https://github.com/flrnprz/taffy.vim'
 
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
-Plug 'https://github.com/davidhalter/jedi-vim.git'
+" Plug 'https://github.com/davidhalter/jedi-vim.git'
 Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -29,10 +31,11 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/ddrscott/vim-side-search.git'
 Plug 'https://github.com/dkprice/vim-easygrep.git'
 Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/fatih/vim-go.git', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/honza/vim-snippets.git'
-Plug 'https://github.com/iamcco/markdown-preview.nvim.git'
+Plug 'https://github.com/iamcco/markdown-preview.nvim.git', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
@@ -43,7 +46,7 @@ Plug 'https://github.com/rstacruz/vim-closer.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
-" Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/tommcdo/vim-fubitive.git'
 Plug 'https://github.com/tommcdo/vim-lion.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -59,7 +62,7 @@ Plug 'https://github.com/vim-scripts/highlight.vim.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/w0rp/ale.git'
 if has('nvim')
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'zchee/deoplete-jedi'
     " Plug 'https://github.com/carlitux/deoplete-ternjs.git', { 'do': 'npm install -g tern' }
@@ -74,13 +77,13 @@ call plug#end()
 let g:coc_global_extensions = ['coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go']
 
 " Better display for messages
-" set cmdheight=2
+set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=1000
+set updatetime=300
 " don't give |ins-completion-menu| messages.
-" set shortmess+=c
+set shortmess+=c
 " always show signcolumns
-" set signcolumn=yes
+set signcolumn=yes
 
 " Use `lp` and `ln` for navigate diagnostics
 nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
@@ -122,7 +125,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 "--------------------------------------------------
@@ -147,9 +150,11 @@ set background=dark
 " colorscheme deus
 " colorscheme palenight
 " colorscheme SpaceCamp
-" colorscheme OceanicNext
-colorscheme mysticaltutor
-
+" colorscheme mysticaltutor
+" colorscheme solarized8_light_flat
+" colorscheme  desertedoceanburnt
+colorscheme OceanicNext
+" colorscheme taffy
 
 "--------------------------------------------------
 "Airline config
@@ -159,7 +164,7 @@ let g:airline#extensions#tabline#enabled = 0
 " let g:airline_theme='base16_classic'
 let g:airline_theme='onedark'
 let g:airline_section_a = '%t'
-let g:airline_section_c = ''
+" let g:airline_section_c = ''
 
 
 " use error & warning count of diagnostics form coc.nvim
@@ -172,7 +177,7 @@ function! GetServerStatus()
 endfunction
 call airline#parts#define_function('coc', 'GetServerStatus')
 function! AirlineInit()
-  let g:airline_section_b = airline#section#create(['coc'])
+  let g:airline_section_c = airline#section#create(['coc'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
@@ -183,19 +188,18 @@ let g:airline_exclude_filetypes = ["list"]
 "--------------------------------------------------
 " Use deoplete.
 "--------------------------------------------------
-if has('nvim')
-    " let g:deoplete#enable_at_startup = 1
+" if has('nvim')
+"     let g:deoplete#enable_at_startup = 1
 
     let g:UltiSnipsExpandTrigger="<S-tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-    " let g:deoplete#omni_patterns = {}
-    " let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
-    " let g:deoplete#enable_at_startup = 1
-    " call deoplete#initialize()
-endif
+"     let g:deoplete#omni_patterns = {}
+"     let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+"     call deoplete#initialize()
+" endif
 
 
 
@@ -266,6 +270,7 @@ end
 "--------------------------------------------------
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 nnoremap <leader>rf :NERDTreeFind<CR>
+let NERDTreeMapMenu='n'
 
 
 
@@ -508,16 +513,18 @@ endfunction
 "--------------------------------------------------
 " Yoink
 "--------------------------------------------------
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+nmap <M-n> <plug>(YoinkPostPasteSwapBack)
+nmap <M-p> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 let g:yoinkIncludeDeleteOperations = 1
 
 nnoremap <leader>tp :Pytest function<CR>
 nnoremap <leader>tps :Pytest function -s<CR>
-nnoremap <leader>tpfs :Pytest file -s<CR>
 nnoremap <leader>tpf :Pytest file<CR>
+nnoremap <leader>tpfs :Pytest file -s<CR>
+nnoremap <leader>tpp :Pytest project<CR>
+nnoremap <leader>tpps :Pytest project -s<CR>
 
 
 augroup DetectIndent
@@ -526,7 +533,7 @@ augroup DetectIndent
 augroup END
 
 " keep multicursor
-" let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
 
 
 
@@ -547,12 +554,25 @@ let g:ctrlsf_auto_focus = {
 "--------------------------------------------------
 " CtrlSF
 "--------------------------------------------------
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
+nmap     <C-F>s <Plug>CtrlSFPrompt
+vmap     <C-F>s <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>s <Plug>CtrlSFCwordPath<CR>
+nmap     <C-F>f <Plug>CtrlSFCwordPath<CR>
 nmap     <C-F>w <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+
+
+
+
+"--------------------------------------------------
+" Cutlass
+"--------------------------------------------------
+nnoremap m d
+xnoremap m d
+
+nnoremap mm dd
+nnoremap M D
