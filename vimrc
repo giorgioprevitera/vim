@@ -14,7 +14,6 @@ Plug 'https://github.com/joshdick/onedark.vim'
 Plug 'https://github.com/jaredgorski/SpaceCamp.git'
 Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
 Plug 'https://github.com/flrnprz/candid.vim.git'
-Plug 'https://github.com/flrnprz/taffy.vim'
 
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline'
@@ -154,7 +153,7 @@ set background=dark
 " colorscheme solarized8_light_flat
 " colorscheme  desertedoceanburnt
 colorscheme OceanicNext
-" colorscheme taffy
+" colorscheme candid
 
 "--------------------------------------------------
 "Airline config
