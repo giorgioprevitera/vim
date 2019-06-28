@@ -1,4 +1,5 @@
 {
+  "suggest.snippetIndicator": " ►",
   "codeLens.enable": true,
   "python.jediEnabled": true,
   "python.linting.enabled": false,
