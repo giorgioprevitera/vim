@@ -151,9 +151,10 @@ set background=dark
 " colorscheme SpaceCamp
 " colorscheme mysticaltutor
 " colorscheme solarized8_light_flat
-" colorscheme  desertedoceanburnt
+" colorscheme  desertedocean
 colorscheme OceanicNext
 " colorscheme candid
+" colorscheme desertEx
 
 "--------------------------------------------------
 "Airline config
@@ -350,7 +351,7 @@ endif
 "--------------------------------------------------
 " Tagbar
 "--------------------------------------------------
-nmap <silent> <leader>t :TagbarOpen fj<CR>
+nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>tr :!ctags -R --tag-relative -o .git/tags .<CR>
 
 
@@ -553,10 +554,11 @@ let g:ctrlsf_auto_focus = {
 "--------------------------------------------------
 " CtrlSF
 "--------------------------------------------------
-nmap     <C-F>s <Plug>CtrlSFPrompt
-vmap     <C-F>s <Plug>CtrlSFVwordPath
+nmap     <C-F><C-S> <Plug>CtrlSFPrompt
+vmap     <C-F><C-S> <Plug>CtrlSFVwordPath
+nmap     <C-F><C-F> <Plug>CtrlSFCwordPath<CR>
+
 vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>f <Plug>CtrlSFCwordPath<CR>
 nmap     <C-F>w <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
