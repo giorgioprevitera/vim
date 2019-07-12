@@ -13,7 +13,7 @@ set nocompatible
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 nnoremap <leader>rf :NERDTreeFind<CR>
 let NERDTreeMapMenu='n'
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=50
 
 
 "--------------------------------------------------
