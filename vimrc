@@ -1,4 +1,5 @@
 source ~/.vim/plugins.vim
+source ~/.vim/colors.vim
 source ~/.vim/coc.vim
 source ~/.vim/airline.vim
 source ~/.vim/terminal.vim
@@ -7,7 +8,7 @@ source ~/.vim/git.vim
 source ~/.vim/files-navigation.vim
 source ~/.vim/search.vim
 source ~/.vim/python.vim
-source ~/.vim/colors.vim
+source ~/.vim/netrw.vim
 
 
 "--------------------------------------------------

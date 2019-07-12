@@ -15,12 +15,12 @@ set background=dark
 " colorscheme onedark
 " colorscheme one
 " colorscheme allomancer
-colorscheme nord
+" colorscheme nord
 " colorscheme snazzy
 " colorscheme deus
 " colorscheme palenight
 " colorscheme SpaceCamp
-" colorscheme mysticaltutor
+colorscheme mysticaltutor
 " colorscheme solarized8_light_flat
 " colorscheme desertedocean
 " colorscheme OceanicNext
