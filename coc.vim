@@ -1,7 +1,8 @@
-"--------------------------------------------------
-"Coc
-"--------------------------------------------------
-let g:coc_global_extensions = ['coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets']
+" --------------------------------------------------
+"  Coc
+" --------------------------------------------------
+" let g:coc_global_extensions = ['coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets']
 
 " Better display for messages
 set cmdheight=2
@@ -57,6 +58,11 @@ inoremap <silent><expr> <S-Tab> pumvisible() ? coc#_select_confirm() :
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
+" ------------------------------------
+"  Go
+" ------------------------------------
+
+nmap <silent> <leader>gr :GoRun<CR>
 let g:go_fmt_command = "goimports"
 
 

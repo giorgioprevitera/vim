@@ -10,7 +10,8 @@ set background=dark
 " colorscheme gruvbox
 " colorscheme NeoSolarized
 " colorscheme material-theme
-" colorscheme ayu
+let ayucolor="mirage"
+colorscheme ayu
 " colorscheme minimalist
 " colorscheme onedark
 " colorscheme one
@@ -20,9 +21,10 @@ set background=dark
 " colorscheme deus
 " colorscheme palenight
 " colorscheme SpaceCamp
-colorscheme mysticaltutor
+" colorscheme mysticaltutor
 " colorscheme solarized8_light_flat
 " colorscheme desertedocean
 " colorscheme OceanicNext
 " colorscheme candid
 " colorscheme desertEx
+" colorscheme archery

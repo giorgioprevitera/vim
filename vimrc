@@ -14,6 +14,7 @@ source ~/.vim/netrw.vim
 "--------------------------------------------------
 " General settings
 "--------------------------------------------------
+nnoremap <Leader>vi :tabnew ~/.vim/vimrc<CR>
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -28,6 +29,7 @@ set foldmethod=indent
 set foldlevel=99
 set splitright
 set splitbelow
+" set scrolloff=999
 " keep multicursor
 let g:multi_cursor_exit_from_insert_mode = 0
 
@@ -35,6 +37,9 @@ let g:multi_cursor_exit_from_insert_mode = 0
 if ! has('nvim')
     set cm=blowfish2
 end
+
+set cursorline
+set nu rnu
 
 
 "--------------------------------------------------
@@ -56,13 +61,16 @@ filetype plugin indent on
 "--------------------------------------------------
 " indentline
 "--------------------------------------------------
-"let g:indentLine_setConceal = 1
+" let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setConceal = 1
 let g:indentLine_char = '⎸'
-let g:indentLine_color_term = 235
+let g:indentLine_bgcolor_term = 239
 " if the above doesn't work (no utf-8 file), use the pipe character
 "let g:indentLine_char = '|'
 let g:indentLine_faster = 1
-let g:indentLine_setConceal = 0
+
+" indent lines for tabs
+" set list lcs=tab:\⎸\ 
 
 
 "--------------------------------------------------
@@ -102,3 +110,5 @@ nnoremap M D
 nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
 nnoremap <leader>no :tabnew ~/src/notes/ee-ni.notes<CR>
 nnoremap <leader>gt :call ChooseTerm("terminal", 1)<CR>A<CR>go test -v --bench .<CR><esc>
+
+let g:go_term_mode = "split"

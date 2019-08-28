@@ -13,7 +13,9 @@ let g:ale_fixers = {
 \   'sh': ['shfmt'],
 \   'python': ['autopep8'],
 \   'go': ['gofmt'],
+\   'vim': [],
 \}
+
 
 let g:ale_completion_enabled = 0
 
