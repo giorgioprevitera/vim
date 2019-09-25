@@ -38,6 +38,7 @@ Plug 'https://github.com/iamcco/markdown-preview.nvim.git', { 'do': 'cd app & ya
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
+Plug 'https://github.com/junegunn/limelight.vim'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/nwochaadim/git-remote-open.git'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
