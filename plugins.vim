@@ -35,6 +35,7 @@ Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', { 'do': 'cd app & yarn install'  }
+Plug 'https://github.com/idanarye/vim-merginal',
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
@@ -49,6 +50,7 @@ Plug 'https://github.com/svermeulen/vim-yoink.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/tommcdo/vim-fubitive.git'
 Plug 'https://github.com/tommcdo/vim-lion.git'
+Plug 'https://github.com/towolf/vim-helm'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-endwise.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
@@ -62,7 +64,7 @@ Plug 'https://github.com/vim-scripts/highlight.vim.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/w0rp/ale.git'
 if has('nvim')
-    Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'zchee/deoplete-jedi'
     " Plug 'https://github.com/carlitux/deoplete-ternjs.git', { 'do': 'npm install -g tern' }

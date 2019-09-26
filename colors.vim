@@ -5,13 +5,16 @@
 "set t_Co=256
 set termguicolors
 set background=dark
+let ayucolor="mirage"
+" let ayucolor="dark"
+
 " colorscheme hybrid_material
+" colorscheme hybrid
 " colorscheme darkspectrum
 " colorscheme gruvbox
 " colorscheme NeoSolarized
-" colorscheme material-theme
-let ayucolor="mirage"
-colorscheme ayu
+colorscheme materialtheme
+" colorscheme ayu
 " colorscheme minimalist
 " colorscheme onedark
 " colorscheme one

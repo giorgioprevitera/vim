@@ -39,7 +39,7 @@ if ! has('nvim')
 end
 
 set cursorline
-set nu rnu
+" set nu rnu
 
 
 "--------------------------------------------------
