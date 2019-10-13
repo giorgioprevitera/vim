@@ -18,6 +18,8 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
+" Plug 'liuchengxu/vim-clap'
+
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
 " Plug 'https://github.com/davidhalter/jedi-vim.git'
 " Plug 'https://github.com/SirVer/ultisnips.git'
@@ -36,6 +38,7 @@ Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/idanarye/vim-merginal',
+Plug 'https://github.com/godoctor/godoctor.vim',
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
@@ -43,6 +46,7 @@ Plug 'https://github.com/junegunn/limelight.vim'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/nwochaadim/git-remote-open.git'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
+Plug 'https://github.com/rhysd/git-messenger.vim.git'
 Plug 'https://github.com/rstacruz/vim-closer.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
