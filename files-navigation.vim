@@ -51,10 +51,11 @@ nmap <silent> <leader>tr :!ctags -R --tag-relative -o .git/tags .<CR>
 "--------------------------------------------------
 
 let $FZF_DEFAULT_OPTS='--layout=reverse'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>t :Tags<cr>
+nnoremap <leader>c :BCommits<cr>
 
 " FZF in floating window
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
