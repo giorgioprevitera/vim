@@ -1,7 +1,8 @@
 source ~/.vim/plugins.vim
 source ~/.vim/colors.vim
 source ~/.vim/coc.vim
-source ~/.vim/airline.vim
+" source ~/.vim/airline.vim
+source ~/.vim/statusline.vim
 source ~/.vim/terminal.vim
 source ~/.vim/ale.vim
 source ~/.vim/git.vim
@@ -90,9 +91,6 @@ command! -nargs=* Tfdoc :call system('tfdoc' . ' ' . <q-args>)
 nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
 nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
 
-let g:ctrlsf_auto_focus = {
-    \ "at": "start"
-    \ }
 
 
 "--------------------------------------------------
@@ -105,10 +103,13 @@ nnoremap M D
 
 
 "--------------------------------------------------
+" Dim inactive
+"--------------------------------------------------
+let g:diminactive_use_colorcolumn = 0
+let g:diminactive_use_syntax = 1
+
+
+"--------------------------------------------------
 " Misc
 "--------------------------------------------------
 nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
-nnoremap <leader>no :tabnew ~/src/notes/ee-ni.notes<CR>
-nnoremap <leader>gt :call ChooseTerm("terminal", 1)<CR>A<CR>go test -v --bench .<CR><esc>
-
-let g:go_term_mode = "split"
