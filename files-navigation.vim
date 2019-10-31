@@ -50,6 +50,8 @@ nmap <silent> <leader>tr :!ctags -R --tag-relative -o .git/tags .<CR>
 " FZF
 "--------------------------------------------------
 
+set hidden
+
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
