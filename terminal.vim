@@ -3,8 +3,8 @@
 "--------------------------------------------------
 
 " Exit terminal mode using Esc
-noremap  <silent> <M-`>           :FloatermToggle<CR>
-noremap! <silent> <M-`>           <Esc>:FloatermToggle<CR>
+noremap  <silent> <M-`>           :FloatermToggle<CR>i
+noremap! <silent> <M-`>           <Esc>:FloatermToggle<CR>i
 tnoremap <silent> <M-`>           <C-\><C-n>:FloatermToggle<CR>
 
 "  let height = &lines - 8

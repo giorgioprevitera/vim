@@ -69,7 +69,7 @@ Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/vim-python/python-syntax.git'
 Plug 'https://github.com/vim-scripts/highlight.vim.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
-Plug 'https://github.com/voldikss/vim-floaterm'
+Plug 'https://github.com/voldikss/vim-floaterm', { 'commit': '0225e54'}
 Plug 'https://github.com/w0rp/ale.git'
 if has('nvim')
     Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}

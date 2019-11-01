@@ -58,6 +58,7 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :BCommits<cr>
+nnoremap <leader>a :Ag<cr>
 
 " FZF in floating window
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
