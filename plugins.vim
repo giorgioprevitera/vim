@@ -50,18 +50,19 @@ Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/nwochaadim/git-remote-open.git'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
 Plug 'https://github.com/rhysd/git-messenger.vim.git'
-Plug 'https://github.com/rstacruz/vim-closer.git'
+" Plug 'https://github.com/rstacruz/vim-closer.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-Plug 'https://github.com/tommcdo/vim-fubitive.git'
-Plug 'https://github.com/tommcdo/vim-lion.git'
+Plug 'https://github.com/tmsvg/pear-tree' " auto-pair
+Plug 'https://github.com/tommcdo/vim-fubitive.git' " Bitbucket support
+Plug 'https://github.com/tommcdo/vim-lion.git' " align text
 Plug 'https://github.com/towolf/vim-helm'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-endwise.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/tpope/vim-rhubarb.git'
+Plug 'https://github.com/tpope/vim-rhubarb.git'  " Github integration
 Plug 'https://github.com/tpope/vim-sensible.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -69,7 +70,7 @@ Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/vim-python/python-syntax.git'
 Plug 'https://github.com/vim-scripts/highlight.vim.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
-Plug 'https://github.com/voldikss/vim-floaterm', { 'commit': '0225e54'}
+Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/w0rp/ale.git'
 if has('nvim')
     Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}

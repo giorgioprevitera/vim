@@ -55,6 +55,8 @@ Linux)
     ;;
 esac
 
+yarn global add neovim
+
 # Create directory structure
 mkdir -vp \
     ${HOME}/.vim/autoload \
