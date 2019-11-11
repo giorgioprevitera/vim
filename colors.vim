@@ -16,7 +16,7 @@ let ayucolor="mirage"
 " colorscheme materialtheme
 " colorscheme ayu
 " colorscheme minimalist
-" colorscheme onedark
+colorscheme onedark
 " colorscheme one
 " colorscheme allomancer
 colorscheme nord

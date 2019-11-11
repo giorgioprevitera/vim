@@ -105,11 +105,21 @@ nnoremap M D
 "--------------------------------------------------
 " Dim inactive
 "--------------------------------------------------
-let g:diminactive_use_colorcolumn = 1
-let g:diminactive_use_syntax = 0
+" let g:diminactive_use_colorcolumn = 1
+" let g:diminactive_use_syntax = 0
 
 
 "--------------------------------------------------
 " Misc
 "--------------------------------------------------
 nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
+
+
+highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray

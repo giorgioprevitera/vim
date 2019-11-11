@@ -1,7 +1,7 @@
 "--------------------------------------------------
 " Ctrl space
 "--------------------------------------------------
-" nnoremap <C-space> :CtrlSpace<CR>
+nnoremap <C-space> :CtrlSpace<CR>
 " set hidden
 " set nocompatible
 
