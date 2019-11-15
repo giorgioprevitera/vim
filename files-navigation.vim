@@ -68,12 +68,13 @@ function! FloatingFZF()
   call setbufvar(buf, '&signcolumn', 'no')
 
   let height = float2nr(&lines * 0.5)
-  let width = float2nr(&columns - (&columns * 2 / 10))
+  let width = float2nr(&columns - (&columns * 2 / 6))
   let col = float2nr((&columns - width) / 2)
+  let row = float2nr((&lines - height - 10) / 2)
 
   let opts = {
         \ 'relative': 'editor',
-        \ 'row': 1,
+        \ 'row': row,
         \ 'col': col,
         \ 'width': width,
         \ 'height': height

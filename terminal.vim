@@ -15,4 +15,4 @@ tnoremap <silent> <M-`>           <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_position = 'center'
 let g:floaterm_width = float2nr(&columns - (&columns * 1 / 10))
 let g:floaterm_height = &lines - 8
-let g:floaterm_winblend = 12
+let g:floaterm_winblend = 8
