@@ -48,6 +48,7 @@ Plug 'https://github.com/junegunn/goyo.vim.git'
 Plug 'https://github.com/junegunn/limelight.vim'
 Plug 'https://github.com/majutsushi/tagbar'
 " Plug 'https://github.com/nwochaadim/git-remote-open.git'
+Plug 'https://github.com/psliwka/vim-smoothie'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
 Plug 'https://github.com/rhysd/git-messenger.vim.git'
 " Plug 'https://github.com/rstacruz/vim-closer.git'
@@ -73,7 +74,8 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/w0rp/ale.git'
 if has('nvim')
-    Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+    Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'zchee/deoplete-jedi'
     " Plug 'https://github.com/carlitux/deoplete-ternjs.git', { 'do': 'npm install -g tern' }

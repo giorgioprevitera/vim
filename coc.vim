@@ -22,6 +22,7 @@ nmap <silent> <leader>ld <Plug>(coc-definition)
 nmap <silent> <leader>lt <Plug>(coc-type-definition)
 nmap <silent> <leader>li <Plug>(coc-implementation)
 nmap <silent> <leader>lf <Plug>(coc-references)
+nmap <silent> <leader>la <Plug>(coc-refactor)
 
 " Remap for rename current word
 nmap <leader>lr <Plug>(coc-rename)
