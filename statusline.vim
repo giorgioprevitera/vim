@@ -11,6 +11,10 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
 set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
@@ -19,8 +23,16 @@ set statusline+=\ %f
 set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
+set statusline+=%{NearestMethodOrFunction()}
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
+
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc 
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()

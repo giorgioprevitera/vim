@@ -10,6 +10,7 @@ source ~/.vim/files-navigation.vim
 source ~/.vim/search.vim
 source ~/.vim/python.vim
 source ~/.vim/netrw.vim
+source ~/.vim/tags.vim
 
 
 "--------------------------------------------------
