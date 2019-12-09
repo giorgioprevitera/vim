@@ -9,6 +9,7 @@ _common_dependencies="\
     ctags \
     git \
     yarn \
+    fzf \
 "
 
 _Darwin_dependencies="\
