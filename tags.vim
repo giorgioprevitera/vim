@@ -7,4 +7,4 @@ let g:vista_fzf_preview = ['right:50%']
 let g:vista#renderer#enable_icon = 1
 
 nmap <silent> <leader>t :Vista<CR>
-nmap <silent> <leader>tf :Vista finder<CR>
+nmap <silent> <leader>. :Vista finder<CR>
