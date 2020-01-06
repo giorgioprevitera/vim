@@ -13,16 +13,12 @@ let ayucolor="mirage"
 " colorscheme darkspectrum
 " colorscheme gruvbox
 " colorscheme NeoSolarized
-" colorscheme materialtheme
-" colorscheme ayu
 " colorscheme minimalist
-" colorscheme onedark
 " colorscheme one
 " colorscheme allomancer
 " colorscheme nord
 " colorscheme snazzy
 " colorscheme deus
-colorscheme palenight
 " colorscheme SpaceCamp
 " colorscheme mysticaltutor
 " colorscheme solarized8_light_flat
@@ -32,3 +28,8 @@ colorscheme palenight
 " colorscheme desertEx
 " colorscheme archery
 " colorscheme challenger_deep
+"
+colorscheme palenight
+" colorscheme onedark
+" colorscheme materialtheme
+" colorscheme ayu
