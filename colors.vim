@@ -28,8 +28,10 @@ let ayucolor="mirage"
 " colorscheme desertEx
 " colorscheme archery
 " colorscheme challenger_deep
-"
-colorscheme palenight
+
+" colorscheme palenight
 " colorscheme onedark
 " colorscheme materialtheme
 " colorscheme ayu
+
+colorscheme colorsbox-material
