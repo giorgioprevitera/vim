@@ -2,6 +2,7 @@
 " Git Fugitive
 "--------------------------------------------------
 nnoremap <Leader>gs :20Gstatus<CR>
+nnoremap <Leader>gg :FzfPreviewGitStatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
 set diffopt+=vertical

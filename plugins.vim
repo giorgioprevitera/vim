@@ -1,5 +1,7 @@
 call plug#begin()
 
+Plug 'https://github.com/itchyny/calendar.vim'
+
 Plug 'https://github.com/ajmwagar/vim-deus.git'
 Plug 'https://github.com/mhartington/oceanic-next.git'
 Plug 'https://github.com/flazz/vim-colorschemes.git'
@@ -22,6 +24,8 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 
+Plug 'https://github.com/bogado/file-line'
+Plug 'https://github.com/yuki-ycino/fzf-preview.vim'
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
 " Plug 'https://github.com/davidhalter/jedi-vim.git'
 " Plug 'https://github.com/SirVer/ultisnips.git'
@@ -44,6 +48,7 @@ Plug 'https://github.com/iamcco/markdown-preview.nvim.git', { 'do': 'cd app & ya
 Plug 'https://github.com/idanarye/vim-merginal',
 Plug 'https://github.com/godoctor/godoctor.vim',
 Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
+Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'
 Plug 'https://github.com/junegunn/goyo.vim.git'
 Plug 'https://github.com/junegunn/limelight.vim'
@@ -57,7 +62,7 @@ Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-Plug 'https://github.com/tmsvg/pear-tree' " auto-pair
+" Plug 'https://github.com/tmsvg/pear-tree' " auto-pair
 Plug 'https://github.com/tommcdo/vim-fubitive.git' " Bitbucket support
 Plug 'https://github.com/tommcdo/vim-lion.git' " align text
 Plug 'https://github.com/towolf/vim-helm'

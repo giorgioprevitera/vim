@@ -17,6 +17,11 @@ _Darwin_dependencies="\
     the_silver_searcher \
     shfmt \
     prettier \
+    bat \
+    ccat \
+    ripgrep \
+    exa \
+    findutils \
 "
 
 _Linux_dependencies="\

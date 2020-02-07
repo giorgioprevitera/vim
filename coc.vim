@@ -2,7 +2,7 @@
 "  Coc
 " --------------------------------------------------
 " let g:coc_global_extensions = ['coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets']
-let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets', 'coc-java']
 
 " Better display for messages
 set cmdheight=2
