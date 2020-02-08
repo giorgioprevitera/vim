@@ -2,7 +2,7 @@
   "suggest.snippetIndicator": " ►",
   "diagnostic.checkCurrentLine": true,
   "codeLens.enable": true,
-  "java.home": "/Users/Giorgio.Previtera/Downloads/jdk-11.0.6.jdk/Contents/Home",
+  "java.home": "/Library/Java/JavaVirtualMachines/jdk-11.0.6.jdk/Contents/Home",
   "python.jediEnabled": true,
   "python.linting.enabled": false,
   "python.linting.flake8Enabled": true,
