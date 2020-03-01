@@ -50,10 +50,10 @@ let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 nnoremap <c-p> :FzfPreviewProjectFiles<cr>
-nnoremap <leader>f :FzfPreviewProjectFiles<cr>
+nnoremap <leader>f :FZF<cr>
 nnoremap <leader>b :FzfPreviewBuffers<cr>
 nnoremap <leader>c :BCommits<cr>
-nnoremap <leader>a :FzfPreviewProjectGrep<cr>
+nnoremap <leader>a :FzfPreviewProjectGrep<Space>
 nnoremap <leader>h :History:<cr>
 
 " FZF in floating window
@@ -80,7 +80,8 @@ endfunction
 
 
 let g:fzf_preview_command = 'bat --color=always --style=grid --theme=ansi-dark {-1}'
-let g:fzf_preview_filelist_command = "rg --files --hidden --follow"
-let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
+let g:fzf_preview_filelist_command = 'rg --files --follow --no-messages -g \!"* *"'
+" let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
 let g:fzf_preview_filelist_postprocess_command = 'gxargs -d "\n" exa --color=always'
 let g:fzf_preview_use_dev_icons = 0
+
