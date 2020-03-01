@@ -34,4 +34,5 @@ let ayucolor="mirage"
 " colorscheme materialtheme
 " colorscheme ayu
 
-colorscheme colorsbox-material
+" colorscheme colorsbox-material
+colorscheme xcodedarkhc
