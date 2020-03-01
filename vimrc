@@ -129,5 +129,7 @@ augroup BgHighlight
 augroup END
 
 
-
-highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
+augroup DetectIndent
+   autocmd!
+   autocmd BufReadPost *  DetectIndent
+augroup END
