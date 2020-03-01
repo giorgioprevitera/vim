@@ -18,7 +18,6 @@ _Darwin_dependencies="\
     shfmt \
     prettier \
     bat \
-    ccat \
     ripgrep \
     exa \
     findutils \
