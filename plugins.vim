@@ -58,7 +58,7 @@ Plug 'https://github.com/mustache/vim-mustache-handlebars'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
 Plug 'https://github.com/rhysd/git-messenger.vim.git'
 " Plug 'https://github.com/rstacruz/vim-closer.git'
-Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle'}
+Plug 'https://github.com/scrooloose/nerdtree.git', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
