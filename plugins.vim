@@ -13,17 +13,27 @@ Plug 'https://github.com/jacoborus/tender.vim.git'
 Plug 'https://github.com/joshdick/onedark.vim'
 Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
 Plug 'https://github.com/flrnprz/candid.vim.git'
+Plug 'https://github.com/sainnhe/sonokai'
 
 Plug 'https://github.com/ryanoasis/vim-devicons'
 " Plug 'https://github.com/vim-airline/vim-airline'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/itchyny/lightline.vim'
+
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'habamax/vim-asciidoctor'
+Plug 'https://github.com/majutsushi/tagbar'
+" Plug 'https://github.com/luan/vim-concourse'
+" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+" Plug 'https://github.com/xolox/vim-easytags'
+" Plug 'https://github.com/xolox/vim-misc'
+Plug 'https://github.com/andrewstuart/vim-kubernetes'
 
 Plug 'https://github.com/bogado/file-line'
-Plug 'https://github.com/yuki-ycino/fzf-preview.vim'
+" Plug 'https://github.com/yuki-ycino/fzf-preview.vim'
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
 " Plug 'https://github.com/davidhalter/jedi-vim.git'
 " Plug 'https://github.com/SirVer/ultisnips.git'
@@ -36,8 +46,9 @@ Plug 'https://github.com/ap/vim-buftabline.git'
 Plug 'https://github.com/buoto/gotests-vim', {'for': 'go'}
 " Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 " Plug 'https://github.com/ddrscott/vim-side-search.git'
-" Plug 'https://github.com/dkprice/vim-easygrep.git'
-Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/dkprice/vim-easygrep.git'
+" Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/fatih/vim-go.git', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/hashivim/vim-terraform.git', {'for': 'terraform'}
@@ -50,7 +61,7 @@ Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}
 Plug 'https://github.com/junegunn/goyo.vim.git', { 'on': 'Goyo' }
 " Plug 'https://github.com/junegunn/limelight.vim'
-Plug 'https://github.com/liuchengxu/vista.vim'
+" Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/mustache/vim-mustache-handlebars'
 " Plug 'https://github.com/nwochaadim/git-remote-open.git'
