@@ -15,3 +15,11 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 let g:ctrlsf_auto_focus = {
     \ "at": "start"
     \ }
+
+
+"--------------------------------------------------
+" sneak
+"--------------------------------------------------
+let g:sneak#s_next = 1
+let g:sneak#label = 1
+
