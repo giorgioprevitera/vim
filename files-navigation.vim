@@ -14,6 +14,7 @@ nmap <silent> <leader>p :NERDTreeToggle<CR>
 nnoremap <leader>rf :NERDTreeFind<CR>
 let NERDTreeMapMenu='n'
 let g:NERDTreeWinSize=50
+let g:NERDTreeShowIgnoredStatus = 1
 " let g:NERDTreeQuitOnOpen = 1
 
 
@@ -49,12 +50,12 @@ set hidden
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-nnoremap <c-p> :FzfPreviewProjectFiles<cr>
-nnoremap <leader>f :FZF<cr>
-nnoremap <leader>b :FzfPreviewBuffers<cr>
-nnoremap <leader>c :BCommits<cr>
-nnoremap <leader>a :FzfPreviewProjectGrep<Space>
-nnoremap <leader>h :History:<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>c :Commands<cr>
+nnoremap <leader>a :Ag<cr>
+nnoremap <leader>hi :History<cr>
 
 " FZF in floating window
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -77,11 +78,3 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
-
-
-let g:fzf_preview_command = 'bat --color=always --style=grid --theme=ansi-dark {-1}'
-let g:fzf_preview_filelist_command = 'rg --files --follow --no-messages -g \!"* *"'
-" let g:fzf_preview_grep_preview_cmd = 'preview_fzf_grep'
-let g:fzf_preview_filelist_postprocess_command = 'gxargs -d "\n" exa --color=always'
-let g:fzf_preview_use_dev_icons = 0
-
