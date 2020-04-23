@@ -15,7 +15,11 @@ let ayucolor="mirage"
 " colorscheme NeoSolarized
 " colorscheme minimalist
 " colorscheme one
+"
+"
 " colorscheme allomancer
+"
+"
 " colorscheme nord
 " colorscheme snazzy
 " colorscheme deus
@@ -33,6 +37,17 @@ let ayucolor="mirage"
 " colorscheme onedark
 " colorscheme materialtheme
 " colorscheme ayu
+" colorscheme materialbox
 
 " colorscheme colorsbox-material
-colorscheme xcodedarkhc
+" colorscheme xcodedarkhc
+" colorscheme material-theme
+
+" let g:sonokai_style = 'andromeda'
+" let g:sonokai_style = 'shusia'
+" let g:sonokai_style = 'atlantis'
+" let g:sonokai_style = 'maia'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+
+colorscheme sonokai
