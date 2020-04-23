@@ -13,6 +13,7 @@ source ~/.vim/python.vim
 source ~/.vim/netrw.vim
 source ~/.vim/tags.vim
 
+let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
 
 "--------------------------------------------------
 " General settings
