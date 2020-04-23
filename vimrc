@@ -2,7 +2,8 @@ source ~/.vim/plugins.vim
 source ~/.vim/colors.vim
 source ~/.vim/coc.vim
 " source ~/.vim/airline.vim
-source ~/.vim/statusline.vim
+" source ~/.vim/statusline.vim
+source ~/.vim/lightline.vim
 source ~/.vim/terminal.vim
 source ~/.vim/ale.vim
 source ~/.vim/git.vim

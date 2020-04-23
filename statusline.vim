@@ -12,18 +12,19 @@ function! StatuslineGit()
 endfunction
 
 function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
+  " return get(b:, 'vista_nearest_method_or_function', '')
+  return get(b:, 'TagbarShowTag')
 endfunction
 
 set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
-" set statusline+=%#LineNr#
+" set statusline+=%#LineNr# " <<<<<<======
 set statusline+=\ %f
 set statusline+=%m
 set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=%{NearestMethodOrFunction()}
+" set statusline+=%#CursorColumn#
+" set statusline+=%{NearestMethodOrFunction()}
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
@@ -35,4 +36,4 @@ set statusline+=\ %l:%c
 "
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc 
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
