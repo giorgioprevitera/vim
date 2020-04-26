@@ -43,6 +43,7 @@ Darwin)
     brew tap homebrew/cask-fonts
     brew cask install font-robotomono-nerd-font-mono font-hack-nerd-font-mono
     NVIM_PATH="/usr/local/bin/nvim"
+    USER_HOME_DIR="${HOME}"
     ;;
 Linux)
     export LC_ALL="en_US.UTF-8"
@@ -58,6 +59,7 @@ Linux)
     pip3 install -U pip
     yarn global add prettier
     NVIM_PATH="/usr/bin/nvim"
+    USER_HOME_DIR="/home/nvim"
     ;;
 esac
 
@@ -65,41 +67,41 @@ yarn global add neovim
 
 # Create directory structure
 mkdir -vp \
-    ${HOME}/.vim/autoload \
-    ${HOME}/.vim/bundle \
-    ${HOME}/.vim/local \
-    ${HOME}/.config/nvim \
-    ${HOME}/bin
+    ${USER_HOME_DIR}/.vim/autoload \
+    ${USER_HOME_DIR}/.vim/bundle \
+    ${USER_HOME_DIR}/.vim/local \
+    ${USER_HOME_DIR}/.config/nvim \
+    ${USER_HOME_DIR}/bin
 
 # Install vim plug
 curl -fLSs \
     --create-dirs \
-    -o ${HOME}/.vim/autoload/plug.vim \
+    -o ${USER_HOME_DIR}/.vim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Add yaml syntax
 curl -fLSs \
     --create-dirs \
-    -o ${HOME}/.vim/local/yaml.vim \
+    -o ${USER_HOME_DIR}/.vim/local/yaml.vim \
     https://raw.githubusercontent.com/vim-scripts/yaml.vim/master/colors/yaml.vim
 
 curl -fLSs \
     --create-dirs \
-    -o ${HOME}/bin/tfdoc \
+    -o ${USER_HOME_DIR}/bin/tfdoc \
     https://raw.githubusercontent.com/giorgioprevitera/sysadmin-tools/master/tfdoc &&
-    chmod +x ${HOME}/bin/tfdoc
+    chmod +x ${USER_HOME_DIR}/bin/tfdoc
 
 # Create vimrc
-cat <<EOF >${HOME}/.vimrc
-source ${HOME}/.vim/vimrc
+cat <<EOF >${USER_HOME_DIR}/.vimrc
+source ${USER_HOME_DIR}/.vim/vimrc
 EOF
 
 # Link config for neovim
-ln -vfs ${HOME}/.vim/vimrc ${HOME}/.config/nvim/init.vim
-ln -vfs ${HOME}/.vim/autoload ${HOME}/.config/nvim/autoload
+ln -vfs ${USER_HOME_DIR}/.vim/vimrc ${USER_HOME_DIR}/.config/nvim/init.vim
+ln -vfs ${USER_HOME_DIR}/.vim/autoload ${USER_HOME_DIR}/.config/nvim/autoload
 
 # Configures CoC
-ln -vfs ${HOME}/.vim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json
+ln -vfs ${USER_HOME_DIR}/.vim/coc-settings.json ${USER_HOME_DIR}/.config/nvim/coc-settings.json
 
 # Install python dependencies
 pip3 install --user neovim jedi autopep8 flake8
@@ -107,7 +109,7 @@ pip3 install --user neovim jedi autopep8 flake8
 # Install all plugins
 nvim +PlugInstall +qall
 
-ln -vfs "${NVIM_PATH}" ${HOME}/bin/vim
-ln -vfs "${NVIM_PATH}" ${HOME}/bin/vi
+ln -vfs "${NVIM_PATH}" ${USER_HOME_DIR}/bin/vim
+ln -vfs "${NVIM_PATH}" ${USER_HOME_DIR}/bin/vi
 
 exit 0
