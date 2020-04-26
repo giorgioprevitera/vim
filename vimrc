@@ -15,8 +15,10 @@ source ~/.vim/tags.vim
 
 if has('unix')
     set rtp+=~/.fzf
+    let g:python3_host_prog = '/usr/bin/python3'
+else
+    let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
 endif
-let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
 
 "--------------------------------------------------
 " General settings
