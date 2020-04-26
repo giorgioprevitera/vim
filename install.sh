@@ -27,7 +27,6 @@ _Linux_dependencies="\
     python3-pip \
     silversearcher-ag \
     gnupg2 \
-    software-properties-common \
     snapd \
 "
 
