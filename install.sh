@@ -105,7 +105,7 @@ ln -vfs ${HOME}/.vim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json
 pip3 install --user neovim jedi autopep8 flake8
 
 # Install all plugins
-nvim +PlugInstall +qall >/dev/null
+nvim +PlugInstall +qall
 
 ln -vfs "${NVIM_PATH}" ${HOME}/bin/vim
 ln -vfs "${NVIM_PATH}" ${HOME}/bin/vi
