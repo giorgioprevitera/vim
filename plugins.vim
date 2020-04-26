@@ -14,6 +14,8 @@ Plug 'https://github.com/joshdick/onedark.vim'
 Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
 Plug 'https://github.com/flrnprz/candid.vim.git'
 Plug 'https://github.com/sainnhe/sonokai'
+Plug 'https://github.com/chuling/vim-equinusocio-material'
+Plug 'https://github.com/doums/darcula'
 
 Plug 'https://github.com/ryanoasis/vim-devicons'
 " Plug 'https://github.com/vim-airline/vim-airline'
@@ -72,7 +74,8 @@ Plug 'https://github.com/rhysd/git-messenger.vim.git'
 Plug 'https://github.com/scrooloose/nerdtree.git', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
 Plug 'https://github.com/svermeulen/vim-yoink.git'
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/mg979/vim-visual-multi'
+" Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 " Plug 'https://github.com/tmsvg/pear-tree' " auto-pair
 Plug 'https://github.com/tommcdo/vim-fubitive.git' " Bitbucket support
 Plug 'https://github.com/tommcdo/vim-lion.git' " align text

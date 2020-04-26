@@ -49,5 +49,15 @@ let ayucolor="mirage"
 " let g:sonokai_style = 'maia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
+" colorscheme sonokai
 
-colorscheme sonokai
+let g:equinusocio_material_hide_vertsplit = 1
+let g:equinusocio_material_darker = 1
+" colorscheme equinusocio_material
+
+" " this theme has a buildin lightline theme, you can turn it on
+" let g:lightline = {
+"   \ 'colorscheme': 'equinusocio_material',
+"   \ }
+
+colorscheme darcula

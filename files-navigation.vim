@@ -56,6 +56,7 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :Commands<cr>
 nnoremap <leader>a :Ag<cr>
 nnoremap <leader>hi :History<cr>
+nnoremap <leader>ll :Lines<cr>
 
 " FZF in floating window
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
