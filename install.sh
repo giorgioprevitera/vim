@@ -51,8 +51,8 @@ Linux)
 
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt-get update -y
-    sudo apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
+    sudo -E apt-get update -y
+    sudo -E apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
 
     # sudo snap install shfmt
     pip3 install -U pip
