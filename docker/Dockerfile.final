@@ -1,0 +1,8 @@
+FROM nvim-base:latest
+
+ENV PATH="/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+WORKDIR /home/nvim/src
+RUN /usr/bin/nvim +PlugInstall +UpdateRemotePlugins +GoInstallBinaries +qall
+
+ENTRYPOINT ["/usr/bin/nvim"]
