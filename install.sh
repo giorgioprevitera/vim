@@ -104,7 +104,7 @@ ln -vfs ${USER_HOME_DIR}/.vim/autoload ${USER_HOME_DIR}/.config/nvim/autoload
 ln -vfs ${USER_HOME_DIR}/.vim/coc-settings.json ${USER_HOME_DIR}/.config/nvim/coc-settings.json
 
 # Install python dependencies
-pip3 install --user neovim jedi autopep8 flake8
+pip3 install --no-color --user neovim jedi autopep8 flake8
 
 # Install all plugins
 nvim +PlugInstall +qall
