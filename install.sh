@@ -109,7 +109,7 @@ ln -vfs ${USER_HOME_DIR}/.vim/coc-settings.json ${USER_HOME_DIR}/.config/nvim/co
 pip3 install --no-color --user neovim jedi autopep8 flake8
 
 # Install all plugins
-nvim +PlugInstall +qall
+# nvim +PlugInstall +qall
 
 ln -vfs "${NVIM_PATH}" ${USER_HOME_DIR}/bin/vim
 ln -vfs "${NVIM_PATH}" ${USER_HOME_DIR}/bin/vi
