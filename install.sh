@@ -9,7 +9,6 @@ _common_dependencies="\
     ctags \
     git \
     yarn \
-    fzf \
 "
 
 _Darwin_dependencies="\
@@ -101,7 +100,7 @@ ln -vfs ${HOME}/.vim/autoload ${HOME}/.config/nvim/autoload
 ln -vfs ${HOME}/.vim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json
 
 # Install python dependencies
-pip install --user neovim jedi autopep8 flake8
+pip3 install --user neovim jedi autopep8 flake8
 
 # Install all plugins
 nvim +PlugInstall +qall
