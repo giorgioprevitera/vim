@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -x
+
 set -euo pipefail
 
 # Install neovim and all dependencies
