@@ -60,4 +60,4 @@ let g:equinusocio_material_darker = 1
 "   \ 'colorscheme': 'equinusocio_material',
 "   \ }
 
-colorscheme darcula
+silent! colorscheme darcula
