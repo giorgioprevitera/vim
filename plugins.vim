@@ -23,8 +23,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/itchyny/lightline.vim'
 
 
-" Plug '/usr/local/opt/fzf'
-Plug '/home/giorgio/.fzf/bin/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'habamax/vim-asciidoctor'

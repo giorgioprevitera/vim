@@ -9,6 +9,7 @@ _common_dependencies="\
     ctags \
     git \
     yarn \
+    fzf \
 "
 
 _Darwin_dependencies="\
@@ -25,6 +26,9 @@ _Darwin_dependencies="\
 _Linux_dependencies="\
     python3-pip \
     silversearcher-ag \
+    gnupg2 \
+    software-properties-common \
+    snapd \
 "
 
 _environment_dependencies="_$(uname -s)_dependencies"
@@ -48,11 +52,10 @@ Linux)
 
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo apt-get update -y
     sudo apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
 
-    sudo snap install shfmt
+    # sudo snap install shfmt
     pip3 install -U pip
     yarn global add prettier
     NVIM_PATH="/usr/bin/nvim"
