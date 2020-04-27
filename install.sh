@@ -36,7 +36,7 @@ Darwin)
         echo "ERROR: Homebrew is required - https://brew.sh/"
         exit 1
     )
-    brew install ${_common_dependencies} ${!_environment_dependencies} || brew upgrade ${_common_dependencies} ${!_environment_dependencies}
+    brew install "${_common_dependencies}" "${!_environment_dependencies}" || brew upgrade "${_common_dependencies}" "${!_environment_dependencies}"
     # Install nerd font
     brew tap homebrew/cask-fonts
     brew cask install font-robotomono-nerd-font-mono font-hack-nerd-font-mono
@@ -51,7 +51,7 @@ Linux)
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo apt-get update -y
-    sudo apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
+    sudo apt-get install -y "${_common_dependencies}" "${!_environment_dependencies}"
 
     sudo snap install shfmt
     pip3 install -U pip
