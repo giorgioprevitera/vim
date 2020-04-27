@@ -48,28 +48,28 @@ Plug 'https://github.com/ap/vim-buftabline.git'
 Plug 'https://github.com/buoto/gotests-vim', {'for': 'go'}
 " Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 " Plug 'https://github.com/ddrscott/vim-side-search.git'
-Plug 'https://github.com/dkprice/vim-easygrep.git'
+Plug 'https://github.com/dkprice/vim-easygrep.git', { 'on': ['Replace', 'Grep'] }
 " Plug 'https://github.com/easymotion/vim-easymotion.git'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/fatih/vim-go.git', { 'do': ':GoUpdateBinaries' }
-Plug 'https://github.com/gregsexton/gitv'
+Plug 'https://github.com/gregsexton/gitv', { 'on': 'Gitv' }
 Plug 'https://github.com/hashivim/vim-terraform.git', {'for': 'terraform'}
 Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  }
-Plug 'https://github.com/idanarye/vim-merginal',
+Plug 'https://github.com/idanarye/vim-merginal', { 'on': 'Merginal' }
 Plug 'https://github.com/godoctor/godoctor.vim', {'for': 'go'}
-Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git'
+Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git', { 'on': 'Bsgrep' }
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}
 Plug 'https://github.com/junegunn/goyo.vim.git', { 'on': 'Goyo' }
 " Plug 'https://github.com/junegunn/limelight.vim'
 " Plug 'https://github.com/liuchengxu/vista.vim'
-Plug 'https://github.com/mbbill/undotree'
+Plug 'https://github.com/mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'https://github.com/mustache/vim-mustache-handlebars'
 " Plug 'https://github.com/nwochaadim/git-remote-open.git'
 " Plug 'https://github.com/psliwka/vim-smoothie'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
-Plug 'https://github.com/rhysd/git-messenger.vim.git'
+Plug 'https://github.com/rhysd/git-messenger.vim.git', { 'on': 'GitMessenger' }
 " Plug 'https://github.com/rstacruz/vim-closer.git'
 Plug 'https://github.com/scrooloose/nerdtree.git', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'https://github.com/svermeulen/vim-cutlass.git'
