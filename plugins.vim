@@ -18,7 +18,6 @@ Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/alfredodeza/pytest.vim', {'for': 'python'}
 Plug 'https://github.com/alxpettit/detectindent.git'
 Plug 'https://github.com/ap/vim-buftabline.git'
-Plug 'https://github.com/bogado/file-line'
 Plug 'https://github.com/buoto/gotests-vim', {'for': 'go'}
 Plug 'https://github.com/dkprice/vim-easygrep.git', { 'on': ['Replace', 'Grep'] }
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
