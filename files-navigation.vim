@@ -47,6 +47,7 @@ endif
 
 set hidden
 
+let $FZF_DEFAULT_COMMAND='fd --type f'
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
