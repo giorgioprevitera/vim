@@ -21,11 +21,13 @@ _Darwin_dependencies="\
     ripgrep \
     exa \
     findutils \
+    fd \
 "
 
 _Linux_dependencies="\
     python3-pip \
     silversearcher-ag \
+    fd-find \
 "
 
 _environment_dependencies="_$(uname -s)_dependencies"
