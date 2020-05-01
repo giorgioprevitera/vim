@@ -30,6 +30,7 @@
 " Plug 'https://github.com/tmsvg/pear-tree' " auto-pair
 " Plug 'https://github.com/vim-airline/vim-airline'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
+" Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git', { 'commit': '88da905' }
 " Plug 'https://github.com/vim-python/python-syntax.git'
 " Plug 'https://github.com/xolox/vim-easytags'
 " Plug 'https://github.com/xolox/vim-misc'

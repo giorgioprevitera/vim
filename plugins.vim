@@ -56,7 +56,6 @@ Plug 'https://github.com/tpope/vim-rhubarb.git'  " Github integration
 Plug 'https://github.com/tpope/vim-sensible.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
-Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git', { 'commit': '88da905' }
 Plug 'https://github.com/vim-scripts/highlight.vim.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/voldikss/vim-floaterm', {'on': 'FloatermToggle'}
