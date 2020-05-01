@@ -43,13 +43,13 @@ let ayucolor="mirage"
 " colorscheme xcodedarkhc
 " colorscheme material-theme
 
-" let g:sonokai_style = 'andromeda'
+let g:sonokai_style = 'andromeda'
 " let g:sonokai_style = 'shusia'
 " let g:sonokai_style = 'atlantis'
 " let g:sonokai_style = 'maia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
-" colorscheme sonokai
+colorscheme sonokai
 
 let g:equinusocio_material_hide_vertsplit = 1
 let g:equinusocio_material_darker = 1
@@ -60,4 +60,4 @@ let g:equinusocio_material_darker = 1
 "   \ 'colorscheme': 'equinusocio_material',
 "   \ }
 
-colorscheme darcula
+" colorscheme darcula
