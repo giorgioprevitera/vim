@@ -1,4 +1,46 @@
 "--------------------------------------------------
+" Plugins
+"--------------------------------------------------
+" Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
+" Plug 'https://github.com/Nequo/vim-allomancer.git'
+" Plug 'https://github.com/SirVer/ultisnips.git'
+" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+" Plug 'https://github.com/ajmwagar/vim-deus.git'
+" Plug 'https://github.com/andrewstuart/vim-kubernetes'
+" Plug 'https://github.com/blueyed/vim-diminactive'
+" Plug 'https://github.com/caksoylar/vim-mysticaltutor.git'
+" Plug 'https://github.com/chuling/vim-equinusocio-material'
+" Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+" Plug 'https://github.com/davidhalter/jedi-vim.git'
+" Plug 'https://github.com/ddrscott/vim-side-search.git'
+" Plug 'https://github.com/easymotion/vim-easymotion.git'
+" Plug 'https://github.com/flrnprz/candid.vim.git'
+" Plug 'https://github.com/jacoborus/tender.vim.git'
+" Plug 'https://github.com/joshdick/onedark.vim'
+" Plug 'https://github.com/junegunn/limelight.vim'
+" Plug 'https://github.com/liuchengxu/vista.vim'
+" Plug 'https://github.com/luan/vim-concourse'
+" Plug 'https://github.com/mhartington/oceanic-next.git'
+" Plug 'https://github.com/morhetz/gruvbox'
+" Plug 'https://github.com/nwochaadim/git-remote-open.git'
+" Plug 'https://github.com/psliwka/vim-smoothie'
+" Plug 'https://github.com/rakr/vim-one.git'
+" Plug 'https://github.com/rstacruz/vim-closer.git'
+" Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+" Plug 'https://github.com/tmsvg/pear-tree' " auto-pair
+" Plug 'https://github.com/vim-airline/vim-airline'
+" Plug 'https://github.com/vim-airline/vim-airline-themes'
+" Plug 'https://github.com/vim-python/python-syntax.git'
+" Plug 'https://github.com/xolox/vim-easytags'
+" Plug 'https://github.com/xolox/vim-misc'
+" Plug 'https://github.com/yuki-ycino/fzf-preview.vim'
+
+    " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'zchee/deoplete-jedi'
+    " Plug 'https://github.com/carlitux/deoplete-ternjs.git', { 'do': 'npm install -g tern' }
+
+"--------------------------------------------------
 " Use deoplete.
 "--------------------------------------------------
 " if has('nvim')
