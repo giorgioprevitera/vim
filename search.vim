@@ -23,3 +23,30 @@ let g:ctrlsf_auto_focus = {
 let g:sneak#s_next = 1
 let g:sneak#label = 1
 
+
+
+"--------------------------------------------------
+" easygrep
+"--------------------------------------------------
+let g:EasyGrepFileAssociations='/Users/giorgio/.config/nvim/plugged/vim-easygrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=0
+let g:EasyGrepCommand=1
+let g:EasyGrepRecursive=0
+let g:EasyGrepSearchCurrentBufferDir=1
+let g:EasyGrepIgnoreCase=0
+let g:EasyGrepHidden=0
+let g:EasyGrepBinary=0
+let g:EasyGrepFilesToInclude=''
+let g:EasyGrepFilesToExclude='*.swp,*~'
+let g:EasyGrepAllOptionsInExplorer=1
+let g:EasyGrepWindow=0
+let g:EasyGrepReplaceWindowMode=0
+let g:EasyGrepOpenWindowOnMatch=1
+let g:EasyGrepEveryMatch=0
+let g:EasyGrepJumpToMatch=1
+let g:EasyGrepInvertWholeWord=1
+let g:EasyGrepPatternType='regex'
+let g:EasyGrepFileAssociationsInExplorer=0
+let g:EasyGrepExtraWarnings=0
+let g:EasyGrepOptionPrefix='<leader>vy'
+let g:EasyGrepReplaceAllPerFile=0
