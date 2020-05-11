@@ -2,6 +2,7 @@
 " Plugins
 "--------------------------------------------------
 " Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
+" Plug 'https://github.com/airblade/vim-rooter'
 " Plug 'https://github.com/Nequo/vim-allomancer.git'
 " Plug 'https://github.com/SirVer/ultisnips.git'
 " Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'

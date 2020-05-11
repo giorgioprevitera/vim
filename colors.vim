@@ -36,7 +36,7 @@ let ayucolor="mirage"
 " colorscheme palenight
 " colorscheme onedark
 " colorscheme materialtheme
-" colorscheme ayu
+colorscheme ayu
 " colorscheme materialbox
 
 " colorscheme colorsbox-material
@@ -49,7 +49,7 @@ let g:sonokai_style = 'andromeda'
 " let g:sonokai_style = 'maia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
-colorscheme sonokai
+" colorscheme sonokai
 
 let g:equinusocio_material_hide_vertsplit = 1
 let g:equinusocio_material_darker = 1

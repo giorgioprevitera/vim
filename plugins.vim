@@ -2,6 +2,7 @@ call plug#begin()
 
 " Colorschemes
 Plug 'https://github.com/arcticicestudio/nord-vim.git'
+Plug 'https://github.com/ayu-theme/ayu-vim'
 Plug 'https://github.com/arzg/vim-colors-xcode'
 Plug 'https://github.com/doums/darcula'
 Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
@@ -14,7 +15,6 @@ if has('nvim')
 endif
 Plug 'https://github.com/Yggdroot/indentLine.git'
 Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/alfredodeza/pytest.vim', {'for': 'python'}
 Plug 'https://github.com/alxpettit/detectindent.git'
 Plug 'https://github.com/ap/vim-buftabline.git'
