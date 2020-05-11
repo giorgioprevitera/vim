@@ -48,7 +48,7 @@ endif
 set hidden
 
 let $FZF_DEFAULT_COMMAND='fd --type f'
-let $FZF_DEFAULT_OPTS='--layout=reverse'
+let $FZF_DEFAULT_OPTS='--color=bg:#282c34 --border --layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 nnoremap <c-p> :Files<cr>
@@ -56,7 +56,9 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :Commands<cr>
 nnoremap <leader>a :Ag<cr>
-nnoremap <leader>hi :History<cr>
+nnoremap <leader>hif :History<cr>
+nnoremap <leader>hic :History:<cr>
+nnoremap <leader>his :History/<cr>
 nnoremap <leader>ll :Lines<cr>
 
 " FZF in floating window
@@ -64,19 +66,16 @@ let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
-
-  let height = float2nr(&lines * 0.5)
-  let width = float2nr(&columns - (&columns * 2 / 6))
+  let height = float2nr(&lines * 0.7)
+  let width = float2nr(&columns * 0.9)
   let col = float2nr((&columns - width) / 2)
-  let row = float2nr((&lines - height - 10) / 2)
 
   let opts = {
         \ 'relative': 'editor',
-        \ 'row': row,
+        \ 'row': float2nr((&lines - height)/2),
         \ 'col': col,
         \ 'width': width,
         \ 'height': height
         \ }
-
   call nvim_open_win(buf, v:true, opts)
 endfunction
