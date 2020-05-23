@@ -12,6 +12,7 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
+let g:ctrlsf_auto_preview = 1
 let g:ctrlsf_auto_focus = {
     \ "at": "start"
     \ }
@@ -28,7 +29,7 @@ let g:sneak#label = 1
 "--------------------------------------------------
 " easygrep
 "--------------------------------------------------
-let g:EasyGrepFileAssociations='/Users/giorgio/.config/nvim/plugged/vim-easygrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepFileAssociations='~/.config/nvim/plugged/vim-easygrep/plugin/EasyGrepFileAssociations'
 let g:EasyGrepMode=0
 let g:EasyGrepCommand=1
 let g:EasyGrepRecursive=0
