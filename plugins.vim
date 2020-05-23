@@ -23,7 +23,6 @@ Plug 'https://github.com/dkprice/vim-easygrep.git', { 'on': ['Replace', 'Grep'] 
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
 Plug 'https://github.com/fatih/vim-go.git', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/godoctor/godoctor.vim', {'for': 'go'}
-Plug 'https://github.com/gregsexton/gitv', { 'on': 'Gitv' }
 Plug 'https://github.com/hashivim/vim-terraform.git', {'for': 'terraform'}
 Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  }
@@ -40,6 +39,7 @@ Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'https://github.com/mg979/vim-visual-multi'
 Plug 'https://github.com/mustache/vim-mustache-handlebars', { 'for' : 'mustache' }
+Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }
 Plug 'https://github.com/rhysd/clever-f.vim.git'
 Plug 'https://github.com/rhysd/git-messenger.vim.git', { 'on': 'GitMessenger' }
 Plug 'https://github.com/ryanoasis/vim-devicons'
