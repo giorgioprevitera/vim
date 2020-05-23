@@ -16,7 +16,7 @@ let NERDTreeMapMenu='n'
 let g:NERDTreeWinSize=50
 let g:NERDTreeShowIgnoredStatus = 1
 " let g:NERDTreeQuitOnOpen = 1
-
+let NERDTreeMinimalUI=1
 
 "--------------------------------------------------
 "Enable ctrl+P
@@ -47,10 +47,6 @@ endif
 
 set hidden
 
-let $FZF_DEFAULT_COMMAND='fd --type f'
-let $FZF_DEFAULT_OPTS='--color=bg:#282c34 --border --layout=reverse'
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>b :Buffers<cr>
@@ -61,13 +57,30 @@ nnoremap <leader>hic :History:<cr>
 nnoremap <leader>his :History/<cr>
 nnoremap <leader>ll :Lines<cr>
 
+let $FZF_DEFAULT_COMMAND='fd --type f'
+let $FZF_DEFAULT_OPTS='--color=bg:#222222 --border --layout=reverse'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+
+" Define RG, doesn't search file names, only the content
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+
 " FZF in floating window
+let g:fzf_preview_window = 'down:75%'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
-  let height = float2nr(&lines * 0.7)
-  let width = float2nr(&columns * 0.9)
+  let height = float2nr(&lines * 0.9)
+  let width = float2nr(&columns * 0.8)
   let col = float2nr((&columns - width) / 2)
 
   let opts = {
