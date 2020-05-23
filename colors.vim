@@ -36,8 +36,10 @@ let ayucolor="mirage"
 " colorscheme palenight
 " colorscheme onedark
 " colorscheme materialtheme
-colorscheme ayu
-" colorscheme materialbox
+" colorscheme ayu
+" colorscheme desertink
+" colorscheme desertEx
+colorscheme materialbox
 
 " colorscheme colorsbox-material
 " colorscheme xcodedarkhc
