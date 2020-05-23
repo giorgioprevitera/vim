@@ -27,6 +27,11 @@ nmap <silent> <leader>la <Plug>(coc-refactor)
 " Remap for rename current word
 nmap <leader>lr <Plug>(coc-rename)
 
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
