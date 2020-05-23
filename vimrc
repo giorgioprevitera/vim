@@ -143,4 +143,6 @@ let g:VM_maps["Add Cursor Up"]   = '<C-k>'
 nnoremap j gj
 nnoremap k gk
 
+let g:vimwiki_url_maxsave = 0
+
 command! CleanBuffers %bd|e#
