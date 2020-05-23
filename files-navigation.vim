@@ -31,7 +31,7 @@ let g:NERDTreeShowIgnoredStatus = 1
 "--------------------------------------------------
 if executable('ag')
   "Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
 
   "Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
