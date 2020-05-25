@@ -36,6 +36,8 @@
 " Plug 'https://github.com/xolox/vim-easytags'
 " Plug 'https://github.com/xolox/vim-misc'
 " Plug 'https://github.com/yuki-ycino/fzf-preview.vim'
+" Plug 'https://github.com/junegunn/goyo.vim.git', { 'on': 'Goyo' }                                                  " Distraction-free writing
+" Plug 'https://github.com/tommcdo/vim-fubitive.git'                                                                 " Bitbucket support
 
     " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

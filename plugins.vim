@@ -1,11 +1,8 @@
 call plug#begin()
 
 " Colorschemes
-Plug 'https://github.com/arcticicestudio/nord-vim.git'
 Plug 'https://github.com/ayu-theme/ayu-vim'
 Plug 'https://github.com/arzg/vim-colors-xcode'
-Plug 'https://github.com/doums/darcula'
-Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
 Plug 'https://github.com/flazz/vim-colorschemes.git'
 Plug 'https://github.com/sainnhe/sonokai'
 
@@ -28,26 +25,20 @@ Plug 'https://github.com/honza/vim-snippets.git'                                
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/idanarye/vim-merginal', { 'on': 'Merginal' }                                              " Inteface for dealing with Git branches
 Plug 'https://github.com/itchyny/lightline.vim'                                                                    " A light and configurable statusline/tabline
-Plug 'https://github.com/jeetsukumaran/vim-buffersaurus.git', { 'on': 'Bsgrep' }                                   " Search, index, and navigate buffer content using regular expression patterns
 Plug 'https://github.com/jiangmiao/auto-pairs'                                                                     " Insert or delete brackets, parens, quotes in pair
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}                          " Autocompletion and linter for Terraform
 Plug 'https://github.com/junegunn/fzf'                                                                             " Command-line fuzzy finder, required by fzf.vim
 Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
-Plug 'https://github.com/junegunn/goyo.vim.git', { 'on': 'Goyo' }                                                  " Distraction-free writing
 Plug 'https://github.com/justinmk/vim-sneak'                                                                       " Jump to any location specified by two characters
-Plug 'https://github.com/machakann/vim-highlightedyank'                                                            " Make the yanked region apparent
 Plug 'https://github.com/majutsushi/tagbar'                                                                        " Displays tags in a window, ordered by scope
 Plug 'https://github.com/mbbill/undotree', { 'on': 'UndotreeToggle' }                                              " Undo history visualizer
 Plug 'https://github.com/mg979/vim-visual-multi'                                                                   " Multiple cursors
-Plug 'https://github.com/mustache/vim-mustache-handlebars', { 'for' : 'mustache' }                                 " Mustache and handlebars mode
 Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                                                         " Git branch viewer
 Plug 'https://github.com/rhysd/clever-f.vim.git'                                                                   " Extended f, F, t and T key mappings
-Plug 'https://github.com/rhysd/git-messenger.vim.git', { 'on': 'GitMessenger' }                                    " Reveal the commit messages under the cursor
 Plug 'https://github.com/ryanoasis/vim-devicons'                                                                   " Adds file type icons
 Plug 'https://github.com/scrooloose/nerdtree.git', {'on': ['NERDTreeToggle', 'NERDTreeFind']}                      " A tree explorer
 Plug 'https://github.com/svermeulen/vim-cutlass.git'                                                               " Cutlass overrides the delete operations to actually just delete and not affect the current yank
 Plug 'https://github.com/svermeulen/vim-yoink.git'                                                                 " Yoink will automatically maintain a history of yanks that you can choose between when pasting
-Plug 'https://github.com/tommcdo/vim-fubitive.git'                                                                 " Bitbucket support
 Plug 'https://github.com/tommcdo/vim-lion.git'                                                                     " align text
 Plug 'https://github.com/towolf/vim-helm', { 'on': 'helm' }                                                        " Vim syntax for helm templates
 Plug 'https://github.com/tpope/vim-commentary.git'                                                                 " Comment stuff out
