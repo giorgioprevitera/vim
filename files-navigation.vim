@@ -29,9 +29,9 @@ let NERDTreeMinimalUI=1
 "--------------------------------------------------
 " The Silver Searcher
 "--------------------------------------------------
-if executable('ag')
+if executable('rg')
   "Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
+  set grepprg=rg\ --color\ never\ --no-heading\ --vimgrep
 
   "Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -51,14 +51,15 @@ nnoremap <c-p> :Files<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :Commands<cr>
-nnoremap <leader>a :Ag<cr>
+nnoremap <leader>a :Rg<cr>
 nnoremap <leader>hif :History<cr>
 nnoremap <leader>hic :History:<cr>
 nnoremap <leader>his :History/<cr>
 nnoremap <leader>ll :Lines<cr>
 
 let $FZF_DEFAULT_COMMAND='fd --type f'
-let $FZF_DEFAULT_OPTS='--color=bg:#222222 --border --layout=reverse'
+" let $FZF_DEFAULT_OPTS='--color=bg:#222222 --border --layout=reverse'
+let $FZF_DEFAULT_OPTS='--border --layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 
