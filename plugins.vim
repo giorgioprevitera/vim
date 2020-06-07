@@ -44,10 +44,12 @@ Plug 'https://github.com/towolf/vim-helm', { 'on': 'helm' }                     
 Plug 'https://github.com/tpope/vim-commentary.git'                                                                 " Comment stuff out
 Plug 'https://github.com/tpope/vim-endwise.git'                                                                    " simple plugin that helps to end certain structures automatically
 Plug 'https://github.com/tpope/vim-fugitive.git'                                                                   " A Git wrapper so awesome, it should be illegal
+Plug 'https://github.com/tpope/vim-obsession'                                                                      " Continuously updated session files
 Plug 'https://github.com/tpope/vim-rhubarb.git'                                                                    " Github integration
 Plug 'https://github.com/tpope/vim-sensible.git'                                                                   " Defaults everyone can agree on
 Plug 'https://github.com/tpope/vim-surround.git'                                                                   " Quoting/parenthesizing made simple
 Plug 'https://github.com/tpope/vim-unimpaired.git'                                                                 " Pairs of handy bracket mappings
+Plug 'https://github.com/dhruvasagar/vim-prosession'                                                               " Handle vim sessions like a pro
 Plug 'https://github.com/vim-scripts/highlight.vim.git'                                                            " Highlight lines or patterns of interest in different colors
 Plug 'https://github.com/vimwiki/vimwiki.git'                                                                      " Personal Wiki
 Plug 'https://github.com/voldikss/vim-floaterm', {'on': 'FloatermToggle'}                                          " Builtin terminal in the floating/popup window

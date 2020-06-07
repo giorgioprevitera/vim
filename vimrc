@@ -147,3 +147,6 @@ nnoremap k gk
 let g:vimwiki_url_maxsave = 0
 
 command! CleanBuffers %bd|e#
+
+" Sessions
+nmap <leader>s :Prosession
