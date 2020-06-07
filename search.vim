@@ -29,7 +29,7 @@ let g:sneak#label = 1
 "--------------------------------------------------
 " easygrep
 "--------------------------------------------------
-let g:EasyGrepFileAssociations="/Users/giorgio/.config/nvim/plugged/vim-easygrep/plugin/EasyGrepFileAssociations"
+let g:EasyGrepFileAssociations= $HOME . "/.config/nvim/plugged/vim-easygrep/plugin/EasyGrepFileAssociations"
 let g:EasyGrepMode=0
 let g:EasyGrepCommand=1
 let g:EasyGrepRecursive=0
