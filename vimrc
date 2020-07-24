@@ -13,7 +13,7 @@ source ~/.vim/python.vim
 source ~/.vim/netrw.vim
 source ~/.vim/tags.vim
 
-let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
+let g:python3_host_prog =  $HOME . '/.pyenv/shims/python'
 
 "--------------------------------------------------
 " General settings
@@ -145,8 +145,20 @@ nnoremap j gj
 nnoremap k gk
 
 let g:vimwiki_url_maxsave = 0
+let g:vimwiki_global_ext = 0
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 command! CleanBuffers %bd|e#
 
 " Sessions
 nmap <leader>s :Prosession
+set sessionoptions+=globals
+
+set inccommand=nosplit
+
+map [w <Plug>(wintabs_previous)
+map [b <Plug>(wintabs_previous)
+map ]w <Plug>(wintabs_next)
+map ]b <Plug>(wintabs_next)
+map <leader>wc <Plug>(wintabs_close)
+map <leader>wo <Plug>(wintabs_only)
