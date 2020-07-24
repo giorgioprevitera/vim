@@ -5,6 +5,7 @@ Plug 'https://github.com/ayu-theme/ayu-vim'
 Plug 'https://github.com/arzg/vim-colors-xcode'
 Plug 'https://github.com/flazz/vim-colorschemes.git'
 Plug 'https://github.com/sainnhe/sonokai'
+Plug 'https://github.com/chuling/equinusocio-material.vim'
 
 " Plugins
 if has('nvim')
@@ -14,7 +15,6 @@ Plug 'https://github.com/Yggdroot/indentLine.git'                               
 Plug 'https://github.com/airblade/vim-gitgutter'                                                                   " Shows git diff in the sign column
 Plug 'https://github.com/alfredodeza/pytest.vim', {'for': 'python'}                                                " Run Python tests
 Plug 'https://github.com/alxpettit/detectindent.git'                                                               " Automatically detect indent settings
-Plug 'https://github.com/ap/vim-buftabline.git'                                                                    " Buffer list that lives in the tabline
 Plug 'https://github.com/buoto/gotests-vim', {'for': 'go'}                                                         " Generate table driven tests easily
 Plug 'https://github.com/dkprice/vim-easygrep.git'                                                                 " Fast and Easy Find and Replace Across Multiple Files
 Plug 'https://github.com/dyng/ctrlsf.vim.git'                                                                      " Asynchronous code search and view tool
@@ -33,6 +33,7 @@ Plug 'https://github.com/justinmk/vim-sneak'                                    
 Plug 'https://github.com/majutsushi/tagbar'                                                                        " Displays tags in a window, ordered by scope
 Plug 'https://github.com/mbbill/undotree', { 'on': 'UndotreeToggle' }                                              " Undo history visualizer
 Plug 'https://github.com/mg979/vim-visual-multi'                                                                   " Multiple cursors
+Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
 Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                                                         " Git branch viewer
 Plug 'https://github.com/rhysd/clever-f.vim.git'                                                                   " Extended f, F, t and T key mappings
 Plug 'https://github.com/ryanoasis/vim-devicons'                                                                   " Adds file type icons
@@ -54,5 +55,7 @@ Plug 'https://github.com/vim-scripts/highlight.vim.git'                         
 Plug 'https://github.com/vimwiki/vimwiki.git'                                                                      " Personal Wiki
 Plug 'https://github.com/voldikss/vim-floaterm', {'on': 'FloatermToggle'}                                          " Builtin terminal in the floating/popup window
 Plug 'https://github.com/w0rp/ale.git'                                                                             " Check syntax in Vim asynchronously and fix files
+Plug 'https://github.com/zefei/vim-wintabs'                                                                        " Per-window buffer manager for Vim
+Plug 'https://github.com/zefei/vim-wintabs-powerline'                                                              " Powerline fonts renderers for wintabs
 
 call plug#end()
