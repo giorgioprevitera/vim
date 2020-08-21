@@ -1,14 +1,27 @@
 let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'gitbranch', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filename': 'LightlineFilename',
-      \ },
-      \ }
+    \ 'colorscheme': 'deus',
+    \ 'active': {
+    \   'left': [ [ 'cwd', 'filename', 'modified' ],
+    \             [ 'readonly', ] ],
+    \   'right': [ [ 'gitbranch', 'lineinfo', ],
+    \              ['percent'],
+    \              ['filetype'], ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'GitBranch',
+    \   'filename': 'LightlineFilename',
+    \   'cwd': 'LightlineCwd',
+    \ },
+    \ }
 
 function! LightlineFilename()
-        return expand('%:f') !=# '' ? expand('%:f') : '[No Name]'
+    return expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+function! LightlineCwd()
+    return substitute(getcwd(), '^.*/', '', '')
+endfunction
+
+function! GitBranch()
+    return ' ' . FugitiveHead()
 endfunction
