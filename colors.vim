@@ -35,26 +35,31 @@ let ayucolor="mirage"
 
 " colorscheme palenight
 " colorscheme onedark
-colorscheme materialtheme
+" colorscheme materialtheme
 " colorscheme ayu
 " colorscheme desertink
 " colorscheme desertEx
 " colorscheme materialbox
+" colorscheme embark
 
 " colorscheme colorsbox-material
 " colorscheme xcodedarkhc
 " colorscheme material-theme
 
-let g:sonokai_style = 'andromeda'
+" let g:sonokai_style = 'andromeda'
 " let g:sonokai_style = 'shusia'
-" let g:sonokai_style = 'atlantis'
+let g:sonokai_style = 'atlantis'
 " let g:sonokai_style = 'maia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
-" colorscheme sonokai
+colorscheme sonokai
+" colorscheme ci_dark
 
-let g:equinusocio_material_hide_vertsplit = 1
-let g:equinusocio_material_darker = 1
+let g:equinusocio_material_hide_vertsplit = 0
+" let g:equinusocio_material_style = 'default'
+let g:equinusocio_material_style = 'darker'
+let g:equinusocio_material_bracket_improved = 1
+
 " colorscheme equinusocio_material
 
 " " this theme has a buildin lightline theme, you can turn it on

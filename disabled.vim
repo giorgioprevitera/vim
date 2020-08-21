@@ -1,6 +1,7 @@
 "--------------------------------------------------
 " Plugins
 "--------------------------------------------------
+" Plug 'https://github.com/ap/vim-buftabline.git'                                                                    " Buffer list that lives in the tabline
 " Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
 " Plug 'https://github.com/airblade/vim-rooter'
 " Plug 'https://github.com/Nequo/vim-allomancer.git'
