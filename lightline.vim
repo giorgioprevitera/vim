@@ -1,5 +1,5 @@
 let g:lightline = {
-    \ 'colorscheme': 'deus',
+    \ 'colorscheme': 'seoul256',
     \ 'active': {
     \   'left': [ [ 'cwd', 'filename', 'modified' ],
     \             [ 'readonly', ] ],
