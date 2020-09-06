@@ -1,5 +1,5 @@
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
+    \ 'colorscheme': 'sonokai',
     \ 'active': {
     \   'left': [ [ 'cwd', 'filename', 'modified' ],
     \             [ 'readonly', ] ],
@@ -15,11 +15,11 @@ let g:lightline = {
     \ }
 
 function! LightlineFilename()
-    return expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    return expand('%:f') !=# '' ? ' ' . expand('%:f') : '[No Name]'
 endfunction
 
 function! LightlineCwd()
-    return substitute(getcwd(), '^.*/', '', '')
+    return ' ' . substitute(getcwd(), '^.*/', '', '')
 endfunction
 
 function! GitBranch()
