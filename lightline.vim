@@ -23,5 +23,5 @@ function! LightlineCwd()
 endfunction
 
 function! GitBranch()
-    return ' ' . FugitiveHead()
+    return FugitiveHead() == '' ? ' [ None ]' : ' ' . FugitiveHead()
 endfunction
