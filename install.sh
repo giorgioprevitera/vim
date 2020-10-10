@@ -91,10 +91,7 @@ curl -fLSs \
     chmod +x "${HOME}/bin/tfdoc"
 
 # Create vimrc
-touch "${HOME}/.vimrc"
-cat ">${HOME}/.vimrc" <<EOF
-source ${HOME}/.vim/vimrc
-EOF
+echo source ${HOME}/.vim/vimrc >${HOME}/.vimrc
 
 # Link config for neovim
 ln -vfs "${HOME}/.vim/vimrc" "${HOME}/.config/nvim/init.vim"
@@ -109,6 +106,6 @@ pip3 install --user neovim jedi autopep8 flake8
 # Install all plugins
 nvim +PlugInstall +qall
 
-mkdir "${HOME}/bin"
+mkdir -p "${HOME}/bin"
 ln -vfs "${NVIM_PATH}" "${HOME}/bin/vim"
 ln -vfs "${NVIM_PATH}" "${HOME}/bin/vi"
