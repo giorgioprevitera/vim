@@ -38,6 +38,10 @@ if executable('rg')
 
   "ag is fast enough that CtrlP doesn't need to cache
   " let g:ctrlp_use_caching = 0
+else
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
+  endif
 endif
 
 
@@ -57,7 +61,12 @@ nnoremap <leader>hic :History:<cr>
 nnoremap <leader>his :History/<cr>
 nnoremap <leader>ll :Lines<cr>
 
+if (match(system("uname -s"), "Darwin") != -1)
 let $FZF_DEFAULT_COMMAND='fd --type f'
+else
+let $FZF_DEFAULT_COMMAND='fdfind --type f'
+endif
+
 " let $FZF_DEFAULT_OPTS='--color=bg:#222222 --border --layout=reverse'
 let $FZF_DEFAULT_OPTS='--border --layout=reverse'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'

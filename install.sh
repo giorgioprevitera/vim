@@ -10,6 +10,7 @@ _common_dependencies="\
     git \
     yarn \
     fzf \
+    ripgrep \
 "
 
 _Darwin_dependencies="\
@@ -18,7 +19,6 @@ _Darwin_dependencies="\
     shfmt \
     prettier \
     bat \
-    ripgrep \
     exa \
     findutils \
     fd \
@@ -91,6 +91,7 @@ curl -fLSs \
     chmod +x "${HOME}/bin/tfdoc"
 
 # Create vimrc
+touch "${HOME}/.vimrc"
 cat ">${HOME}/.vimrc" <<EOF
 source ${HOME}/.vim/vimrc
 EOF
@@ -103,10 +104,11 @@ ln -vfs "${HOME}/.vim/autoload" "${HOME}/.config/nvim/autoload"
 ln -vfs "${HOME}/.vim/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json"
 
 # Install python dependencies
-pip install --user neovim jedi autopep8 flake8
+pip3 install --user neovim jedi autopep8 flake8
 
 # Install all plugins
 nvim +PlugInstall +qall
 
+mkdir "${HOME}/bin"
 ln -vfs "${NVIM_PATH}" "${HOME}/bin/vim"
 ln -vfs "${NVIM_PATH}" "${HOME}/bin/vi"
