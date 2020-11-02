@@ -51,15 +51,27 @@ endif
 
 set hidden
 
-nnoremap <c-p> :Files<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>c :Commands<cr>
-nnoremap <leader>a :Rg<cr>
-nnoremap <leader>hif :History<cr>
-nnoremap <leader>hic :History:<cr>
-nnoremap <leader>his :History/<cr>
-nnoremap <leader>ll :Lines<cr>
+nnoremap <c-p> :Clap filer<cr>
+nnoremap <leader>f :Clap files<cr>
+nnoremap <leader>b :Clap buffers<cr>
+nnoremap <leader>c :Clap <cr>
+nnoremap <leader>a :Clap grep2<cr>
+nnoremap <leader>r :Clap grep<cr>
+nnoremap <leader>hif :Clap history<cr>
+nnoremap <leader>hic :Clap command_history:<cr>
+nnoremap <leader>his :Clap search_history<cr>
+nnoremap <leader>ll :Clap lines<cr>
+nnoremap <leader>s :Clap blines<cr>
+
+" nnoremap <c-p> :Files<cr>
+" nnoremap <leader>f :Files<cr>
+" nnoremap <leader>b :Buffers<cr>
+" nnoremap <leader>c :Commands<cr>
+" nnoremap <leader>a :Rg<cr>
+" nnoremap <leader>hif :History<cr>
+" nnoremap <leader>hic :History:<cr>
+" nnoremap <leader>his :History/<cr>
+" nnoremap <leader>ll :Lines<cr>
 
 if (match(system("uname -s"), "Darwin") != -1)
 let $FZF_DEFAULT_COMMAND='fd --type f'

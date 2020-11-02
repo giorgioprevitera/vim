@@ -1,8 +1,6 @@
 source ~/.vim/plugins.vim
 source ~/.vim/colors.vim
 source ~/.vim/coc.vim
-" source ~/.vim/airline.vim
-" source ~/.vim/statusline.vim
 source ~/.vim/lightline.vim
 source ~/.vim/terminal.vim
 source ~/.vim/ale.vim
@@ -13,7 +11,11 @@ source ~/.vim/python.vim
 source ~/.vim/netrw.vim
 source ~/.vim/tags.vim
 
-let g:python3_host_prog =  $HOME . '/.pyenv/shims/python'
+if (match(system("uname -s"), "Darwin") != -1)
+    let g:python3_host_prog =  $HOME . '/.pyenv/shims/python'
+else
+    let g:python3_host_prog =  '/usr/bin/python3'
+endif
 
 "--------------------------------------------------
 " General settings
@@ -133,8 +135,8 @@ augroup END
 
 
 augroup DetectIndent
-   autocmd!
-   autocmd BufReadPost *  DetectIndent
+    autocmd!
+    autocmd BufReadPost *  DetectIndent
 augroup END
 
 let g:VM_maps = {}
@@ -151,10 +153,10 @@ let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 command! CleanBuffers %bd|e#
 
 " Sessions
-nmap <leader>s :Prosession
+" nmap <leader>s :Prosession
 set sessionoptions+=globals
 
-set inccommand=nosplit
+set inccommand=split
 
 " Wintab config
 map [w <Plug>(wintabs_previous)
@@ -165,4 +167,14 @@ map <leader>wc <Plug>(wintabs_close)
 map <leader>wo <Plug>(wintabs_only)
 map <leader>wa :WintabsAllBuffers<CR>
 
-let g:wintabs_display = 'statusline'
+" let g:wintabs_display = 'statusline'
+"
+"
+"
+let g:clap_disable_run_rooter = v:true
+let g:clap_theme = 'material_design_dark'
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_provider_q = {
+      \ 'source': ['~/.vim/colors.vim', '~/.vim/vimrc', '~/.vim/plugins.vim', '~/.zshrc'],
+      \ 'sink': 'e',
+      \ }

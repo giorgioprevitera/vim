@@ -1,11 +1,13 @@
 let g:lightline = {
-    \ 'colorscheme': 'sonokai',
+    \ 'colorscheme': 'neodark',
     \ 'active': {
     \   'left': [ [ 'cwd', 'filename', 'modified' ],
-    \             [ 'readonly', ] ],
+    \             [ 'readonly', ],
+    \           ],
     \   'right': [ [ 'gitbranch', 'lineinfo', ],
     \              ['percent'],
-    \              ['filetype'], ]
+    \              ['filetype'],
+    \           ]
     \ },
     \ 'component_function': {
     \   'gitbranch': 'GitBranch',

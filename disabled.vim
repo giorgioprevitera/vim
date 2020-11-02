@@ -1,4 +1,9 @@
 "--------------------------------------------------
+" Config files
+"--------------------------------------------------
+" source ~/.vim/airline.vim
+" source ~/.vim/statusline.vim
+"--------------------------------------------------
 " Plugins
 "--------------------------------------------------
 " Plug 'https://github.com/ap/vim-buftabline.git'                                                                    " Buffer list that lives in the tabline

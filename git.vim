@@ -9,7 +9,7 @@ if has('nvim')
     set diffopt+=vertical
 endif
 
-
+let g:fubitive_domain_pattern = 'bitbucket\.ipttools\.info'
 
 "--------------------------------------------------
 " Git gutter
