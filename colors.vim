@@ -41,7 +41,7 @@ let ayucolor="mirage"
 " colorscheme snazzy
 " colorscheme solarized8_light_flat
 " colorscheme xcodedarkhc
-colorscheme xcodedark
+" colorscheme xcodedark
 
 " let g:equinusocio_material_style = 'default'
 let g:equinusocio_material_style = 'darker'
@@ -62,4 +62,4 @@ let g:sonokai_disable_italic_comment = 1
 " let g:neodark#background = '#3d3d3d'
 " let g:neodark#use_256color = 1
 let g:neodark#solid_vertsplit = 1
-" colorscheme neodark
+colorscheme neodark
