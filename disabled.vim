@@ -44,6 +44,8 @@
 " Plug 'https://github.com/yuki-ycino/fzf-preview.vim'
 " Plug 'https://github.com/junegunn/goyo.vim.git', { 'on': 'Goyo' }                                                  " Distraction-free writing
 " Plug 'https://github.com/tommcdo/vim-fubitive.git'                                                                 " Bitbucket support
+" Plug 'https://github.com/junegunn/fzf'                                                                             " Command-line fuzzy finder, required by fzf.vim
+" Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
 
     " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

@@ -7,6 +7,7 @@ Plug 'https://github.com/flazz/vim-colorschemes.git'
 Plug 'https://github.com/sainnhe/sonokai'
 Plug 'https://github.com/chuling/equinusocio-material.vim'
 Plug 'https://github.com/KeitaNakamura/neodark.vim'
+Plug 'https://github.com/adrian5/oceanic-next-vim'
 
 " Plugins
 if has('nvim')
@@ -29,8 +30,6 @@ Plug 'https://github.com/idanarye/vim-merginal', { 'on': 'Merginal' }           
 Plug 'https://github.com/itchyny/lightline.vim'                                                                    " A light and configurable statusline/tabline
 Plug 'https://github.com/jiangmiao/auto-pairs'                                                                     " Insert or delete brackets, parens, quotes in pair
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}                          " Autocompletion and linter for Terraform
-Plug 'https://github.com/junegunn/fzf'                                                                             " Command-line fuzzy finder, required by fzf.vim
-Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
 Plug 'https://github.com/justinmk/vim-sneak'                                                                       " Jump to any location specified by two characters
 Plug 'https://github.com/liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }                    " Vim-clap is a modern generic interactive finder and dispatcher
 Plug 'https://github.com/majutsushi/tagbar'                                                                        " Displays tags in a window, ordered by scope
@@ -58,6 +57,7 @@ Plug 'https://github.com/tpope/vim-unimpaired.git'                              
 Plug 'https://github.com/dhruvasagar/vim-prosession'                                                               " Handle vim sessions like a pro
 Plug 'https://github.com/vim-scripts/highlight.vim.git'                                                            " Highlight lines or patterns of interest in different colors
 Plug 'https://github.com/vimwiki/vimwiki.git'                                                                      " Personal Wiki
+Plug 'https://github.com/jvirtanen/vim-hcl'                                                                        " Syntax highlighting for HashiCorp Configuration Language (HCL)
 Plug 'https://github.com/voldikss/vim-floaterm', {'on': 'FloatermToggle'}                                          " Builtin terminal in the floating/popup window
 Plug 'https://github.com/w0rp/ale.git'                                                                             " Check syntax in Vim asynchronously and fix files
 Plug 'https://github.com/zefei/vim-wintabs'                                                                        " Per-window buffer manager for Vim

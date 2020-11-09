@@ -56,7 +56,8 @@ set cursorline
 syntax on
 syntax enable
 " YAML syntax
-au BufNewFile,BufRead *.yaml.*,*.yml.* so ~/.vim/local/yaml.vim
+" au BufNewFile,BufRead *.yaml.*,*.yml.* so ~/.vim/local/yaml.vim
+
 " Jenkinsfile
 autocmd BufRead,BufNewFile Jenkinsfile*,*.jobdsl set syntax=groovy
 " Dockerfile
@@ -168,13 +169,3 @@ map <leader>wo <Plug>(wintabs_only)
 map <leader>wa :WintabsAllBuffers<CR>
 
 " let g:wintabs_display = 'statusline'
-"
-"
-"
-let g:clap_disable_run_rooter = v:true
-let g:clap_theme = 'material_design_dark'
-let g:clap_layout = { 'relative': 'editor' }
-let g:clap_provider_q = {
-      \ 'source': ['~/.vim/colors.vim', '~/.vim/vimrc', '~/.vim/plugins.vim', '~/.zshrc'],
-      \ 'sink': 'e',
-      \ }

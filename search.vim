@@ -1,4 +1,18 @@
 "--------------------------------------------------
+" The Silver Searcher
+"--------------------------------------------------
+if executable('rg')
+  set grepprg=rg\ --color\ never\ --no-heading\ --vimgrep
+
+else
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
+  endif
+endif
+
+
+
+"--------------------------------------------------
 " CtrlSF
 "--------------------------------------------------
 nmap     <C-F><C-S> <Plug>CtrlSFPrompt

@@ -3,9 +3,9 @@
 "--------------------------------------------------
 
 " Exit terminal mode using Esc
-noremap  <silent> <M-`>           :FloatermToggle<CR>
-noremap! <silent> <M-`>           <Esc>:FloatermToggle<CR>
-tnoremap <silent> <M-`>           <C-\><C-n>:FloatermToggle<CR>
+noremap  <silent> <M-`> :FloatermToggle<CR>
+noremap! <silent> <M-`> <Esc>:FloatermToggle<CR>
+tnoremap <silent> <M-`> <C-\><C-n>:FloatermToggle<CR>
 
 "  let height = &lines - 8
 "  let width = float2nr(&columns - (&columns * 2 / 10))
