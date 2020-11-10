@@ -129,3 +129,15 @@
 "let g:syntastic_check_on_wq = 0
 
 "nnoremap <Leader>st :SyntasticToggleMode<CR>
+"
+"
+" nnoremap <leader>wr :set linebreak noshowmode dictionary=/usr/share/dict/british-english<CR>:Goyo<CR>
+"
+"
+"
+"
+" augroup BgHighlight
+"     autocmd!
+"     autocmd WinEnter * set cul
+"     autocmd WinLeave * set nocul
+" augroup END
