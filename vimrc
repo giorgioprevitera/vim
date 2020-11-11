@@ -20,3 +20,4 @@ source ~/.vim/indentline.vim
 source ~/.vim/wintab.vim
 source ~/.vim/copy-paste.vim
 source ~/.vim/terraform.vim
+source ~/.vim/config.lua

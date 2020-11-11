@@ -9,7 +9,11 @@ Plug 'https://github.com/chuling/equinusocio-material.vim'
 Plug 'https://github.com/KeitaNakamura/neodark.vim'
 Plug 'https://github.com/adrian5/oceanic-next-vim'
 
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
+
 " Plugins
+
 if has('nvim')
     Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}                                             " Intellisense engine with full language server protocol support
 endif
@@ -57,7 +61,6 @@ Plug 'https://github.com/tpope/vim-unimpaired.git'                              
 Plug 'https://github.com/dhruvasagar/vim-prosession'                                                               " Handle vim sessions like a pro
 Plug 'https://github.com/vim-scripts/highlight.vim.git'                                                            " Highlight lines or patterns of interest in different colors
 Plug 'https://github.com/vimwiki/vimwiki.git'                                                                      " Personal Wiki
-Plug 'https://github.com/jvirtanen/vim-hcl'                                                                        " Syntax highlighting for HashiCorp Configuration Language (HCL)
 Plug 'https://github.com/voldikss/vim-floaterm', {'on': 'FloatermToggle'}                                          " Builtin terminal in the floating/popup window
 Plug 'https://github.com/w0rp/ale.git'                                                                             " Check syntax in Vim asynchronously and fix files
 Plug 'https://github.com/zefei/vim-wintabs'                                                                        " Per-window buffer manager for Vim
