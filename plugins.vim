@@ -9,8 +9,6 @@ Plug 'https://github.com/chuling/equinusocio-material.vim'
 Plug 'https://github.com/KeitaNakamura/neodark.vim'
 Plug 'https://github.com/adrian5/oceanic-next-vim'
 
-Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
-Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 
 " Plugins
 
@@ -41,6 +39,8 @@ Plug 'https://github.com/mbbill/undotree', { 'on': 'UndotreeToggle' }           
 Plug 'https://github.com/mustache/vim-mustache-handlebars'                                                         " A vim plugin for working with mustache and handlebars templates
 Plug 'https://github.com/mg979/vim-visual-multi'                                                                   " Multiple cursors
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'                                                          " Treesitter configurations and abstraction layer for Neovim. 
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'                                              " Create your own textobjects using tree-sitter queries
 Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                                                         " Git branch viewer
 Plug 'https://github.com/rhysd/clever-f.vim.git'                                                                   " Extended f, F, t and T key mappings
 Plug 'https://github.com/ryanoasis/vim-devicons'                                                                   " Adds file type icons
