@@ -86,3 +86,4 @@ let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
 
 nmap <silent> <leader>gt <Plug>(go-test)
+nmap <silent> <leader>ga :GoAlternate<CR>
