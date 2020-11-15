@@ -19,7 +19,7 @@ set hidden
 nnoremap <c-p> :Clap filer<cr>
 nnoremap <leader>f :Clap files<cr>
 nnoremap <leader>b :Clap buffers<cr>
-nnoremap <leader>c :Clap <cr>
+nnoremap <leader>cc :Clap <cr>
 nnoremap <leader>a :Clap grep2<cr>
 nnoremap <leader>r :Clap grep<cr>
 nnoremap <leader>hif :Clap history<cr>
