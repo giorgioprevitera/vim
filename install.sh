@@ -91,14 +91,11 @@ curl -fLSs \
     chmod +x "${HOME}/bin/tfdoc"
 
 # Create vimrc
-echo source ${HOME}/.vim/vimrc >${HOME}/.vimrc
+echo source "${HOME}/.vim/vimrc" ">${HOME}/.vimrc"
 
 # Link config for neovim
 ln -vfs "${HOME}/.vim/vimrc" "${HOME}/.config/nvim/init.vim"
 ln -vfs "${HOME}/.vim/autoload" "${HOME}/.config/nvim/autoload"
-
-# Configures CoC
-ln -vfs "${HOME}/.vim/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json"
 
 # Install python dependencies
 pip3 install --user neovim jedi autopep8 flake8

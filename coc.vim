@@ -4,6 +4,35 @@
 " let g:coc_global_extensions = ['coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-json', 'coc-python', 'coc-yaml', 'coc-go', 'coc-snippets']
 let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-yaml', 'coc-snippets']
 
+let g:coc_user_config = {
+\     'suggest.snippetIndicator': ' ►',
+\     'diagnostic.checkCurrentLine': 'true',
+\     'codeLens.enable': 'true',
+\     'java.implementationsCodeLens.enabled': 'true',
+\     'java.referencesCodeLens.enabled': 'true',
+\     'java.saveActions.organizeImports': 'true',
+\     'python.jediEnabled': 'true',
+\     'python.linting.enabled': 'false',
+\     'python.linting.flake8Enabled': 'true',
+\     'python.linting.pylintEnabled': 'false',
+\     'python.pythonPath': '/Users/giorgio/.pyenv/shims/python',
+\     'languageserver': {
+\       'golang': {
+\         'command': 'gopls',
+\         'rootPatterns': ['go.mod', '.vim/', '.git/'],
+\         'filetypes': ['go'],
+\         'initializationOptions': {
+\           'usePlaceholders': 'true'
+\         }
+\       },
+\       'terraform': {
+\         'command': 'terraform-lsp',
+\         'filetypes': ['terraform'],
+\         'initializationOptions': {}
+\       }
+\     }
+\ }
+
 " Better display for messages
 set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
