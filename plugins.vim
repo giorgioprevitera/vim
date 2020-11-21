@@ -66,4 +66,8 @@ Plug 'https://github.com/w0rp/ale.git'                                          
 Plug 'https://github.com/zefei/vim-wintabs'                                                                        " Per-window buffer manager for Vim
 Plug 'https://github.com/zefei/vim-wintabs-powerline'                                                              " Powerline fonts renderers for wintabs
 
+
+Plug 'https://github.com/junegunn/fzf'                                                                             " Command-line fuzzy finder, required by fzf.vim
+Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
+
 call plug#end()
