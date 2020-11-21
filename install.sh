@@ -4,7 +4,6 @@ set -euo pipefail
 
 # Install neovim and all dependencies
 _common_dependencies="\
-    neovim \
     shellcheck \
     ctags \
     git \
@@ -38,6 +37,10 @@ Darwin)
         echo "ERROR: Homebrew is required - https://brew.sh/"
         exit 1
     )
+
+    # Install Neovim nightly
+    brew install neovim --HEAD
+
     brew install ${_common_dependencies} ${!_environment_dependencies} || brew upgrade ${_common_dependencies} ${!_environment_dependencies}
     # Install nerd font
     brew tap homebrew/cask-fonts
@@ -47,6 +50,10 @@ Darwin)
 Linux)
     export LC_ALL="en_US.UTF-8"
     export LC_CTYPE="en_US.UTF-8"
+
+    # Install Neovim nightly
+    sudo wget -O /usr/bin/nvim https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage && sudo chmod +x /usr/bin/nvim
+
     command -v node || curl -sL install-node.now.sh/lts | sudo FORCE=1 bash
 
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -98,7 +105,7 @@ ln -vfs "${HOME}/.vim/vimrc" "${HOME}/.config/nvim/init.vim"
 ln -vfs "${HOME}/.vim/autoload" "${HOME}/.config/nvim/autoload"
 
 # Install python dependencies
-pip3 install --user neovim jedi autopep8 flake8
+pip3 install --user -U neovim jedi autopep8 flake8
 
 # Install all plugins
 nvim +PlugInstall +qall
