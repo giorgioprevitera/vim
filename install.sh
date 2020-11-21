@@ -8,7 +8,6 @@ _common_dependencies="\
     ctags \
     git \
     yarn \
-    fzf \
     ripgrep \
 "
 
@@ -21,6 +20,7 @@ _Darwin_dependencies="\
     exa \
     findutils \
     fd \
+    fzf \
 "
 
 _Linux_dependencies="\
@@ -61,6 +61,9 @@ Linux)
     sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo apt-get update -y
     sudo apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
+
+    wget -O /tmp/fzf.tgz https://github.com/junegunn/fzf/releases/download/0.24.3/fzf-0.24.3-linux_amd64.tar.gz
+    sudo tar xzvf /tmp/fzf.tgz -C /usr/bin
 
     sudo snap install shfmt
     pip3 install -U pip
