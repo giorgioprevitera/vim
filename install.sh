@@ -62,8 +62,20 @@ Linux)
     sudo apt-get update -y
     sudo apt-get install -y ${_common_dependencies} ${!_environment_dependencies}
 
+    # Install FZF
     wget -O /tmp/fzf.tgz https://github.com/junegunn/fzf/releases/download/0.24.3/fzf-0.24.3-linux_amd64.tar.gz
     sudo tar xzvf /tmp/fzf.tgz -C /usr/bin
+    rm -f /tmp/fzf.tgz
+
+    # Install Go
+    wget -O /tmp/go.tgz https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz 
+    sudo tar xzvf /tmp/go.tgz -C /usr/local
+    rm -f /tmp/go.tgz
+
+
+    grep 'export GOROOT' ${HOME}/.bashrc || echo export GOROOT=/usr/local/go >>"${HOME}/.bashrc"
+    grep 'export GOPATH' ${HOME}/.bashrc || echo export GOPATH=${HOME}/go >>"${HOME}/.bashrc"
+    grep 'export PATH="${GOPATH}' ${HOME}/.bashrc || echo export PATH="\${GOPATH}/bin:\${GOROOT}/bin:\${PATH}" >>"${HOME}/.bashrc"
 
     sudo snap install shfmt
     pip3 install -U pip
@@ -115,7 +127,10 @@ pip3 install --user -U neovim jedi autopep8 flake8
 
 # Install all plugins
 nvim +PlugInstall +qall
+nvim +GoInstallBinaries +qall
 
 mkdir -p "${HOME}/bin"
 ln -vfs "${NVIM_PATH}" "${HOME}/bin/vim"
 ln -vfs "${NVIM_PATH}" "${HOME}/bin/vi"
+
+echo export EDITOR=nvim >>"${HOME}/.bashrc"
