@@ -16,7 +16,7 @@ let NERDTreeMinimalUI=1
 
 set hidden
 
-nnoremap <c-p> :Clap filer<cr>
+nnoremap <c-p> :Clap files<cr>
 nnoremap <leader>f :Clap files<cr>
 nnoremap <leader>b :Clap buffers<cr>
 nnoremap <leader>cc :Clap <cr>
@@ -27,6 +27,7 @@ nnoremap <leader>hic :Clap command_history:<cr>
 nnoremap <leader>his :Clap search_history<cr>
 nnoremap <leader>ll :Clap lines<cr>
 nnoremap <leader>s :Clap blines<cr>
+nnoremap <leader>co :Clap coc_outline<cr>
 
 let g:clap_disable_run_rooter = v:true
 let g:clap_theme = 'material_design_dark'
@@ -36,6 +37,12 @@ let g:clap_provider_q = {
       \ 'sink': 'e',
       \ }
 
+"--------------------------------------------------
+" Skylight
+"--------------------------------------------------
+
+nnoremap <silent>       gp    :Skylight!<CR>
+vnoremap <silent>       gp    :Skylight!<CR>
 
 "--------------------------------------------------
 " FZF
@@ -99,4 +106,6 @@ command! BD call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
+
+
 
