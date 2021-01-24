@@ -18,6 +18,8 @@ set splitright
 set splitbelow
 set nowrap
 set linebreak
+set ignorecase
+set smartcase
 " set scrolloff=999
 " keep multicursor
 let g:multi_cursor_exit_from_insert_mode = 0
