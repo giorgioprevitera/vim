@@ -1,6 +1,5 @@
 "-------- Plugins
 call plug#begin()
-" Plug 'https://github.com/GustavoKatel/sidebar.nvim'
 Plug 'https://github.com/hrsh7th/nvim-compe'
 Plug 'https://github.com/hrsh7th/vim-vsnip'
 Plug 'https://github.com/hrsh7th/vim-vsnip-integ'
@@ -13,13 +12,11 @@ Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/Yggdroot/indentLine.git'                                                                  " Display indentation lines
 Plug 'https://github.com/alxpettit/detectindent.git'                                                               " Automatically detect indent settings
 
-" Plug 'https://github.com/hashivim/vim-terraform.git', {'for': 'terraform'}                                         " Basic vim/terraform integration
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}                          " Autocompletion and linter for Terraform
 
 
 Plug 'https://github.com/dyng/ctrlsf.vim'
 
-" Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'https://github.com/glepnir/galaxyline.nvim'
 
 Plug 'https://github.com/kyazdani42/nvim-tree.lua'
@@ -37,19 +34,13 @@ Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                      
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
-" Plug 'https://github.com/ray-x/navigator.lua'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
-" Plug 'https://github.com/glepnir/lspsaga.nvim'
 Plug 'https://github.com/kabouzeid/nvim-lspinstall'
 Plug 'https://github.com/folke/trouble.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 
-" Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }                                             " Command-line fuzzy finder, required by fzf.vim
-" Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
-" Plug 'https://github.com/ibhagwan/fzf-lua.git'
-" Plug 'https://github.com/vijaymarupudi/nvim-fzf'
 
 Plug 'https://github.com/vim-test/vim-test'
 
@@ -61,7 +52,6 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
 
-" Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
 Plug 'https://github.com/sindrets/diffview.nvim'
 Plug 'https://github.com/tommcdo/vim-fubitive.git'                                                                 " Bitbucket support
@@ -94,6 +84,7 @@ lua require('telescope').setup{}
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ integrations = { diffview = true } }
+lua require'nvim-tree'.setup{}
 " lua require('sidebar-nvim').setup()
 lua<<EOF
 require('navigator').setup({
