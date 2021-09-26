@@ -4,6 +4,7 @@ local cmp = require'cmp'
 cmp.setup({
 snippet = {
   expand = function(args)
+    vim.fn["vsnip#anonymous"](args.body)
     vim.fn["UltiSnips#Anon"](args.body)
   end,
 },
@@ -18,20 +19,8 @@ mapping = {
 },
 sources = {
   { name = 'nvim_lsp' },
-
-  -- For vsnip user.
-
-  -- For luasnip user.
-  -- { name = 'luasnip' },
-
-  -- For ultisnips user.
+  { name = 'vsnip' },
   { name = 'ultisnips' },
-
   { name = 'buffer' },
 }
 })
-
--- -- Setup lspconfig.
--- require('lspconfig')[%YOUR_LSP_SERVER%].setup {
--- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- }

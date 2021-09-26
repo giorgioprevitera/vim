@@ -3,9 +3,17 @@ call plug#begin()
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+
+" Ultisnips
 Plug 'SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+" Vsnip
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'https://github.com/rafamadriz/friendly-snippets'
+
 
 
 Plug 'https://github.com/Yggdroot/indentLine.git'                                                                  " Display indentation lines
