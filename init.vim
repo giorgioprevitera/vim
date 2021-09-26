@@ -1,5 +1,6 @@
 "-------- Plugins
 call plug#begin()
+" Plug 'https://github.com/GustavoKatel/sidebar.nvim'
 Plug 'https://github.com/hrsh7th/nvim-compe'
 Plug 'https://github.com/hrsh7th/vim-vsnip'
 Plug 'https://github.com/hrsh7th/vim-vsnip-integ'
@@ -35,33 +36,39 @@ Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                      
 
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
+" Plug 'https://github.com/ray-x/navigator.lua'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
-Plug 'https://github.com/ray-x/navigator.lua'
-Plug 'https://github.com/glepnir/lspsaga.nvim'
+" Plug 'https://github.com/glepnir/lspsaga.nvim'
 Plug 'https://github.com/kabouzeid/nvim-lspinstall'
 Plug 'https://github.com/folke/trouble.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 
-Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }                                             " Command-line fuzzy finder, required by fzf.vim
-Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
+" Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }                                             " Command-line fuzzy finder, required by fzf.vim
+" Plug 'https://github.com/junegunn/fzf.vim'                                                                         " fzf + vim
 " Plug 'https://github.com/ibhagwan/fzf-lua.git'
+" Plug 'https://github.com/vijaymarupudi/nvim-fzf'
 
 Plug 'https://github.com/vim-test/vim-test'
 
 Plug 'https://github.com/sainnhe/sonokai'
+Plug 'embark-theme/vim', { 'as': 'embark' }
+Plug 'projekt0n/github-nvim-theme'
+
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
 
-Plug 'https://github.com/sbdchd/neoformat'
+" Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
 Plug 'https://github.com/sindrets/diffview.nvim'
 Plug 'https://github.com/tommcdo/vim-fubitive.git'                                                                 " Bitbucket support
 Plug 'https://github.com/towolf/vim-helm', { 'on': 'helm' }
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/shumphrey/fugitive-gitlab.vim'
 Plug 'https://github.com/tpope/vim-rhubarb.git'                                                                    " Github integration
 Plug 'https://github.com/tpope/vim-sensible.git'
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -79,44 +86,30 @@ source ~/.config/nvim/tree.lua
 source ~/.config/nvim/galaxyline.lua
 source ~/.config/nvim/terraform.vim
 
+source ~/.config/nvim/lsp.lua
 lua require('gitsigns').setup{ current_line_blame = true }
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('telescope').setup{}
 lua require('diffview').setup{}
-lua require('lsp_signature').on_attach()
+lua require('lsp_signature').setup()
 lua require('neogit').setup{ integrations = { diffview = true } }
-lua require('lspinstall').setup()
-source ~/.config/nvim/navigator.lua
-
-
-autocmd BufReadPost,FileReadPost lua require "lsp_signature".on_attach()
-
+" lua require('sidebar-nvim').setup()
 lua<<EOF
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{}
-end
+require('navigator').setup({
+  icons = {
+    -- Code action
+    code_action_icon = "🏏",
+    -- Diagnostics
+    diagnostic_head = '🐛',
+    diagnostic_head_severity_1 = "🈲",
+    -- refer to lua/navigator.lua for more icons setups
+    diagnostic_virtual_text = "●",
+  },
+})
 EOF
-
-lua require'lspconfig'.tsserver.setup{}
-
-
-
-" lua<<EOF
-" local saga = require 'lspsaga'
-" saga.init_lsp_saga()
-" EOF
-
-nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
-
-
-
-
-
-
-
+" lua require'lspsaga'.init_lsp_saga()
+" source ~/.config/nvim/navigator.lua
 
 
 
@@ -144,10 +137,13 @@ set smartcase
 set hidden
 set ignorecase
 set cursorline
+set foldmethod=indent
+set foldlevel=99
 
 
 let g:sonokai_style = 'andromeda'
 colorscheme sonokai
+" colorscheme embark
 
 
 "--------------------------------------------------
@@ -183,21 +179,35 @@ let g:ctrlsf_auto_focus = {
 
 
 "--------------------------------------------------
-" Telescope
+" Telescope/FZF
 "--------------------------------------------------
 
-" nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
-" nnoremap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
-" nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_branches()<cr>
-" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-" nnoremap <leader>fh <cmd>lua require('telescope.builtin').command_history()<cr>
+nnoremap <C-t> :Telescope<CR>
+nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').command_history()<cr>
 
-nnoremap <c-p> :Files<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>c :Commands<cr>
-nnoremap <leader>a :Rg<cr>
-nnoremap <leader>hi :History :<cr>
+" nnoremap <c-p> :Files<cr>
+" nnoremap <leader>f :Files<cr>
+" nnoremap <leader>b :Buffers<cr>
+" nnoremap <leader>c :Commands<cr>
+" nnoremap <leader>a :Rg<cr>
+" nnoremap <leader>hi :History :<cr>
+
+" nnoremap <c-P> <cmd>lua require('fzf-lua').files()<CR>
+" nnoremap <leader>f <cmd>lua require('fzf-lua').files()<CR>
+" nnoremap <leader>b <cmd>lua require('fzf-lua').buffers()<CR>
+" nnoremap <leader>a <cmd>lua require('fzf-lua').live_grep()<CR>
+" nnoremap <leader>gb <cmd>lua require('fzf-lua').git_branch()<CR>
+" nnoremap <leader>gs <cmd>lua require('fzf-lua').git_status()<CR>
+" nnoremap <leader>gc <cmd>lua require('fzf-lua').git_commits()<CR>
+" nnoremap <leader>ld <cmd>lua require('fzf-lua').lsp_definitions()<CR>
+" nnoremap <leader>lr <cmd>lua require('fzf-lua').lsp_references()<CR>
+" nnoremap <leader>li <cmd>lua require('fzf-lua').lsp_implementations()<CR>
+" nnoremap <leader>lw <cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>
+" nnoremap <leader>lc <cmd>lua require('fzf-lua').lsp_code_actions()<CR>
 
 
 "--------------------------------------------------
@@ -233,8 +243,6 @@ augroup DetectIndent
 augroup END
 
 
-let g:fubitive_domain_pattern = 'bitbucket\.bics-collaboration\.homeoffice\.gov\.uk'
-
 "--------------------------------------------------
 " NvimTree
 "--------------------------------------------------
@@ -261,16 +269,6 @@ nnoremap <silent>    <A-.> :BufferNext<CR>
 " Re-order to previous/next
 nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
 nnoremap <silent>    <A->> :BufferMoveNext<CR>
-" Goto buffer in position...
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent>    <A-o> :BufferCloseAllButCurrent<CR>
@@ -310,14 +308,19 @@ let g:VM_maps["Add Cursor Up"]   = '<C-k>'
 
 
 "--------------------------------------------------
-" Neoformat
+" Formatting
 "--------------------------------------------------
 
 augroup fmt
   autocmd!
-  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-  " au BufWritePre * <cmd> lua vim.lsp.buf.formatting()
+  au BufWritePre * lua vim.lsp.buf.formatting_sync()
+"   " au BufWritePre *.py try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+"   " au BufWritePre *.md try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+"   au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
+
+" Enable trimmming of trailing whitespace
+" let g:neoformat_basic_format_trim = 1
 
 lua<<EOF
 function OrgImports(wait_ms)
@@ -334,13 +337,32 @@ function OrgImports(wait_ms)
     end
   end
 end
-
 vim.api.nvim_command("au BufWritePre *.go lua OrgImports(1000)")
 EOF
+
+
+"--------------------------------------------------
+" Tests
+"--------------------------------------------------
+
 
 let test#strategy = "floaterm"
 let test#python#runner = "pytest"
 let test#python#pytest#options = "-rapP"
 let test#go#runner = "gotest"
+
 nnoremap <leader>gt :FloatermNew gotest -v ./...<CR>
 nnoremap <leader>fw :vimgrep <cword> %<CR>:copen<CR><C-W>L
+nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
+nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
+
+let g:python3_host_prog = "/Users/giorgio/.local/share/virtualenvs/nvim-venv-DKwLqbQC/bin/python3"
+
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
+let g:fugitive_gitlab_domains = ['https://gitlab.tools.digital.coveahosted.co.uk']
+
