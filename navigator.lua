@@ -1,38 +1,11 @@
-require'navigator'.setup({
-    keymaps = {
-      {key = "gr", func = "references()"},
-      {mode = "i", key = "<M-k>", func = "signature_help()"},
-      {key = "<c-k>", func = "signature_help()"},
-      {key = "g0", func = "document_symbol()"},
-      {key = "gW", func = "workspace_symbol()"},
-      {key = "<c-]>", func = "definition()"},
-      {key = "gD", func = "declaration({ border = 'single' })"},
-      {key = "gp", func = "require('navigator.definition').definition_preview()"},
-      {key = "gT", func = "require('navigator.treesitter').buf_ts()"},
-      {key = "<Leader>gT", func = "require('navigator.treesitter').bufs_ts()"},
-      {key = "K", func = "hover({ popup_opts = { border = single }})"},
-      {key = "<Space>ca", mode = "n", func = "code_action()"},
-      {key = "<Space>cA", mode = "v", func = "range_code_action()"},
-      {key = "<Leader>re", func = "rename()"},
-      {key = "<Space>rn", func = "require('navigator.rename').rename()"},
-      {key = "<Leader>gi", func = "incoming_calls()"},
-      {key = "<Leader>go", func = "outgoing_calls()"},
-      {key = "gi", func = "implementation()"},
-      {key = "<Space>D", func = "type_definition()"},
-      {key = "gL", func = "require('navigator.diagnostics').show_line_diagnostics()"},
-      {key = "gG", func = "require('navigator.diagnostics').show_diagnostic()"},
-      {key = "]d", func = "diagnostic.goto_next({ border = 'single' })"},
-      {key = "[d", func = "diagnostic.goto_prev({ border = 'single' })"},
-      {key = "]r", func = "require('navigator.treesitter').goto_next_usage()"},
-      {key = "[r", func = "require('navigator.treesitter').goto_previous_usage()"},
-      {key = "<C-LeftMouse>", func = "definition()"},
-      {key = "g<LeftMouse>", func = "implementation()"},
-      {key = "<Leader>k", func = "require('navigator.dochighlight').hi_symbol()"},
-      {key = '<Space>wa', func = 'add_workspace_folder()'},
-      {key = '<Space>wr', func = 'remove_workspace_folder()'},
-      {key = '<Space>ff', func = 'formatting()', mode='n'},
-      {key = '<Space>ff', func = 'range_formatting()', mode='v'},
-      {key = '<Space>wl', func = 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))'},
-      {key = "<Space>la", mode = "n", func = "require('navigator.codelens').run_action()"},
-    }
+require('navigator').setup({
+  icons = {
+    -- Code action
+    code_action_icon = "🏏",
+    -- Diagnostics
+    diagnostic_head = '🐛',
+    diagnostic_head_severity_1 = "🈲",
+    -- refer to lua/navigator.lua for more icons setups
+    diagnostic_virtual_text = "●",
+  },
 })

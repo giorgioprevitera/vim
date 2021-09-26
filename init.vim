@@ -1,13 +1,12 @@
 "-------- Plugins
 call plug#begin()
-Plug 'https://github.com/hrsh7th/nvim-compe'
-Plug 'https://github.com/hrsh7th/vim-vsnip'
-Plug 'https://github.com/hrsh7th/vim-vsnip-integ'
-Plug 'https://github.com/rafamadriz/friendly-snippets'
-
-" ULTISNIPS
-Plug 'https://github.com/SirVer/ultisnips'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
 
 Plug 'https://github.com/Yggdroot/indentLine.git'                                                                  " Display indentation lines
 Plug 'https://github.com/alxpettit/detectindent.git'                                                               " Automatically detect indent settings
@@ -67,11 +66,7 @@ Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/windwp/nvim-autopairs'
 call plug#end()
 
-source ~/.config/nvim/compe.lua
 source ~/.config/nvim/treesitter.lua
-" source ~/.config/nvim/lsp.lua
-source ~/.config/nvim/tree.lua
-
 " source ~/.config/nvim/lualine.lua
 source ~/.config/nvim/galaxyline.lua
 source ~/.config/nvim/terraform.vim
@@ -84,32 +79,10 @@ lua require('telescope').setup{}
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ integrations = { diffview = true } }
-lua require'nvim-tree'.setup{}
-" lua require('sidebar-nvim').setup()
-lua<<EOF
-require('navigator').setup({
-  icons = {
-    -- Code action
-    code_action_icon = "🏏",
-    -- Diagnostics
-    diagnostic_head = '🐛',
-    diagnostic_head_severity_1 = "🈲",
-    -- refer to lua/navigator.lua for more icons setups
-    diagnostic_virtual_text = "●",
-  },
-})
-EOF
-" lua require'lspsaga'.init_lsp_saga()
-" source ~/.config/nvim/navigator.lua
+source ~/.config/nvim/navigator.lua
 
-
-
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+set completeopt=menu,menuone,noselect
+source ~/.config/nvim/cmp.lua
 
 set termguicolors
 set background=dark
@@ -149,6 +122,7 @@ smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
 
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
+" let g:UltiSnipsRemoveSelectModeMappings=false
 
 
 "--------------------------------------------------
@@ -179,26 +153,6 @@ nnoremap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').command_history()<cr>
-
-" nnoremap <c-p> :Files<cr>
-" nnoremap <leader>f :Files<cr>
-" nnoremap <leader>b :Buffers<cr>
-" nnoremap <leader>c :Commands<cr>
-" nnoremap <leader>a :Rg<cr>
-" nnoremap <leader>hi :History :<cr>
-
-" nnoremap <c-P> <cmd>lua require('fzf-lua').files()<CR>
-" nnoremap <leader>f <cmd>lua require('fzf-lua').files()<CR>
-" nnoremap <leader>b <cmd>lua require('fzf-lua').buffers()<CR>
-" nnoremap <leader>a <cmd>lua require('fzf-lua').live_grep()<CR>
-" nnoremap <leader>gb <cmd>lua require('fzf-lua').git_branch()<CR>
-" nnoremap <leader>gs <cmd>lua require('fzf-lua').git_status()<CR>
-" nnoremap <leader>gc <cmd>lua require('fzf-lua').git_commits()<CR>
-" nnoremap <leader>ld <cmd>lua require('fzf-lua').lsp_definitions()<CR>
-" nnoremap <leader>lr <cmd>lua require('fzf-lua').lsp_references()<CR>
-" nnoremap <leader>li <cmd>lua require('fzf-lua').lsp_implementations()<CR>
-" nnoremap <leader>lw <cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>
-" nnoremap <leader>lc <cmd>lua require('fzf-lua').lsp_code_actions()<CR>
 
 
 "--------------------------------------------------
@@ -237,12 +191,15 @@ augroup END
 "--------------------------------------------------
 " NvimTree
 "--------------------------------------------------
+let g:nvim_tree_disable_window_picker = 1
+lua<<EOF
+require'nvim-tree'.setup{
+    disable_netrw = false 
+}
+EOF
 
 nnoremap <leader>p :NvimTreeToggle<CR>
 nnoremap <leader>rf :NvimTreeFindFile<CR>
-
-let g:nvim_tree_disable_window_picker = 1
-let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
