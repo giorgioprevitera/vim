@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'https://github.com/hrsh7th/cmp-path'
 
 " Ultisnips
 Plug 'SirVer/ultisnips'
@@ -14,7 +15,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'https://github.com/rafamadriz/friendly-snippets'
 
-
+Plug 'https://github.com/sbdchd/neoformat'
 
 Plug 'https://github.com/Yggdroot/indentLine.git'                                                                  " Display indentation lines
 Plug 'https://github.com/alxpettit/detectindent.git'                                                               " Automatically detect indent settings
@@ -24,7 +25,8 @@ Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'te
 
 Plug 'https://github.com/dyng/ctrlsf.vim'
 
-Plug 'https://github.com/glepnir/galaxyline.nvim'
+" Plug 'https://github.com/glepnir/galaxyline.nvim'
+Plug 'https://github.com/windwp/windline.nvim'
 
 Plug 'https://github.com/kyazdani42/nvim-tree.lua'
 Plug 'https://github.com/kyazdani42/nvim-web-devicons'
@@ -40,7 +42,8 @@ Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                      
 
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
-Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
+" Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
+Plug 'https://github.com/ray-x/navigator.lua'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
 Plug 'https://github.com/kabouzeid/nvim-lspinstall'
 Plug 'https://github.com/folke/trouble.nvim'
@@ -51,6 +54,7 @@ Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 
 Plug 'https://github.com/vim-test/vim-test'
 
+Plug 'https://github.com/tyrannicaltoucan/vim-deep-space'
 Plug 'https://github.com/sainnhe/sonokai'
 Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'projekt0n/github-nvim-theme'
@@ -76,18 +80,37 @@ call plug#end()
 
 source ~/.config/nvim/treesitter.lua
 " source ~/.config/nvim/lualine.lua
-source ~/.config/nvim/galaxyline.lua
+" source ~/.config/nvim/galaxyline.lua
 source ~/.config/nvim/terraform.vim
+" source ~/.config/nvim/windline.lua
+lua require('wlsample.evil_line')
+lua require('wlfloatline').setup()
 
 source ~/.config/nvim/lsp.lua
 lua require('gitsigns').setup{ current_line_blame = true }
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
-lua require('telescope').setup{}
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ integrations = { diffview = true } }
 source ~/.config/nvim/navigator.lua
+
+lua<<EOF
+local actions = require("telescope.actions")
+
+require("telescope").setup({
+  pickers = {
+    live_grep = {
+      only_sort_text = true
+    }
+  },
+  defaults = {
+    mappings = {
+      i = { ["<esc>"] = actions.close, },
+    },
+  },
+})
+EOF
 
 set completeopt=menu,menuone,noselect
 source ~/.config/nvim/cmp.lua
@@ -114,19 +137,21 @@ set foldlevel=99
 
 
 let g:sonokai_style = 'andromeda'
-colorscheme sonokai
+" colorscheme sonokai
 " colorscheme embark
+" colorscheme deep-space
+colorscheme github_dimmed
 
 
 "--------------------------------------------------
 " Vsnip
 "--------------------------------------------------
 
-" Expand or jump
-imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+" " Expand or jump
+" imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
+" smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
+" imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+" smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
 
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
@@ -269,7 +294,8 @@ let g:VM_maps["Add Cursor Up"]   = '<C-k>'
 
 augroup fmt
   autocmd!
-  au BufWritePre * lua vim.lsp.buf.formatting_sync()
+  au BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
+  au BufWritePre *.md undojoin | Neoformat
 "   " au BufWritePre *.py try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 "   " au BufWritePre *.md try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 "   au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
