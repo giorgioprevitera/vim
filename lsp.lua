@@ -35,10 +35,29 @@ local function setup_servers()
   for _, server in pairs(servers) do
     local config = make_config()
 
-    -- language specific config
-    if server == "yamlls" then
-      config.settings = yaml_settings
+    -- local config = {}
+    if server == "efm" then
+      config.init_options = {documentFormatting = true}
+      config.filetypes = {"python", "sh"}
+      config.settings = {
+        rootMarkers = {".git/"},
+        languages = {
+          sh = {
+            { formatCommand = "shfmt -ci -s -bn", formatStdin = true, },
+            { lintCommand = "shellcheck -f gcc -x", lintSource = "shellcheck", lintIgnoreExitCode = true, lintFormats = {"%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m"} }
+          },
+          python = {
+            { formatCommand = "autopep8 -", formatStdin = true },
+            { lintCommand = "flake8 --stdin-display-name ${INPUT} -", lintStdin = true, lintFormats = {"%f:%l:%c: %m"} }
+          }
+        }
+      }
     end
+
+    -- language specific config
+    -- if server == "yamlls" then
+    --   config.settings = yaml_settings
+    -- end
 
 
     -- if server == "sourcekit" then

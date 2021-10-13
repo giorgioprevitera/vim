@@ -231,6 +231,8 @@ let test#python#runner = "pytest"
 let test#python#pytest#options = "-rapP"
 let test#go#runner = "gotest"
 
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>gt :FloatermNew gotest -v ./...<CR>
 nnoremap <leader>fw :vimgrep <cword> %<CR>:copen<CR><C-W>L
 nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>

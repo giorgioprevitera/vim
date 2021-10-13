@@ -36,7 +36,7 @@ function MyTelescopeLspCodeActions()
 end
 function MyTelescopeLspReferences()
   local theme = require('telescope.themes').get_dropdown()
-  theme ['layout_config']['width'] = 200
+  theme ['layout_config']['width'] = 160
   require('telescope.builtin').lsp_references(theme)
 end
 EOF
