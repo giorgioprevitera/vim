@@ -12,6 +12,9 @@
 " Plug 'https://github.com/sbdchd/neoformat'
 " source ~/.config/nvim/lsp.lua
 " source ~/.config/nvim/lualine.lua
+" source ~/.config/nvim/lualine.lua
+" source ~/.config/nvim/galaxyline.lua
+" source ~/.config/nvim/windline.lua
 " lua require('sidebar-nvim').setup()
 " lua require'lspsaga'.init_lsp_saga()
 " source ~/.config/nvim/navigator.lua

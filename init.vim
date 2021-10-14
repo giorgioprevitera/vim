@@ -1,7 +1,3 @@
-" source ~/.config/nvim/lualine.lua
-" source ~/.config/nvim/galaxyline.lua
-" source ~/.config/nvim/windline.lua
-
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/treesitter.lua
 source ~/.config/nvim/terraform.vim
@@ -16,7 +12,6 @@ lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ integrations = { diffview = true } }
-" source ~/.config/nvim/navigator.lua
 
 
 set completeopt=menu,menuone,noselect
@@ -47,9 +42,9 @@ let g:sonokai_style = 'andromeda'
 " colorscheme sonokai
 " colorscheme embark
 " colorscheme deep-space
-colorscheme github_dimmed
+" colorscheme github_dimmed
 " autocmd VimEnter * ++nested colorscheme enfocado
-
+colorscheme neobones
 
 "--------------------------------------------------
 " Vsnip
@@ -251,7 +246,8 @@ augroup CursorLine
 augroup END
 
 let g:fugitive_gitlab_domains = ['https://gitlab.tools.digital.coveahosted.co.uk']
-
+nnoremap <leader>gp :Gitsigns preview_hunk<CR>
+nnoremap <leader>gu :Gitsigns reset_hunk<CR>
 
 augroup MyFlogBindings
   au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>

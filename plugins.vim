@@ -22,7 +22,6 @@ Plug 'https://github.com/alxpettit/detectindent.git'                            
 
 Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}                          " Autocompletion and linter for Terraform
 
-
 Plug 'https://github.com/dyng/ctrlsf.vim'
 
 " Plug 'https://github.com/glepnir/galaxyline.nvim'
@@ -60,7 +59,8 @@ Plug 'https://github.com/sainnhe/sonokai'
 Plug 'https://github.com/embark-theme/vim', { 'as': 'embark' }
 Plug 'https://github.com/projekt0n/github-nvim-theme'
 Plug 'https://github.com/wuelnerdotexe/vim-enfocado'
-
+Plug 'https://github.com/mcchrish/zenbones.nvim'
+Plug 'https://github.com/rktjmp/lush.nvim'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
