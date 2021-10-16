@@ -44,7 +44,8 @@ Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 " Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
 " Plug 'https://github.com/ray-x/navigator.lua'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
-Plug 'https://github.com/kabouzeid/nvim-lspinstall'
+" Plug 'https://github.com/kabouzeid/nvim-lspinstall'
+Plug 'https://github.com/williamboman/nvim-lsp-installer'
 Plug 'https://github.com/folke/trouble.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
@@ -61,6 +62,7 @@ Plug 'https://github.com/projekt0n/github-nvim-theme'
 Plug 'https://github.com/wuelnerdotexe/vim-enfocado'
 Plug 'https://github.com/mcchrish/zenbones.nvim'
 Plug 'https://github.com/rktjmp/lush.nvim'
+Plug 'https://github.com/rose-pine/neovim'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files

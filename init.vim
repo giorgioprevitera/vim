@@ -44,7 +44,11 @@ let g:sonokai_style = 'andromeda'
 " colorscheme deep-space
 " colorscheme github_dimmed
 " autocmd VimEnter * ++nested colorscheme enfocado
-colorscheme neobones
+" colorscheme neobones
+
+let g:rose_pine_variant = 'base'
+colorscheme rose-pine
+" colorscheme rosebones
 
 "--------------------------------------------------
 " Vsnip

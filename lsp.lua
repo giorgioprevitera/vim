@@ -28,9 +28,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
 end
-
 
 
 -- config that activates keymaps and enables snippet support
@@ -45,18 +43,14 @@ local function make_config()
   }
 end
 
--- lsp-install
-local function setup_servers()
-  require'lspinstall'.setup()
 
-  -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
+-- setup_servers()
+local lsp_installer = require("nvim-lsp-installer")
 
-  for _, server in pairs(servers) do
+lsp_installer.on_server_ready(function(server)
     local config = make_config()
 
-    -- local config = {}
-    if server == "efm" then
+    if server.name == "efm" then
       config.init_options = {documentFormatting = true}
       config.filetypes = {"python", "sh"}
       config.settings = {
@@ -74,21 +68,6 @@ local function setup_servers()
       }
     end
 
-    -- language specific config
-    -- if server == "yamlls" then
-    --   config.settings = yaml_settings
-    -- end
-
-
-    -- if server == "sourcekit" then
-    --   config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
-    -- end
-    -- if server == "clangd" then
-    --   config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
-    -- end
-
-    require'lspconfig'[server].setup(config)
-  end
-end
-
-setup_servers()
+    server:setup(config)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
