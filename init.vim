@@ -1,21 +1,21 @@
 source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/lsp.lua
 source ~/.config/nvim/treesitter.lua
 source ~/.config/nvim/terraform.vim
 source ~/.config/nvim/telescope.vim
+source ~/.config/nvim/cmp.lua
+
 lua require('wlsample.evil_line')
 lua require('wlfloatline').setup()
-
-source ~/.config/nvim/lsp.lua
 lua require('gitsigns').setup{ current_line_blame = true }
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
-lua require('neogit').setup{ integrations = { diffview = true } }
+lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 
 
 set completeopt=menu,menuone,noselect
-source ~/.config/nvim/cmp.lua
 
 set termguicolors
 set background=dark
@@ -46,20 +46,16 @@ let g:sonokai_style = 'andromeda'
 " autocmd VimEnter * ++nested colorscheme enfocado
 " colorscheme neobones
 
+" let g:tokyonight_style = 'night'
+" colorscheme tokyonight
+
 let g:rose_pine_variant = 'base'
-colorscheme rose-pine
+" colorscheme rose-pine
 " colorscheme rosebones
 
-"--------------------------------------------------
-" Vsnip
-"--------------------------------------------------
+" colorscheme nordbones
 
-" " Expand or jump
-" imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-" smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-" imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-" smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-
+colorscheme nightfox
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -124,12 +120,33 @@ augroup END
 let g:nvim_tree_disable_window_picker = 1
 lua<<EOF
 require'nvim-tree'.setup{
-    disable_netrw = false 
+    disable_netrw = false,
+    view = {
+      width = 40
+    }
 }
 EOF
 
-nnoremap <leader>p :NvimTreeToggle<CR>
-nnoremap <leader>rf :NvimTreeFindFile<CR>
+lua<<EOF
+local g = vim.g
+g.nvim_tree_width = 40
+local tree_width = g.nvim_tree_width
+
+function TreeToggle ()
+   require('nvim-tree').toggle(true)
+  if require('nvim-tree.view').win_open() then
+   require('bufferline.state').set_offset(tree_width + 1, 'FileTree')
+   require('nvim-tree').find_file(true)
+ else
+    require('bufferline.state').set_offset(0)
+ end
+end
+EOF
+
+" nnoremap <leader>p :NvimTreeToggle<CR>
+" nnoremap <silent> <leader>p :lua require'tree'.toggle()<CR>
+nnoremap <silent> <leader>p :lua TreeToggle()<CR>
+" nnoremap <leader>rf :NvimTreeFindFile<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -150,6 +167,8 @@ nnoremap <silent>    <A->> :BufferMoveNext<CR>
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent>    <A-o> :BufferCloseAllButCurrent<CR>
+" Pick buffer
+nnoremap <silent>    <A-b> :BufferPick<CR>
 
 
 
@@ -193,9 +212,6 @@ augroup fmt
   autocmd!
   au BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
   au BufWritePre *.md undojoin | Neoformat
-"   " au BufWritePre *.py try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-"   " au BufWritePre *.md try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-"   au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
 " Enable trimmming of trailing whitespace
@@ -252,6 +268,8 @@ augroup END
 let g:fugitive_gitlab_domains = ['https://gitlab.tools.digital.coveahosted.co.uk']
 nnoremap <leader>gp :Gitsigns preview_hunk<CR>
 nnoremap <leader>gu :Gitsigns reset_hunk<CR>
+nnoremap <leader>n :Neogit<CR>
+nnoremap <leader>gb :Git blame<CR>
 
 augroup MyFlogBindings
   au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>

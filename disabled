@@ -1,4 +1,7 @@
 "-------- Plugins
+" Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
+" Plug 'https://github.com/ray-x/navigator.lua'
+" Plug 'https://github.com/kabouzeid/nvim-lspinstall'
 " Plug 'https://github.com/GustavoKatel/sidebar.nvim'
 " ULTISNIPS
 " Plug 'https://github.com/hashivim/vim-terraform.git', {'for': 'terraform'}                                         " Basic vim/terraform integration
@@ -10,6 +13,7 @@
 " Plug 'https://github.com/ibhagwan/fzf-lua.git'
 " Plug 'https://github.com/vijaymarupudi/nvim-fzf'
 " Plug 'https://github.com/sbdchd/neoformat'
+
 " source ~/.config/nvim/lsp.lua
 " source ~/.config/nvim/lualine.lua
 " source ~/.config/nvim/lualine.lua

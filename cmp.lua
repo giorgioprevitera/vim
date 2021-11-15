@@ -1,5 +1,7 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local lspkind = require "lspkind"
+lspkind.init()
 
 cmp.setup({
   snippet = {
@@ -24,5 +26,25 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
   },
-  preselect = cmp.PreselectMode.None
+  preselect = cmp.PreselectMode.None,
+  formatting = {
+    -- Youtube: How to set up nice formatting for your sources.
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        path = "[path]",
+        vsnip = "[vsnip]",
+        ultisnips = "[usnip]",
+      },
+    },
+  },
+  experimental = {
+    -- I like the new menu better! Nice work hrsh7th
+    native_menu = false,
+
+    -- Let's play with this for a day or two
+    ghost_text = true,
+  },
 })

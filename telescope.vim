@@ -9,9 +9,13 @@ require("telescope").setup({
   pickers = {
     live_grep = {
       only_sort_text = true
+    },
+    find_files = {
+      hidden = true
     }
   },
   defaults = {
+    file_ignore_patterns = { "^.git/" },
     theme = "dropdown",
     mappings = {
       i = { ["<esc>"] = actions.close, },
