@@ -76,3 +76,49 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+------------------------------------------------
+-- Terraform lsp custom client
+-- https://github.com/juliosueiras/terraform-lsp
+------------------------------------------------
+
+local lspconfig = require "lspconfig"
+local configs = require "lspconfig/configs"
+local servers = require "nvim-lsp-installer.servers"
+local server = require "nvim-lsp-installer.server"
+local path = require "nvim-lsp-installer.path"
+local shell = require "nvim-lsp-installer.installers.shell"
+
+local server_name = "terraformlsp"
+
+-- 1. (optional, only if lspconfig doesn't already support the server)
+--    Create server entry in lspconfig
+configs[server_name] = {
+    default_config = {
+        filetypes = { "terraform", "tf" },
+        root_dir = lspconfig.util.root_pattern ".git",
+    },
+}
+
+local root_dir = server.get_server_root_path(server_name)
+
+local shell_installer = shell.bash [[
+echo INSTALLING;
+wget -O terraform-lsp.tgz https://github.com/juliosueiras/terraform-lsp/releases/download/v0.0.12/terraform-lsp_0.0.12_darwin_amd64.tar.gz;
+tar xzvf terraform-lsp.tgz
+rm -f terraform-lsp.tgz
+echo DONE
+]]
+
+-- 2. (mandatory) Create an nvim-lsp-installer Server instance
+local my_server = server.Server:new {
+    name = server_name,
+    root_dir = root_dir,
+    installer = shell_installer,
+    default_options = {
+        cmd = { path.concat { root_dir, "terraform-lsp" } },
+    },
+}
+
+-- 3. (optional, recommended) Register your server with nvim-lsp-installer.
+--    This makes it available via other APIs (e.g., :LspInstall, lsp_installer.get_available_servers()).
+servers.register(my_server)
