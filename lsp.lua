@@ -14,17 +14,19 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<leader>re', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
@@ -61,7 +63,10 @@ lsp_installer.on_server_ready(function(server)
           python = {
             { formatCommand = "autopep8 -", formatStdin = true },
             { lintCommand = "flake8 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true, lintStdin = true, lintFormats = {"%f:%l:%c: %m"} }
-          }
+          },
+          go = {
+            { lintCommand = "golangci-lint run ${INPUT}", lintIgnoreExitCode = true, lintStdin = true, lintSource = "golanci-lint" }
+          },
         }
       }
     end
@@ -88,13 +93,13 @@ local server = require "nvim-lsp-installer.server"
 local path = require "nvim-lsp-installer.path"
 local shell = require "nvim-lsp-installer.installers.shell"
 
-local server_name = "terraformlsp"
+local server_name = "terraform_lsp"
 
 -- 1. (optional, only if lspconfig doesn't already support the server)
 --    Create server entry in lspconfig
 configs[server_name] = {
     default_config = {
-        filetypes = { "terraform", "tf" },
+        filetypes = { "terraform", "tf", "hcl" },
         root_dir = lspconfig.util.root_pattern ".git",
     },
 }

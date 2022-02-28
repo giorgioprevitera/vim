@@ -1,9 +1,30 @@
 "-------- Plugins
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'https://github.com/kevinhwang91/nvim-bqf'
+
+Plug 'https://github.com/willthbill/opener.nvim'
+
+Plug 'https://github.com/folke/which-key.nvim'
+
+Plug 'https://github.com/nvim-pack/nvim-spectre'
+
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'leoluz/nvim-dap-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/buoto/gotests-vim'
+
+Plug 'mfussenegger/nvim-dap-python'
+
+
+Plug 'stevearc/dressing.nvim'
+
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
 
 Plug 'onsails/lspkind-nvim'
 
@@ -22,7 +43,7 @@ Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/Yggdroot/indentLine.git'                                                                  " Display indentation lines
 Plug 'https://github.com/alxpettit/detectindent.git'                                                               " Automatically detect indent settings
 
-Plug 'https://github.com/juliosueiras/vim-terraform-completion.git', {'for': 'terraform'}                          " Autocompletion and linter for Terraform
+Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'                          " Autocompletion and linter for Terraform
 
 Plug 'https://github.com/dyng/ctrlsf.vim'
 
@@ -36,6 +57,7 @@ Plug 'https://github.com/mg979/vim-visual-multi'                                
 Plug 'https://github.com/nvim-lua/plenary.nvim'
 Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
+Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/romgrk/barbar.nvim'
 
 Plug 'ggandor/lightspeed.nvim'
@@ -55,6 +77,7 @@ Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 
 
 Plug 'https://github.com/vim-test/vim-test'
+Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 
 " Colorschemes
 Plug 'https://github.com/tyrannicaltoucan/vim-deep-space'
@@ -65,6 +88,14 @@ Plug 'https://github.com/rktjmp/lush.nvim'
 Plug 'https://github.com/rose-pine/neovim'
 Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'https://github.com/EdenEast/nightfox.nvim'
+Plug 'https://github.com/catppuccin/nvim'
+Plug 'https://github.com/rebelot/kanagawa.nvim'
+Plug 'https://github.com/dikiaap/minimalist'
+Plug 'https://github.com/fabi1cazenave/kalahari.vim'
+Plug 'https://github.com/tamlok/detorte'
+Plug 'https://github.com/navarasu/onedark.nvim'
+Plug 'https://github.com/NLKNguyen/papercolor-theme'
+Plug 'https://github.com/marciomazza/vim-brogrammer-theme'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
@@ -72,7 +103,7 @@ Plug 'https://github.com/mzlogin/vim-markdown-toc'                              
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
 Plug 'https://github.com/sindrets/diffview.nvim'
 " Plug 'https://github.com/tommcdo/vim-fubitive.git'                                                                 " Bitbucket support
-Plug 'https://github.com/towolf/vim-helm', { 'on': 'helm' }
+Plug 'https://github.com/towolf/vim-helm', { 'On': 'helm' }
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/shumphrey/fugitive-gitlab.vim'

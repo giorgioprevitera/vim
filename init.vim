@@ -4,15 +4,56 @@ source ~/.config/nvim/treesitter.lua
 source ~/.config/nvim/terraform.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/cmp.lua
+source ~/.config/nvim/debugger.vim
+source ~/.config/nvim/gitsigns.lua
 
 lua require('wlsample.evil_line')
+" lua require('wlsample.vscode')
 lua require('wlfloatline').setup()
-lua require('gitsigns').setup{ current_line_blame = true }
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
+lua require("which-key").setup {plugins={spelling={enabled=true}}}
+
+lua<<EOF
+require('spectre').setup({
+  find_engine = {
+    -- rg is map with finder_cmd
+    ['rg'] = {
+      cmd = "rg",
+      -- default args
+      args = {
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+      } ,
+      options = {
+        ['ignore-case'] = {
+          value= "--ignore-case",
+          icon="[I]",
+          desc="ignore case"
+        },
+        ['hidden'] = {
+          value="--hidden",
+          desc="hidden file",
+          icon="[H]"
+        },
+        ['whole-word'] = {
+          value="--word-regexp",
+          desc="whole word",
+          icon="[W]"
+        }
+        -- you can put any rg search option you want here it can toggle with
+        -- show_option function
+      }
+    }
+  }
+})
+EOF
 
 
 set completeopt=menu,menuone,noselect
@@ -55,7 +96,16 @@ let g:rose_pine_variant = 'base'
 
 " colorscheme nordbones
 
-colorscheme nightfox
+" colorscheme catppuccin
+" colorscheme nightfox
+
+" colorscheme kanagawa
+let g:onedark_config = {
+    \ 'style': 'darker',
+\}
+
+" colorscheme onedark
+colorscheme brogrammer
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -121,6 +171,9 @@ let g:nvim_tree_disable_window_picker = 1
 lua<<EOF
 require'nvim-tree'.setup{
     disable_netrw = false,
+    diagnostics = {
+      enable = true
+    },
     view = {
       width = 40
     }
@@ -129,24 +182,24 @@ EOF
 
 lua<<EOF
 local g = vim.g
-g.nvim_tree_width = 40
+g.nvim_tree_width = 39
 local tree_width = g.nvim_tree_width
 
 function TreeToggle ()
-   require('nvim-tree').toggle(true)
-  if require('nvim-tree.view').win_open() then
-   require('bufferline.state').set_offset(tree_width + 1, 'FileTree')
-   require('nvim-tree').find_file(true)
- else
+    require('nvim-tree').toggle(true)
+    if require('nvim-tree.view').is_visible() then
+      require('bufferline.state').set_offset(tree_width + 1, 'FileTree')
+      require('nvim-tree').find_file(true)
+    else
     require('bufferline.state').set_offset(0)
- end
+  end
 end
 EOF
 
 " nnoremap <leader>p :NvimTreeToggle<CR>
 " nnoremap <silent> <leader>p :lua require'tree'.toggle()<CR>
 nnoremap <silent> <leader>p :lua TreeToggle()<CR>
-" nnoremap <leader>rf :NvimTreeFindFile<CR>
+nnoremap <leader>rf :NvimTreeFindFile<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -266,8 +319,8 @@ augroup CursorLine
 augroup END
 
 let g:fugitive_gitlab_domains = ['https://gitlab.tools.digital.coveahosted.co.uk']
-nnoremap <leader>gp :Gitsigns preview_hunk<CR>
-nnoremap <leader>gu :Gitsigns reset_hunk<CR>
+" nnoremap <leader>gp :Gitsigns preview_hunk<CR>
+" nnoremap <leader>gu :Gitsigns reset_hunk<CR>
 nnoremap <leader>n :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
 
@@ -275,3 +328,9 @@ augroup MyFlogBindings
   au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>
   au FileType floggraph nnoremap <buffer> <silent> df :<C-U>call flog#run_command("vertical botright Gsplit %(h'm):%p \| Gdiffsplit %h", 0, 0, 1)<CR>
 augroup END
+
+" Shift + J/K moves selected lines down/up in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+lua require('opener').setup{}
