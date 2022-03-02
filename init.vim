@@ -16,6 +16,7 @@ lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
+lua require('opener').setup{}
 
 lua<<EOF
 require('spectre').setup({
@@ -104,8 +105,8 @@ let g:onedark_config = {
     \ 'style': 'darker',
 \}
 
-" colorscheme onedark
-colorscheme brogrammer
+colorscheme onedark
+" colorscheme brogrammer
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -167,7 +168,7 @@ augroup END
 "--------------------------------------------------
 " NvimTree
 "--------------------------------------------------
-let g:nvim_tree_disable_window_picker = 1
+" let g:nvim_tree_disable_window_picker = 1
 lua<<EOF
 require'nvim-tree'.setup{
     disable_netrw = false,
@@ -176,13 +177,20 @@ require'nvim-tree'.setup{
     },
     view = {
       width = 40
+    },
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = true,
+        }
+      }
     }
 }
 EOF
 
 lua<<EOF
 local g = vim.g
-g.nvim_tree_width = 39
+g.nvim_tree_width = 40
 local tree_width = g.nvim_tree_width
 
 function TreeToggle ()
@@ -318,9 +326,6 @@ augroup CursorLine
     au WinLeave * setlocal nocursorline
 augroup END
 
-let g:fugitive_gitlab_domains = ['https://gitlab.tools.digital.coveahosted.co.uk']
-" nnoremap <leader>gp :Gitsigns preview_hunk<CR>
-" nnoremap <leader>gu :Gitsigns reset_hunk<CR>
 nnoremap <leader>n :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
 
@@ -333,4 +338,7 @@ augroup END
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-lua require('opener').setup{}
+
+if filereadable(expand("~/.config/nvim/local.vim"))
+  source ~/.config/nvim/local.vim
+endif
