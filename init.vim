@@ -310,7 +310,7 @@ nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
 " Misc
 "--------------------------------------------------
 
-let g:python3_host_prog = "/Users/giorgio/.local/share/virtualenvs/nvim-venv-DKwLqbQC/bin/python3"
+let g:python3_host_prog = $HOME . "/.local/share/nvim-venv/bin/python3"
 
 augroup CursorLine
     au!

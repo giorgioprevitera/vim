@@ -85,7 +85,7 @@ telescope.setup({
     },
     opener = {
       hidden = false, -- do not show hidden directories
-      root_dir = "~/src/ee-covea", -- search from home directory by default
+      root_dir = "~/src/", -- search from home directory by default
       respect_gitignore = true, -- respect .gitignore files
     },
   },
