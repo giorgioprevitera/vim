@@ -1,4 +1,6 @@
 "-------- Plugins
+" Plug 'https://github.com/willthbill/opener.nvim'
+" Plug 'https://github.com/nvim-pack/nvim-spectre'
 " Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}
 " Plug 'https://github.com/ray-x/navigator.lua'
 " Plug 'https://github.com/kabouzeid/nvim-lspinstall'
@@ -92,3 +94,43 @@
 "--------------------------------------------------
 " Tests
 "--------------------------------------------------
+
+
+"lua<<EOF
+"require('spectre').setup({
+"  find_engine = {
+"    -- rg is map with finder_cmd
+"    ['rg'] = {
+"      cmd = "rg",
+"      -- default args
+"      args = {
+"        '--color=never',
+"        '--no-heading',
+"        '--with-filename',
+"        '--line-number',
+"        '--column',
+"      } ,
+"      options = {
+"        ['ignore-case'] = {
+"          value= "--ignore-case",
+"          icon="[I]",
+"          desc="ignore case"
+"        },
+"        ['hidden'] = {
+"          value="--hidden",
+"          desc="hidden file",
+"          icon="[H]"
+"        },
+"        ['whole-word'] = {
+"          value="--word-regexp",
+"          desc="whole word",
+"          icon="[W]"
+"        }
+"        -- you can put any rg search option you want here it can toggle with
+"        -- show_option function
+"      }
+"    }
+"  }
+"})
+"EOF
+

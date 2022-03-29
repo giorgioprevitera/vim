@@ -6,55 +6,17 @@ source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
+source ~/.config/nvim/lualine.lua
 
-lua require('wlsample.evil_line')
+" lua require('wlsample.evil_line')
 " lua require('wlsample.vscode')
-lua require('wlfloatline').setup()
+" lua require('wlfloatline').setup()
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
-lua require('opener').setup{}
-
-lua<<EOF
-require('spectre').setup({
-  find_engine = {
-    -- rg is map with finder_cmd
-    ['rg'] = {
-      cmd = "rg",
-      -- default args
-      args = {
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-      } ,
-      options = {
-        ['ignore-case'] = {
-          value= "--ignore-case",
-          icon="[I]",
-          desc="ignore case"
-        },
-        ['hidden'] = {
-          value="--hidden",
-          desc="hidden file",
-          icon="[H]"
-        },
-        ['whole-word'] = {
-          value="--word-regexp",
-          desc="whole word",
-          icon="[W]"
-        }
-        -- you can put any rg search option you want here it can toggle with
-        -- show_option function
-      }
-    }
-  }
-})
-EOF
 
 
 set completeopt=menu,menuone,noselect
@@ -184,6 +146,10 @@ require'nvim-tree'.setup{
           enable = true,
         }
       }
+    },
+    git = {
+      enable = true,
+      ignore = false,
     }
 }
 EOF
@@ -272,7 +238,7 @@ let g:VM_maps["Add Cursor Up"]   = '<C-k>'
 augroup fmt
   autocmd!
   au BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
-  au BufWritePre *.md undojoin | Neoformat
+  " au BufWritePre *.md undojoin | Neoformat
 augroup END
 
 " Enable trimmming of trailing whitespace

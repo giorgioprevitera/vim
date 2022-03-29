@@ -1,14 +1,45 @@
 require('gitsigns').setup{
     current_line_blame = true,
     on_attach = function(bufnr)
-        local function map(mode, lhs, rhs, opts)
-            opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
-            vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
-        end
+        -- local function map(mode, lhs, rhs, opts)
+        --     opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
+        --     vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+        -- end
+
+         local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
         
         -- Navigation
-        map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
-        map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+        -- map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+        -- map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+        -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then
+        return ']c'
+      else
+        vim.schedule(function()
+          gs.next_hunk({preview = true})
+        end)
+        return '<Ignore>'
+      end
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then
+        return '[c'
+      else
+        vim.schedule(function()
+          gs.prev_hunk()
+        end)
+        return '<Ignore>'
+      end
+    end, {expr=true})
+
         
         -- Actions
         map('n', '<leader>hs', '<cmd>Gitsigns stage_hunk<CR>')

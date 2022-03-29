@@ -1,22 +1,18 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/hoob3rt/lualine.nvim'
+
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
-
-Plug 'https://github.com/willthbill/opener.nvim'
-
 Plug 'https://github.com/folke/which-key.nvim'
-
-Plug 'https://github.com/nvim-pack/nvim-spectre'
 
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'leoluz/nvim-dap-go'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'https://github.com/buoto/gotests-vim'
-
 Plug 'mfussenegger/nvim-dap-python'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/buoto/gotests-vim'
 
 Plug 'stevearc/dressing.nvim'
 

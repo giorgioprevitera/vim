@@ -83,11 +83,6 @@ telescope.setup({
         },
       },
     },
-    opener = {
-      hidden = false, -- do not show hidden directories
-      root_dir = "~/src/", -- search from home directory by default
-      respect_gitignore = true, -- respect .gitignore files
-    },
   },
 })
 
@@ -98,7 +93,6 @@ telescope.setup({
 
 
 telescope.load_extension "file_browser"
-telescope.load_extension "opener"
 -- telescope.load_extension "themes"
 -- telescope.load_extension "terms"
 

@@ -46,13 +46,14 @@ end
 
 -- setup servers
 local lsp_installer = require("nvim-lsp-installer")
+local prettier = { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
 
 lsp_installer.on_server_ready(function(server)
     local config = make_config()
 
     if server.name == "efm" then
       config.init_options = {documentFormatting = true}
-      config.filetypes = {"python", "sh"}
+      config.filetypes = {"python", "sh", "markdown"}
       config.settings = {
         rootMarkers = {".git/"},
         languages = {
@@ -64,9 +65,7 @@ lsp_installer.on_server_ready(function(server)
             { formatCommand = "autopep8 -", formatStdin = true },
             { lintCommand = "flake8 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true, lintStdin = true, lintFormats = {"%f:%l:%c: %m"} }
           },
-          go = {
-            { lintCommand = "golangci-lint run ${INPUT}", lintIgnoreExitCode = true, lintStdin = true, lintSource = "golanci-lint" }
-          },
+          markdown = {prettier}
         }
       }
     end
