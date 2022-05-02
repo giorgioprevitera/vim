@@ -53,7 +53,7 @@ lsp_installer.on_server_ready(function(server)
 
     if server.name == "efm" then
       config.init_options = {documentFormatting = true}
-      config.filetypes = {"python", "sh", "markdown"}
+      config.filetypes = {"python", "sh", "markdown", "yaml"}
       config.settings = {
         rootMarkers = {".git/"},
         languages = {
@@ -65,7 +65,11 @@ lsp_installer.on_server_ready(function(server)
             { formatCommand = "autopep8 -", formatStdin = true },
             { lintCommand = "flake8 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true, lintStdin = true, lintFormats = {"%f:%l:%c: %m"} }
           },
-          markdown = {prettier}
+          markdown = {prettier},
+          yaml = {
+            prettier,
+            { lintCommand = "yamllint --strict --format parsable ${INPUT}", lintStdin = false, lintFormats = {"%f:%l:%c: [%t%*[a-z]] %m"}}
+          },
         }
       }
     end
