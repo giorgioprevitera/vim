@@ -1,6 +1,12 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/williamboman/mason.nvim'
+Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
+
+Plug 'https://github.com/kevinhwang91/promise-async'
+Plug 'https://github.com/kevinhwang91/nvim-ufo'
+
 Plug 'https://github.com/hoob3rt/lualine.nvim'
 
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
@@ -44,7 +50,7 @@ Plug 'https://github.com/juliosueiras/vim-terraform-completion.git'             
 Plug 'https://github.com/dyng/ctrlsf.vim'
 
 " Plug 'https://github.com/glepnir/galaxyline.nvim'
-Plug 'https://github.com/windwp/windline.nvim'
+" Plug 'https://github.com/windwp/windline.nvim'
 
 Plug 'https://github.com/kyazdani42/nvim-tree.lua'
 Plug 'https://github.com/kyazdani42/nvim-web-devicons'
@@ -65,7 +71,7 @@ Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                      
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
-Plug 'https://github.com/williamboman/nvim-lsp-installer'
+" Plug 'https://github.com/williamboman/nvim-lsp-installer'
 Plug 'https://github.com/folke/trouble.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
@@ -73,7 +79,11 @@ Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 
 
 Plug 'https://github.com/vim-test/vim-test'
-Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+" Plug 'https://github.com/rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+Plug 'https://github.com/antoinemadec/FixCursorHold.nvim'
+Plug 'https://github.com/nvim-neotest/neotest'
+Plug 'https://github.com/nvim-neotest/neotest-python'
+Plug 'https://github.com/nvim-neotest/neotest-go'
 
 " Colorschemes
 Plug 'https://github.com/tyrannicaltoucan/vim-deep-space'
@@ -92,6 +102,11 @@ Plug 'https://github.com/tamlok/detorte'
 Plug 'https://github.com/navarasu/onedark.nvim'
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'https://github.com/marciomazza/vim-brogrammer-theme'
+Plug 'https://github.com/arcticicestudio/nord-vim'
+Plug 'https://github.com/tanvirtin/monokai.nvim'
+Plug 'https://github.com/Rigellute/rigel'
+Plug 'https://github.com/karoliskoncevicius/sacredforest-vim'
+Plug 'https://github.com/raphamorim/lucario'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files

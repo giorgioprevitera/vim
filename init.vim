@@ -8,9 +8,6 @@ source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
 source ~/.config/nvim/lualine.lua
 
-" lua require('wlsample.evil_line')
-" lua require('wlsample.vscode')
-" lua require('wlfloatline').setup()
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
@@ -18,9 +15,16 @@ lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
 
+lua<<EOF
+vim.wo.foldcolumn = '5'
+vim.wo.foldlevel = 99 -- feel free to decrease the value
+vim.wo.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.foldcolumn = '1'
+EOF
+
 
 set completeopt=menu,menuone,noselect
-
 set termguicolors
 set background=dark
 set nu
@@ -40,6 +44,7 @@ set ignorecase
 set cursorline
 set foldmethod=indent
 set foldlevel=99
+set laststatus=3
 
 
 let g:sonokai_style = 'andromeda'
@@ -67,8 +72,18 @@ let g:onedark_config = {
     \ 'style': 'darker',
 \}
 
-colorscheme onedark
+" colorscheme onedark
 " colorscheme brogrammer
+" colorscheme sonokai
+" colorscheme nord
+
+" colorscheme monokai
+" colorscheme monokai_pro
+" colorscheme monokai_soda
+" colorscheme monokai_ristretto
+" colorscheme terafox
+" colorscheme rigel
+colorscheme lucario
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -244,23 +259,23 @@ augroup END
 " Enable trimmming of trailing whitespace
 " let g:neoformat_basic_format_trim = 1
 
-lua<<EOF
-function OrgImports(wait_ms)
-  local params = vim.lsp.util.make_range_params()
-  params.context = {only = {"source.organizeImports"}}
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-  for _, res in pairs(result or {}) do
-    for _, r in pairs(res.result or {}) do
-      if r.edit then
-        vim.lsp.util.apply_workspace_edit(r.edit)
-      else
-        vim.lsp.buf.execute_command(r.command)
-      end
-    end
-  end
-end
-vim.api.nvim_command("au BufWritePre *.go lua OrgImports(1000)")
-EOF
+" lua<<EOF
+" function OrgImports(wait_ms)
+"   local params = vim.lsp.util.make_range_params()
+"   params.context = {only = {"source.organizeImports"}}
+"   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+"   for _, res in pairs(result or {}) do
+"     for _, r in pairs(res.result or {}) do
+"       if r.edit then
+"         vim.lsp.util.apply_workspace_edit(r.edit)
+"       else
+"         vim.lsp.buf.execute_command(r.command)
+"       end
+"     end
+"   end
+" end
+" vim.api.nvim_command("au BufWritePre *.go lua OrgImports(1000)")
+" EOF
 
 
 "--------------------------------------------------
@@ -279,6 +294,15 @@ nnoremap <leader>gt :FloatermNew gotest -v ./...<CR>
 nnoremap <leader>fw :vimgrep <cword> %<CR>:copen<CR><C-W>L
 nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
 nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
+
+lua <<EOF
+require("neotest").setup({
+  adapters = {
+    require("neotest-python"),
+    require("neotest-go")
+  }
+})
+EOF
 
 "--------------------------------------------------
 " Misc
@@ -304,9 +328,9 @@ augroup END
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
 
-set laststatus=3
+lua require('mason').setup()
+lua require("mason-lspconfig").setup()

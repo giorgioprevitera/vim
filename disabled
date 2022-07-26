@@ -16,6 +16,9 @@
 " Plug 'https://github.com/vijaymarupudi/nvim-fzf'
 " Plug 'https://github.com/sbdchd/neoformat'
 
+" lua require('wlsample.evil_line')
+" lua require('wlsample.vscode')
+" lua require('wlfloatline').setup()
 " source ~/.config/nvim/lsp.lua
 " source ~/.config/nvim/lualine.lua
 " source ~/.config/nvim/lualine.lua

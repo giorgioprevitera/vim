@@ -1,14 +1,30 @@
 lua<<EOF
-require("dapui").setup({
-  sidebar = {
-    elements = {
-      { id = "scopes", size = 0.5 },
-      { id = "breakpoints", size = 0.5 },
+
+require('dapui').setup(
+{
+  layouts = {
+    {
+      elements = {
+        'scopes',
+        'breakpoints',
+        --'stacks',
+        --'watches',
+      },
+      size = 60,
+      position = 'left',
     },
-    size = 60,
-    position = "left", -- Can be "left", "right", "top", "bottom"
-  }
-})
+    {
+      elements = {
+        'repl',
+        'console',
+      },
+      size = 10,
+      position = 'bottom',
+    },
+  },
+}
+)
+
 EOF
 lua require('dap-go').setup()
 lua require('dap-python').setup('~/.local/share/debugpy/bin/python')

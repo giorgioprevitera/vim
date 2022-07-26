@@ -51,7 +51,7 @@ telescope.setup({
     border = {},
     color_devicons = true,
     entry_prefix = "  ",
-    file_ignore_patterns = { "^.git/" },
+    file_ignore_patterns = { "^./.git/" },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     -- file_sorter = require("telescope.sorters").get_fuzzy_file,
     -- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
@@ -140,24 +140,24 @@ nnoremap <leader>fs <cmd> lua require('telescope.builtin').lsp_workspace_symbols
 nnoremap <leader>c <cmd>lua require('telescope.builtin').commands()<cr>
 
 lua<<EOF
-function MyTelescopeLspCodeActions()
-  local theme = require('telescope.themes').get_cursor()
-  theme ['layout_config']['height'] = 10
-  require('telescope.builtin').lsp_code_actions(theme)
-end
-function MyTelescopeLspReferences()
-  local theme = require('telescope.themes').get_dropdown()
-  theme ['layout_config']['width'] = 160
-  require('telescope.builtin').lsp_references(theme)
-end
-function MyTelescopeLspPeekDefinition()
-  local theme = require('telescope.themes').get_dropdown()
-  --theme ['layout_config']['height'] = 10
-  theme.jump_type = "never"
-  -- require('telescope.builtin').lsp_definitions(theme) { jump_type = "never" }
-  require('telescope.builtin').lsp_definitions(theme) 
-end
+-- function MyTelescopeLspCodeActions()
+--   local theme = require('telescope.themes').get_cursor()
+--   theme ['layout_config']['height'] = 10
+--   require('telescope.builtin').lsp_code_actions(theme)
+-- end
+ function MyTelescopeLspReferences()
+   local theme = require('telescope.themes').get_dropdown()
+   theme ['layout_config']['width'] = 160
+   require('telescope.builtin').lsp_references(theme)
+ end
+-- function MyTelescopeLspPeekDefinition()
+--   local theme = require('telescope.themes').get_dropdown()
+--   --theme ['layout_config']['height'] = 10
+--   theme.jump_type = "never"
+--   -- require('telescope.builtin').lsp_definitions(theme) { jump_type = "never" }
+--   require('telescope.builtin').lsp_definitions(theme) 
+-- end
 EOF
 " nnoremap <leader>ca :lua MyTelescopeLspCodeActions()<CR>
 nnoremap <leader>fr :lua MyTelescopeLspReferences()<CR>
-nnoremap <leader>fp :lua MyTelescopeLspPeekDefinition()<CR>
+" nnoremap <leader>fp :lua MyTelescopeLspPeekDefinition()<CR>

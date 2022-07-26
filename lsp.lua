@@ -35,6 +35,10 @@ end
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+  }
   return {
     -- enable snippet support
     capabilities = capabilities,
@@ -43,15 +47,15 @@ local function make_config()
   }
 end
 
+local mason = require'mason'
+local mason_lspconfig = require'mason-lspconfig'
+local lspconfig = require'lspconfig'
 
--- setup servers
-local lsp_installer = require("nvim-lsp-installer")
-local prettier = { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
-
-lsp_installer.on_server_ready(function(server)
+mason.setup{}
+mason_lspconfig.setup_handlers({
+  function(server_name)
     local config = make_config()
-
-    if server.name == "efm" then
+    if server_name == "efm" then
       config.init_options = {documentFormatting = true}
       config.filetypes = {"python", "sh", "markdown", "yaml"}
       config.settings = {
@@ -59,10 +63,10 @@ lsp_installer.on_server_ready(function(server)
         languages = {
           sh = {
             { formatCommand = "shfmt -ci -s -bn", formatStdin = true, },
-            { lintCommand = "shellcheck -f gcc -x", lintSource = "shellcheck", lintIgnoreExitCode = true, lintFormats = {"%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m"} }
+            --{ lintCommand = "shellcheck -f gcc -x", lintSource = "shellcheck", lintIgnoreExitCode = true, lintFormats = {"%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m"} }
           },
           python = {
-            { formatCommand = "autopep8 -", formatStdin = true },
+            { formatCommand = "black -", formatStdin = true },
             { lintCommand = "flake8 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true, lintStdin = true, lintFormats = {"%f:%l:%c: %m"} }
           },
           markdown = {prettier},
@@ -73,10 +77,11 @@ lsp_installer.on_server_ready(function(server)
         }
       }
     end
+    lspconfig[server_name].setup(config)
+  end
+})
 
-    server:setup(config)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
+lspconfig["terraform_lsp"].setup{}
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 for type, icon in pairs(signs) do
@@ -84,49 +89,3 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-------------------------------------------------
--- Terraform lsp custom client
--- https://github.com/juliosueiras/terraform-lsp
-------------------------------------------------
-
-local lspconfig = require "lspconfig"
-local configs = require "lspconfig/configs"
-local servers = require "nvim-lsp-installer.servers"
-local server = require "nvim-lsp-installer.server"
-local path = require "nvim-lsp-installer.path"
-local shell = require "nvim-lsp-installer.installers.shell"
-
-local server_name = "terraform_lsp"
-
--- 1. (optional, only if lspconfig doesn't already support the server)
---    Create server entry in lspconfig
-configs[server_name] = {
-    default_config = {
-        filetypes = { "terraform", "tf", "hcl" },
-        root_dir = lspconfig.util.root_pattern ".git",
-    },
-}
-
-local root_dir = server.get_server_root_path(server_name)
-
-local shell_installer = shell.bash [[
-echo INSTALLING;
-wget -O terraform-lsp.tgz https://github.com/juliosueiras/terraform-lsp/releases/download/v0.0.12/terraform-lsp_0.0.12_darwin_amd64.tar.gz;
-tar xzvf terraform-lsp.tgz
-rm -f terraform-lsp.tgz
-echo DONE
-]]
-
--- 2. (mandatory) Create an nvim-lsp-installer Server instance
-local my_server = server.Server:new {
-    name = server_name,
-    root_dir = root_dir,
-    installer = shell_installer,
-    default_options = {
-        cmd = { path.concat { root_dir, "terraform-lsp" } },
-    },
-}
-
--- 3. (optional, recommended) Register your server with nvim-lsp-installer.
---    This makes it available via other APIs (e.g., :LspInstall, lsp_installer.get_available_servers()).
-servers.register(my_server)

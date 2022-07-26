@@ -29,6 +29,7 @@ cmp.setup({
   preselect = cmp.PreselectMode.None,
   formatting = {
     -- Youtube: How to set up nice formatting for your sources.
+    -- mode = 'symbol',
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
