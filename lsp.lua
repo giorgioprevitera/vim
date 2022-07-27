@@ -47,6 +47,8 @@ local function make_config()
   }
 end
 
+local prettier = { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
+
 local mason = require'mason'
 local mason_lspconfig = require'mason-lspconfig'
 local lspconfig = require'lspconfig'

@@ -1,4 +1,5 @@
 "-------- Plugins
+" Plug 'https://github.com/williamboman/nvim-lsp-installer'
 " Plug 'https://github.com/willthbill/opener.nvim'
 " Plug 'https://github.com/nvim-pack/nvim-spectre'
 " Plug 'https://github.com/ray-x/navigator.lua', { 'commit': 'd60b3c4024409a775efa425891e14ea369e4924d'}

@@ -331,6 +331,3 @@ vnoremap K :m '<-2<CR>gv=gv
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
-
-lua require('mason').setup()
-lua require("mason-lspconfig").setup()

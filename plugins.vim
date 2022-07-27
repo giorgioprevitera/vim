@@ -71,7 +71,6 @@ Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                      
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
-" Plug 'https://github.com/williamboman/nvim-lsp-installer'
 Plug 'https://github.com/folke/trouble.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
