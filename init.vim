@@ -14,14 +14,17 @@ lua require('diffview').setup{}
 lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
+lua require('neo-tree')
+lua require('symbols-outline').setup()
+lua require('window-picker').setup()
 
-lua<<EOF
-vim.wo.foldcolumn = '5'
-vim.wo.foldlevel = 99 -- feel free to decrease the value
-vim.wo.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.o.foldcolumn = '1'
-EOF
+" lua<<EOF
+" -- vim.wo.foldcolumn = '5'
+" -- vim.wo.foldlevel = 99 -- feel free to decrease the value
+" -- vim.wo.foldenable = true
+" -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+" -- vim.o.foldcolumn = '1'
+" EOF
 
 
 set completeopt=menu,menuone,noselect
@@ -44,7 +47,6 @@ set ignorecase
 set cursorline
 set foldmethod=indent
 set foldlevel=99
-set laststatus=3
 
 
 let g:sonokai_style = 'andromeda'
@@ -83,7 +85,7 @@ let g:onedark_config = {
 " colorscheme monokai_ristretto
 " colorscheme terafox
 " colorscheme rigel
-colorscheme lucario
+" colorscheme lucario
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -294,6 +296,7 @@ nnoremap <leader>gt :FloatermNew gotest -v ./...<CR>
 nnoremap <leader>fw :vimgrep <cword> %<CR>:copen<CR><C-W>L
 nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
 nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
+nnoremap <leader>tt :lua require("neotest").summary.toggle()<CR>
 
 lua <<EOF
 require("neotest").setup({
@@ -331,3 +334,14 @@ vnoremap K :m '<-2<CR>gv=gv
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
+
+set laststatus=3
+
+lua <<EOF
+require('nvim-tundra').setup({
+  plugins = {
+    telescope = true,
+  },
+})
+EOF
+colorscheme tundra

@@ -1,26 +1,32 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/sam4llis/nvim-tundra'
+Plug 'https://github.com/s1n7ax/nvim-window-picker'
+
+Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
+Plug 'https://github.com/MunifTanjim/nui.nvim'
+
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
 
-Plug 'https://github.com/kevinhwang91/promise-async'
-Plug 'https://github.com/kevinhwang91/nvim-ufo'
+" Plug 'https://github.com/kevinhwang91/promise-async'
+" Plug 'https://github.com/kevinhwang91/nvim-ufo'
 
 Plug 'https://github.com/hoob3rt/lualine.nvim'
 
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/folke/which-key.nvim'
 
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'leoluz/nvim-dap-go'
-Plug 'mfussenegger/nvim-dap-python'
+Plug 'https://github.com/mfussenegger/nvim-dap'
+Plug 'https://github.com/rcarriga/nvim-dap-ui'
+Plug 'https://github.com/leoluz/nvim-dap-go'
+Plug 'https://github.com/mfussenegger/nvim-dap-python'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/buoto/gotests-vim'
 
-Plug 'stevearc/dressing.nvim'
+Plug 'https://github.com/stevearc/dressing.nvim'
 
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -28,16 +34,16 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 
-Plug 'onsails/lspkind-nvim'
+Plug 'https://github.com/onsails/lspkind-nvim'
 
 " Ultisnips
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'SirVer/ultisnips'
+Plug 'https://github.com/quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 
 " Vsnip
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'https://github.com/hrsh7th/cmp-vsnip'
+Plug 'https://github.com/hrsh7th/vim-vsnip'
 Plug 'https://github.com/rafamadriz/friendly-snippets'
 
 Plug 'https://github.com/sbdchd/neoformat'
@@ -62,7 +68,7 @@ Plug 'https://github.com/nvim-telescope/telescope.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/romgrk/barbar.nvim'
 
-Plug 'ggandor/lightspeed.nvim'
+Plug 'https://github.com/ggandor/lightspeed.nvim'
 " Plug 'phaazon/hop.nvim'
 
 Plug 'https://github.com/TimUntersberger/neogit'
