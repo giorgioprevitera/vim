@@ -4,6 +4,7 @@
 
 lua<<EOF
 local actions = require("telescope.actions")
+local actions_layout = require("telescope.actions.layout")
 local present, telescope = pcall(require, "telescope")
 
 if not present then
@@ -29,9 +30,14 @@ telescope.setup({
   },
   defaults = {
     mappings = {
-      i = { ["<esc>"] = actions.close, },
+      n = {
+        ["<C-h>"] = actions_layout.toggle_preview,
+      },
+      i = {
+        ["<esc>"] = actions.close,
+        ["<C-h>"] = actions_layout.toggle_preview,
+      },
     },
-
     layout_config = {
       horizontal = {
         prompt_position = "top",
@@ -49,6 +55,9 @@ telescope.setup({
     -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 
     border = {},
+    preview = {
+      hide_on_startup = true,
+      },
     color_devicons = true,
     entry_prefix = "  ",
     file_ignore_patterns = { "^./.git/" },
