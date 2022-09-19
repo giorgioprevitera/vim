@@ -17,6 +17,43 @@ lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('neo-tree')
 lua require('symbols-outline').setup()
 lua require('window-picker').setup()
+lua <<EOF
+require('winbar').setup({
+  enabled = true,
+  show_file_path = true,
+  show_symbols = true,
+
+  colors = {
+    path = '', -- You can customize colors like #c946fd
+    file_name = '',
+    symbols = '',
+  },
+
+  icons = {
+    file_icon_default = '',
+    seperator = '>',
+    editor_state = '●',
+    lock_icon = '',
+  },
+
+  exclude_filetype = {
+    'help',
+    'startify',
+    'dashboard',
+    'packer',
+    'NeogitStatus',
+    'neo-tree',
+    'NvimTree',
+    'Trouble',
+    'alpha',
+    'lir',
+    'Outline',
+    'spectre_panel',
+    'toggleterm',
+    'qf',
+  }
+})
+EOF
 
 " lua<<EOF
 " -- vim.wo.foldcolumn = '5'
@@ -47,6 +84,9 @@ set ignorecase
 set cursorline
 set foldmethod=indent
 set foldlevel=99
+" set winbar=%f
+set laststatus=3
+set cmdheight=0
 
 
 let g:sonokai_style = 'andromeda'
@@ -86,6 +126,14 @@ let g:onedark_config = {
 " colorscheme terafox
 " colorscheme rigel
 " colorscheme lucario
+lua <<EOF
+require('nvim-tundra').setup({
+  plugins = {
+    telescope = true,
+  },
+})
+EOF
+colorscheme tundra
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -191,6 +239,7 @@ EOF
 " nnoremap <silent> <leader>p :lua require'tree'.toggle()<CR>
 nnoremap <silent> <leader>p :lua TreeToggle()<CR>
 nnoremap <leader>rf :NvimTreeFindFile<CR>
+nnoremap <silent> <leader>o :Neotree toggle filesystem float<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -336,12 +385,3 @@ if filereadable(expand("~/.config/nvim/local.vim"))
 endif
 
 set laststatus=3
-
-lua <<EOF
-require('nvim-tundra').setup({
-  plugins = {
-    telescope = true,
-  },
-})
-EOF
-colorscheme tundra
