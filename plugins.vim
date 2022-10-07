@@ -1,6 +1,10 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/folke/noice.nvim'
+Plug 'https://github.com/rcarriga/nvim-notify'
+
+Plug 'https://github.com/mickael-menu/zk-nvim'
 Plug 'https://github.com/fgheng/winbar.nvim'
 Plug 'https://github.com/sam4llis/nvim-tundra'
 Plug 'https://github.com/s1n7ax/nvim-window-picker'

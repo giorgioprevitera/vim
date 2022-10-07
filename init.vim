@@ -7,6 +7,10 @@ source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
 source ~/.config/nvim/lualine.lua
+source ~/.config/nvim/notes.lua
+source ~/.config/nvim/noice.lua
+source ~/.config/nvim/winbar.lua
+source ~/.config/nvim/colorscheme.vim
 
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
@@ -17,52 +21,6 @@ lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('neo-tree')
 lua require('symbols-outline').setup()
 lua require('window-picker').setup()
-lua <<EOF
-require('winbar').setup({
-  enabled = true,
-  show_file_path = true,
-  show_symbols = true,
-
-  colors = {
-    path = '', -- You can customize colors like #c946fd
-    file_name = '',
-    symbols = '',
-  },
-
-  icons = {
-    file_icon_default = '',
-    seperator = '>',
-    editor_state = '●',
-    lock_icon = '',
-  },
-
-  exclude_filetype = {
-    'help',
-    'startify',
-    'dashboard',
-    'packer',
-    'NeogitStatus',
-    'neo-tree',
-    'NvimTree',
-    'Trouble',
-    'alpha',
-    'lir',
-    'Outline',
-    'spectre_panel',
-    'toggleterm',
-    'qf',
-  }
-})
-EOF
-
-" lua<<EOF
-" -- vim.wo.foldcolumn = '5'
-" -- vim.wo.foldlevel = 99 -- feel free to decrease the value
-" -- vim.wo.foldenable = true
-" -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-" -- vim.o.foldcolumn = '1'
-" EOF
-
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -89,51 +47,6 @@ set laststatus=3
 set cmdheight=0
 
 
-let g:sonokai_style = 'andromeda'
-" colorscheme sonokai
-" colorscheme embark
-" colorscheme deep-space
-" colorscheme github_dimmed
-" autocmd VimEnter * ++nested colorscheme enfocado
-" colorscheme neobones
-
-" let g:tokyonight_style = 'night'
-" colorscheme tokyonight
-
-let g:rose_pine_variant = 'base'
-" colorscheme rose-pine
-" colorscheme rosebones
-
-" colorscheme nordbones
-
-" colorscheme catppuccin
-" colorscheme nightfox
-
-" colorscheme kanagawa
-let g:onedark_config = {
-    \ 'style': 'darker',
-\}
-
-" colorscheme onedark
-" colorscheme brogrammer
-" colorscheme sonokai
-" colorscheme nord
-
-" colorscheme monokai
-" colorscheme monokai_pro
-" colorscheme monokai_soda
-" colorscheme monokai_ristretto
-" colorscheme terafox
-" colorscheme rigel
-" colorscheme lucario
-lua <<EOF
-require('nvim-tundra').setup({
-  plugins = {
-    telescope = true,
-  },
-})
-EOF
-colorscheme tundra
 
 let g:UltiSnipsExpandTrigger="C-<tab>"
 " let g:UltiSnipsRemoveSelectModeMappings=false
@@ -227,10 +140,10 @@ local tree_width = g.nvim_tree_width
 function TreeToggle ()
     require('nvim-tree').toggle(true)
     if require('nvim-tree.view').is_visible() then
-      require('bufferline.state').set_offset(tree_width + 1, 'FileTree')
+      require('bufferline.api').set_offset(tree_width + 1, 'FileTree')
       require('nvim-tree').find_file(true)
     else
-    require('bufferline.state').set_offset(0)
+    require('bufferline.api').set_offset(0)
   end
 end
 EOF
@@ -239,7 +152,7 @@ EOF
 " nnoremap <silent> <leader>p :lua require'tree'.toggle()<CR>
 nnoremap <silent> <leader>p :lua TreeToggle()<CR>
 nnoremap <leader>rf :NvimTreeFindFile<CR>
-nnoremap <silent> <leader>o :Neotree toggle filesystem float<CR>
+nnoremap <silent> <leader>o :Neotree toggle filesystem left<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -303,7 +216,7 @@ let g:VM_maps["Add Cursor Up"]   = '<C-k>'
 
 augroup fmt
   autocmd!
-  au BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
+  au BufWritePre * lua vim.lsp.buf.format()
   " au BufWritePre *.md undojoin | Neoformat
 augroup END
 
