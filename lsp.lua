@@ -1,12 +1,13 @@
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -36,8 +37,8 @@ local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true
+    dynamicRegistration = false,
+    lineFoldingOnly = true
   }
   return {
     -- enable snippet support
@@ -47,21 +48,21 @@ local function make_config()
   }
 end
 
-local prettier = { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
+local prettier = { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true }
 
-local mason = require'mason'
-local mason_lspconfig = require'mason-lspconfig'
-local lspconfig = require'lspconfig'
+local mason = require 'mason'
+local mason_lspconfig = require 'mason-lspconfig'
+local lspconfig = require 'lspconfig'
 
-mason.setup{}
+mason.setup {}
 mason_lspconfig.setup_handlers({
   function(server_name)
     local config = make_config()
     if server_name == "efm" then
-      config.init_options = {documentFormatting = true}
-      config.filetypes = {"python", "sh", "markdown", "yaml"}
+      config.init_options = { documentFormatting = true }
+      config.filetypes = { "python", "sh", "markdown", "yaml" }
       config.settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = { ".git/" },
         languages = {
           sh = {
             { formatCommand = "shfmt -ci -s -bn", formatStdin = true, },
@@ -69,12 +70,15 @@ mason_lspconfig.setup_handlers({
           },
           python = {
             { formatCommand = "black -", formatStdin = true },
-            { lintCommand = "flake8 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true, lintStdin = true, lintFormats = {"%f:%l:%c: %m"} }
+            { lintCommand = "flake8 --max-line-length 160 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true,
+              lintStdin = true,
+              lintFormats = { "%f:%l:%c: %m" } }
           },
-          markdown = {prettier},
+          markdown = { prettier },
           yaml = {
             prettier,
-            { lintCommand = "yamllint --strict --format parsable ${INPUT}", lintStdin = false, lintFormats = {"%f:%l:%c: [%t%*[a-z]] %m"}}
+            { lintCommand = "yamllint --strict --format parsable ${INPUT}", lintStdin = false,
+              lintFormats = { "%f:%l:%c: [%t%*[a-z]] %m" } }
           },
         }
       }
@@ -83,11 +87,10 @@ mason_lspconfig.setup_handlers({
   end
 })
 
-lspconfig["terraform_lsp"].setup{}
+lspconfig["terraform_lsp"].setup {}
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 for type, icon in pairs(signs) do
-    local hl = "LspDiagnosticsSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  local hl = "LspDiagnosticsSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-

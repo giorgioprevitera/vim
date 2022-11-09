@@ -6,8 +6,8 @@ let g:sonokai_style = 'andromeda'
 " autocmd VimEnter * ++nested colorscheme enfocado
 " colorscheme neobones
 
-" let g:tokyonight_style = 'night'
-" colorscheme tokyonight
+let g:tokyonight_style = 'moon'
+" colorscheme tokyonight-moon
 
 let g:rose_pine_variant = 'base'
 " colorscheme rose-pine
@@ -42,5 +42,39 @@ require('nvim-tundra').setup({
   },
 })
 EOF
+" colorscheme tundra
 
-colorscheme sonokai
+lua <<EOF
+require("tokyonight").setup({
+  on_highlights = function(hl, c)
+    local prompt = "#2d3149"
+    hl.TelescopeNormal = {
+      bg = c.bg_dark,
+      fg = c.fg_dark,
+    }
+    hl.TelescopeBorder = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+    hl.TelescopePromptNormal = {
+      bg = prompt,
+    }
+    hl.TelescopePromptBorder = {
+      bg = prompt,
+      fg = prompt,
+    }
+    hl.TelescopePromptTitle = {
+      bg = prompt,
+      fg = prompt,
+    }
+    hl.TelescopePreviewTitle = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+    hl.TelescopeResultsTitle = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+  end,
+})
+EOF

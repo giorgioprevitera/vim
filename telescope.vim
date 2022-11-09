@@ -140,6 +140,7 @@ EOF
 
 nnoremap <C-t> :Telescope<CR>
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
+" nnoremap <C-b> :Neotree float buffers<cr>
 nnoremap <C-b> <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_branches()<cr>

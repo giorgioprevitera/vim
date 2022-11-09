@@ -1,6 +1,8 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/tommcdo/vim-lion'
+
 Plug 'https://github.com/folke/noice.nvim'
 Plug 'https://github.com/rcarriga/nvim-notify'
 
@@ -74,7 +76,7 @@ Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/romgrk/barbar.nvim'
 
 Plug 'https://github.com/ggandor/lightspeed.nvim'
-" Plug 'phaazon/hop.nvim'
+" Plug 'https://github.com/phaazon/hop.nvim'
 
 Plug 'https://github.com/TimUntersberger/neogit'
 Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                                                         " Git branch viewer

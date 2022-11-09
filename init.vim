@@ -6,9 +6,11 @@ source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
+" source ~/.config/nvim/noice.lua
+" source ~/.config/nvim/noiceline.lua
 source ~/.config/nvim/lualine.lua
+" source ~/.config/nvim/l.lua
 source ~/.config/nvim/notes.lua
-source ~/.config/nvim/noice.lua
 source ~/.config/nvim/winbar.lua
 source ~/.config/nvim/colorscheme.vim
 
@@ -269,7 +271,7 @@ require("neotest").setup({
 })
 EOF
 
-"--------------------------------------------------
+"--------------------------------------------------             
 " Misc
 "--------------------------------------------------
 
@@ -283,6 +285,7 @@ augroup END
 
 nnoremap <leader>n :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>cm :lua require("notify").dismiss()<CR>
 
 augroup MyFlogBindings
   au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>
@@ -297,4 +300,5 @@ if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
 
+colorscheme tokyonight-night
 set laststatus=3
