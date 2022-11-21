@@ -40,6 +40,24 @@ require("noice").setup({
   --   enabled = false,
   -- },
 
+  -- {
+  --   messages = {
+  --     enabled = false,
+  --   },
+  -- },
+
+  -- routes = {
+  --   {
+  --     filter = {
+  --       event = "msg_show",
+  --       ["not"] = {
+  --         kind = { "confirm", "confirm_sub" },
+  --       },
+  --     },
+  --     opts = { view = "mini" },
+  --   },
+  -- },
+
   views = {
     cmdline_popup = {
       border = {

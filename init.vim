@@ -6,7 +6,7 @@ source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
-" source ~/.config/nvim/noice.lua
+source ~/.config/nvim/noice.lua
 " source ~/.config/nvim/noiceline.lua
 source ~/.config/nvim/lualine.lua
 " source ~/.config/nvim/l.lua
@@ -47,6 +47,7 @@ set foldlevel=99
 " set winbar=%f
 set laststatus=3
 set cmdheight=0
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
 
 
