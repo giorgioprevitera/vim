@@ -14,8 +14,14 @@ end
 
 telescope.setup({
   pickers = {
+    colorscheme = {
+      enable_preview = true
+    },
     live_grep = {
-      only_sort_text = true
+      only_sort_text = true,
+      additional_args = function(opts)
+                return {"--hidden"}
+            end
     },
     find_files = {
       hidden = true

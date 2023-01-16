@@ -23,6 +23,7 @@ lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('neo-tree')
 lua require('symbols-outline').setup()
 lua require('window-picker').setup()
+lua require('hop').setup()
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -144,7 +145,7 @@ function TreeToggle ()
     require('nvim-tree').toggle(true)
     if require('nvim-tree.view').is_visible() then
       require('bufferline.api').set_offset(tree_width + 1, 'FileTree')
-      require('nvim-tree').find_file(true)
+      require('nvim-tree').api.tree.find_file(true)
     else
     require('bufferline.api').set_offset(0)
   end
@@ -202,7 +203,7 @@ autocmd BufRead,BufNewFile terragrunt.hcl set filetype=terraform
 " Terraform
 autocmd BufRead,BufNewFile *.sh.tpl set filetype=sh
 autocmd BufRead,BufNewFile *.sh.tpl set syntax=sh
-
+autocmd FileType terraform setlocal commentstring=#\ %s
 
 "--------------------------------------------------
 " vim-visual-multi
@@ -287,6 +288,7 @@ augroup END
 nnoremap <leader>n :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>cm :lua require("notify").dismiss()<CR>
+nnoremap s :HopWord<CR>
 
 augroup MyFlogBindings
   au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>
@@ -301,5 +303,7 @@ if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
 
-colorscheme tokyonight-night
+" colorscheme tokyonight-night
+" colorscheme tokyonight
+colorscheme catppuccin-mocha
 set laststatus=3
