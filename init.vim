@@ -142,10 +142,9 @@ g.nvim_tree_width = 40
 local tree_width = g.nvim_tree_width
 
 function TreeToggle ()
-    require('nvim-tree').toggle(true)
+    require('nvim-tree.api').tree.toggle(true)
     if require('nvim-tree.view').is_visible() then
       require('bufferline.api').set_offset(tree_width + 1, 'FileTree')
-      require('nvim-tree').api.tree.find_file(true)
     else
     require('bufferline.api').set_offset(0)
   end
