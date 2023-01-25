@@ -54,6 +54,12 @@ local mason = require 'mason'
 local mason_lspconfig = require 'mason-lspconfig'
 local lspconfig = require 'lspconfig'
 
+local signs = { Error = " ", Warning = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 mason.setup {}
 mason_lspconfig.setup_handlers({
   function(server_name)
@@ -88,9 +94,3 @@ mason_lspconfig.setup_handlers({
 })
 
 lspconfig["terraform_lsp"].setup {}
-
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
-for type, icon in pairs(signs) do
-  local hl = "LspDiagnosticsSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end

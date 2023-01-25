@@ -13,6 +13,7 @@ source ~/.config/nvim/lualine.lua
 source ~/.config/nvim/notes.lua
 source ~/.config/nvim/winbar.lua
 source ~/.config/nvim/colorscheme.vim
+source ~/.config/nvim/statucolumn.lua
 
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
@@ -24,6 +25,7 @@ lua require('neo-tree')
 lua require('symbols-outline').setup()
 lua require('window-picker').setup()
 lua require('hop').setup()
+
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -304,5 +306,6 @@ endif
 
 " colorscheme tokyonight-night
 " colorscheme tokyonight
-colorscheme catppuccin-mocha
+" colorscheme catppuccin-mocha
+colorscheme noctis_uva
 set laststatus=3

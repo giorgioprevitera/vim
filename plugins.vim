@@ -101,6 +101,7 @@ Plug 'https://github.com/nvim-neotest/neotest-python'
 Plug 'https://github.com/nvim-neotest/neotest-go'
 
 " Colorschemes
+Plug 'https://github.com/talha-akram/noctis.nvim'
 Plug 'https://github.com/tyrannicaltoucan/vim-deep-space'
 Plug 'https://github.com/sainnhe/sonokai'
 Plug 'https://github.com/projekt0n/github-nvim-theme'
