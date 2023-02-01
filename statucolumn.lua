@@ -26,7 +26,7 @@ function M.column()
     local nu = vim.v.lnum
     -- end
     local components = {
-        sign and ("%#" .. sign.texthl .. "#" .. sign.text .. "%*") or " ",
+        -- sign and ("%#" .. sign.texthl .. "#" .. sign.text .. "%*") or " ",
         [[%=]],
         nu .. " ",
         git_sign and ("%#" .. git_sign.texthl .. "#" .. git_sign.text .. "%*") or "  ",
@@ -39,4 +39,3 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 end
 
 return M
-

@@ -66,7 +66,7 @@ telescope.setup({
       },
     color_devicons = true,
     entry_prefix = "  ",
-    file_ignore_patterns = { "^./.git/" },
+    file_ignore_patterns = { ".git/" },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     -- file_sorter = require("telescope.sorters").get_fuzzy_file,
     -- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
@@ -152,7 +152,7 @@ nnoremap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').command_history()<cr>
 nnoremap <leader>fd <cmd> lua require('telescope.builtin').lsp_definitions()<cr>
-nnoremap <leader>fs <cmd> lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+nnoremap <leader>fs <cmd> lua require('telescope.builtin').lsp_document_symbols()<cr>
 nnoremap <leader>c <cmd>lua require('telescope.builtin').commands()<cr>
 
 lua<<EOF

@@ -1,6 +1,8 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/luukvbaal/statuscol.nvim'
+
 Plug 'https://github.com/phelipetls/vim-jqplay'
 Plug 'https://github.com/aduros/ai.vim'
 
@@ -20,8 +22,8 @@ Plug 'https://github.com/MunifTanjim/nui.nvim'
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
 
-" Plug 'https://github.com/kevinhwang91/promise-async'
-" Plug 'https://github.com/kevinhwang91/nvim-ufo'
+Plug 'https://github.com/kevinhwang91/promise-async'
+Plug 'https://github.com/kevinhwang91/nvim-ufo'
 
 Plug 'https://github.com/hoob3rt/lualine.nvim'
 

@@ -54,7 +54,7 @@ local mason = require 'mason'
 local mason_lspconfig = require 'mason-lspconfig'
 local lspconfig = require 'lspconfig'
 
-local signs = { Error = " ", Warning = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -64,6 +64,15 @@ mason.setup {}
 mason_lspconfig.setup_handlers({
   function(server_name)
     local config = make_config()
+    if server_name == "sumneko_lua" then
+      config.settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' },
+          },
+        },
+      }
+    end
     if server_name == "efm" then
       config.init_options = { documentFormatting = true }
       config.filetypes = { "python", "sh", "markdown", "yaml" }

@@ -7,13 +7,11 @@ source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
 source ~/.config/nvim/noice.lua
-" source ~/.config/nvim/noiceline.lua
 source ~/.config/nvim/lualine.lua
-" source ~/.config/nvim/l.lua
 source ~/.config/nvim/notes.lua
 source ~/.config/nvim/winbar.lua
 source ~/.config/nvim/colorscheme.vim
-source ~/.config/nvim/statucolumn.lua
+source ~/.config/nvim/ufo.lua
 
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
@@ -45,9 +43,6 @@ set smartcase
 set hidden
 set ignorecase
 set cursorline
-set foldmethod=indent
-set foldlevel=99
-" set winbar=%f
 set laststatus=3
 set cmdheight=0
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -258,12 +253,13 @@ let test#python#pytest#options = "-rapP"
 let test#go#runner = "gotest"
 
 nnoremap <leader>ts :TestSuite<CR>
-nnoremap <leader>tf :TestFile<CR>
+" nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>gt :FloatermNew gotest -v ./...<CR>
 nnoremap <leader>fw :vimgrep <cword> %<CR>:copen<CR><C-W>L
 nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
 nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
 nnoremap <leader>tt :lua require("neotest").summary.toggle()<CR>
+nnoremap <leader>tf :lua require("neotest").run.run()<CR>
 
 lua <<EOF
 require("neotest").setup({
@@ -306,6 +302,6 @@ endif
 
 " colorscheme tokyonight-night
 " colorscheme tokyonight
-" colorscheme catppuccin-mocha
-colorscheme noctis_uva
+colorscheme catppuccin-mocha
+" colorscheme noctis_uva
 set laststatus=3
