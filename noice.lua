@@ -8,55 +8,16 @@ require("noice").setup({
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
   },
 
-  -- messages = {
-  --   -- NOTE: If you enable noice messages UI, noice cmdline UI is enabled
-  --   -- automatically. You cannot enable noice messages UI only.
-  --   -- It is current neovim implementation limitation.  It may be fixed later.
-  --   enabled = false, -- disable if you use native messages UI
-  -- },
-  -- routes = {
-  --   {
-  --     filter = {
-  --       event = "msg_show",
-  --       kind = "",
-  --       find = "written",
-  --     },
-  --     opts = { skip = true },
-  --   },
-  -- {
-  --   view = "notify",
-  --   opts = { skip = true },
-  -- },
-  -- },
-  -- popupmenu = {
-  --   enabled = true,
-  -- },
-  -- notify = {
-  --   -- Noice can be used as `vim.notify` so you can route any notification like other messages
-  --   -- Notification messages have their level and other properties set.
-  --   -- event is always "notify" and kind can be any log level as a string
-  --   -- The default routes will forward notifications to nvim-notify
-  --   -- Benefit of using Noice for this is the routing and consistent history view
-  --   enabled = false,
-  -- },
-
-  -- {
-  --   messages = {
-  --     enabled = false,
-  --   },
-  -- },
-
-  -- routes = {
-  --   {
-  --     filter = {
-  --       event = "msg_show",
-  --       ["not"] = {
-  --         kind = { "confirm", "confirm_sub" },
-  --       },
-  --     },
-  --     opts = { view = "mini" },
-  --   },
-  -- },
+  messages = {
+    -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+    -- This is a current Neovim limitation.
+    enabled = true, -- enables the Noice messages UI
+    view = "mini", -- default view for messages
+    view_error = "mini", -- view for errors
+    view_warn = "mini", -- view for warnings
+    -- view_history = "messages", -- view for :messages
+    -- view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+  },
 
   views = {
     cmdline_popup = {
