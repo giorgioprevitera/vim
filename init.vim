@@ -9,21 +9,8 @@ source ~/.config/nvim/gitsigns.lua
 source ~/.config/nvim/noice.lua
 source ~/.config/nvim/lualine.lua
 source ~/.config/nvim/notes.lua
-source ~/.config/nvim/winbar.lua
 source ~/.config/nvim/colorscheme.vim
-source ~/.config/nvim/ufo.lua
-
-lua require("trouble").setup{}
-lua require('nvim-autopairs').setup()
-lua require('diffview').setup{}
-lua require('lsp_signature').setup()
-lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
-lua require("which-key").setup {plugins={spelling={enabled=true}}}
-lua require('neo-tree')
-lua require('symbols-outline').setup()
-lua require('window-picker').setup()
-lua require('hop').setup()
-
+" source ~/.config/nvim/ufo.lua
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -47,10 +34,17 @@ set laststatus=3
 set cmdheight=0
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
-
-
-let g:UltiSnipsExpandTrigger="C-<tab>"
-" let g:UltiSnipsRemoveSelectModeMappings=false
+lua require("trouble").setup{}
+lua require('nvim-autopairs').setup()
+lua require('diffview').setup{}
+lua require('lsp_signature').setup()
+lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
+lua require("which-key").setup {plugins={spelling={enabled=true}}}
+lua require('neo-tree')
+lua require('symbols-outline').setup()
+lua require('window-picker').setup()
+lua require('hop').setup()
+lua require('barbecue').setup({attach_navic = false})
 
 
 "--------------------------------------------------

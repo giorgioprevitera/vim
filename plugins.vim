@@ -12,7 +12,10 @@ Plug 'https://github.com/folke/noice.nvim'
 Plug 'https://github.com/rcarriga/nvim-notify'
 
 Plug 'https://github.com/mickael-menu/zk-nvim'
-Plug 'https://github.com/fgheng/winbar.nvim'
+
+Plug 'https://github.com/SmiteshP/nvim-navic'
+Plug 'https://github.com/utilyre/barbecue.nvim'
+
 Plug 'https://github.com/sam4llis/nvim-tundra'
 Plug 'https://github.com/s1n7ax/nvim-window-picker'
 
