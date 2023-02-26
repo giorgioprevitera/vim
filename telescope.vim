@@ -149,7 +149,9 @@ nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 " nnoremap <C-b> :Neotree float buffers<cr>
 nnoremap <C-b> <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>fgb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits()<cr>
+nnoremap <leader>fgs <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').command_history()<cr>
 nnoremap <leader>fd <cmd> lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>fs <cmd> lua require('telescope.builtin').lsp_document_symbols()<cr>

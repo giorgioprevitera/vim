@@ -144,9 +144,10 @@ EOF
 
 " nnoremap <leader>p :NvimTreeToggle<CR>
 " nnoremap <silent> <leader>p :lua require'tree'.toggle()<CR>
-nnoremap <silent> <leader>p :lua TreeToggle()<CR>
-nnoremap <leader>rf :NvimTreeFindFile<CR>
-nnoremap <silent> <leader>o :Neotree toggle filesystem left<CR>
+" nnoremap <silent> <leader>p :lua TreeToggle()<CR>
+" nnoremap <leader>rf :NvimTreeFindFile<CR>
+nnoremap <silent> <leader>rf :NeoTreeReveal<CR>
+nnoremap <silent> <leader>p :Neotree toggle filesystem left<CR>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -279,8 +280,10 @@ augroup END
 nnoremap <leader>n :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>cm :lua require("notify").dismiss()<CR>
-nnoremap s :HopChar2AC<CR>
-nnoremap S :HopChar2BC<CR>
+nnoremap s :HopWordAC<CR>
+nnoremap S :HopWordBC<CR>
+" nnoremap s :HopChar2AC<CR>
+" nnoremap S :HopChar2BC<CR>
 
 augroup MyFlogBindings
   au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>
