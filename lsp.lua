@@ -102,4 +102,4 @@ mason_lspconfig.setup_handlers({
   end
 })
 
-lspconfig["terraform_lsp"].setup {}
+-- lspconfig["terraform_lsp"].setup {}
