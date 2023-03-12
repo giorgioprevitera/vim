@@ -4,13 +4,8 @@ source ~/.config/nvim/treesitter.lua
 source ~/.config/nvim/terraform.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/cmp.lua
-source ~/.config/nvim/debugger.vim
 source ~/.config/nvim/gitsigns.lua
-source ~/.config/nvim/noice.lua
 source ~/.config/nvim/lualine.lua
-source ~/.config/nvim/notes.lua
-source ~/.config/nvim/colorscheme.vim
-" source ~/.config/nvim/ufo.lua
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -30,23 +25,22 @@ set smartcase
 set hidden
 set ignorecase
 set cursorline
-set laststatus=3
-set cmdheight=0
+" set cmdheight=0
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-let g:python3_host_prog = expand('~/.local/share/nvim-venv/bin/python')
+set foldmethod=indent
+set foldlevel=99
 
+let g:python3_host_prog = expand('~/.local/share/nvim-venv/bin/python')
 
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
-"lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('neo-tree')
-lua require('symbols-outline').setup()
-lua require('window-picker').setup()
 lua require('hop').setup()
 lua require('barbecue').setup({attach_navic = false})
+lua require("indent_blankline").setup { show_current_context = true }
 
 
 "--------------------------------------------------
@@ -66,9 +60,6 @@ let g:ctrlsf_auto_focus = {
     \ "at": "start"
     \ }
 
-
-
-
 "--------------------------------------------------
 " Terminal
 "--------------------------------------------------
@@ -87,75 +78,8 @@ tnoremap <silent> <C-W>h <C-\><C-n><C-W>h
 tnoremap <silent> <C-W>L <C-\><C-n><C-W>L<CR>
 
 
-"--------------------------------------------------
-" Indenline
-"--------------------------------------------------
-
-let g:indentLine_setConceal = 1
-let g:indentLine_char = '⎸'
-let g:indentLine_bgcolor_term = 239
-let g:indentLine_faster = 1
-
-augroup DetectIndent
-    autocmd!
-    autocmd BufReadPost *  DetectIndent
-augroup END
-
-
-"--------------------------------------------------
-" NvimTree
-"--------------------------------------------------
-" let g:nvim_tree_disable_window_picker = 1
-lua<<EOF
-require'nvim-tree'.setup{
-    disable_netrw = false,
-    diagnostics = {
-      enable = true
-    },
-    view = {
-      width = 40
-    },
-    actions = {
-      open_file = {
-        window_picker = {
-          enable = true,
-        }
-      }
-    },
-    git = {
-      enable = true,
-      ignore = false,
-    }
-}
-EOF
-
-lua<<EOF
-local g = vim.g
-g.nvim_tree_width = 40
-local tree_width = g.nvim_tree_width
-
-function TreeToggle ()
-    require('nvim-tree.api').tree.toggle(true)
-    if require('nvim-tree.view').is_visible() then
-      require('bufferline.api').set_offset(tree_width + 1, 'FileTree')
-    else
-    require('bufferline.api').set_offset(0)
-  end
-end
-EOF
-
-" nnoremap <leader>p :NvimTreeToggle<CR>
-" nnoremap <silent> <leader>p :lua require'tree'.toggle()<CR>
-" nnoremap <silent> <leader>p :lua TreeToggle()<CR>
-" nnoremap <leader>rf :NvimTreeFindFile<CR>
 nnoremap <silent> <leader>rf :NeoTreeReveal<CR>
 nnoremap <silent> <leader>p :Neotree toggle filesystem left<CR>
-
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
 
 "--------------------------------------------------
 " Barbar tabs
@@ -173,12 +97,20 @@ nnoremap <silent>    <A-o> :BufferCloseAllButCurrent<CR>
 " Pick buffer
 nnoremap <silent>    <A-b> :BufferPick<CR>
 
-
-
 "--------------------------------------------------
 " Trouble
 "--------------------------------------------------
 nnoremap <leader>tr :TroubleToggle<CR>
+
+"--------------------------------------------------
+" Formatting
+"--------------------------------------------------
+
+augroup fmt
+  autocmd!
+  au BufWritePre * lua vim.lsp.buf.format()
+augroup END
+
 
 "--------------------------------------------------
 " Syntax
@@ -198,110 +130,14 @@ autocmd BufRead,BufNewFile *.sh.tpl set filetype=sh
 autocmd BufRead,BufNewFile *.sh.tpl set syntax=sh
 autocmd FileType terraform setlocal commentstring=#\ %s
 
-"--------------------------------------------------
-" vim-visual-multi
-"--------------------------------------------------
-
-let g:VM_maps = {}
-let g:VM_maps["Add Cursor Down"] = '<C-j>'
-let g:VM_maps["Add Cursor Up"]   = '<C-k>'
-
-
-"--------------------------------------------------
-" Formatting
-"--------------------------------------------------
-
-augroup fmt
-  autocmd!
-  au BufWritePre * lua vim.lsp.buf.format()
-  " au BufWritePre *.md undojoin | Neoformat
-augroup END
-
-" Enable trimmming of trailing whitespace
-" let g:neoformat_basic_format_trim = 1
-
-" lua<<EOF
-" function OrgImports(wait_ms)
-"   local params = vim.lsp.util.make_range_params()
-"   params.context = {only = {"source.organizeImports"}}
-"   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-"   for _, res in pairs(result or {}) do
-"     for _, r in pairs(res.result or {}) do
-"       if r.edit then
-"         vim.lsp.util.apply_workspace_edit(r.edit)
-"       else
-"         vim.lsp.buf.execute_command(r.command)
-"       end
-"     end
-"   end
-" end
-" vim.api.nvim_command("au BufWritePre *.go lua OrgImports(1000)")
-" EOF
-
-
-"--------------------------------------------------
-" Tests
-"--------------------------------------------------
-
-
-let test#strategy = "floaterm"
-let test#python#runner = "pytest"
-let test#python#pytest#options = "-rapP"
-let test#go#runner = "gotest"
-
-nnoremap <leader>ts :TestSuite<CR>
-" nnoremap <leader>tf :TestFile<CR>
-nnoremap <leader>gt :FloatermNew gotest -v ./...<CR>
-nnoremap <leader>fw :vimgrep <cword> %<CR>:copen<CR><C-W>L
-nnoremap <silent> <Leader>tfr :Tfdoc <C-R><C-W><CR>
-nnoremap <silent> <Leader>tfd :Tfdoc -d <C-R><C-W><CR>
-nnoremap <leader>tt :lua require("neotest").summary.toggle()<CR>
-nnoremap <leader>tf :lua require("neotest").run.run()<CR>
-
-lua <<EOF
-require("neotest").setup({
-  adapters = {
-    require("neotest-python"),
-    require("neotest-go")
-  }
-})
-EOF
-
-"--------------------------------------------------             
-" Misc
-"--------------------------------------------------
-
-let g:python3_host_prog = $HOME . "/.local/share/nvim-venv/bin/python3"
-
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
-
 nnoremap <leader>n :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>cm :lua require("notify").dismiss()<CR>
 nnoremap s :HopWordAC<CR>
 nnoremap S :HopWordBC<CR>
-" nnoremap s :HopChar2AC<CR>
-" nnoremap S :HopChar2BC<CR>
-
-augroup MyFlogBindings
-  au FileType floggraph nnoremap <buffer> <silent> <Tab> :<C-U>call flog#set_commit_mark_at_line('m', '.') \| call flog#run_command('vertical botright Gsplit %h:%p', 0, 0, 1)<CR>
-  au FileType floggraph nnoremap <buffer> <silent> df :<C-U>call flog#run_command("vertical botright Gsplit %(h'm):%p \| Gdiffsplit %h", 0, 0, 1)<CR>
-augroup END
-
-" Shift + J/K moves selected lines down/up in visual mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
 
-" colorscheme tokyonight-night
-colorscheme tokyonight
-colorscheme catppuccin-mocha
-" colorscheme noctis_uva
+colorscheme catppuccin
 set laststatus=3

@@ -11,7 +11,6 @@ if not present then
    return
 end
 
-
 telescope.setup({
   pickers = {
     colorscheme = {
@@ -82,23 +81,20 @@ telescope.setup({
     theme = "dropdown",
     use_less = true,
     winblend = 0,
-
-
-
   },
-  extensions = {
-    file_browser = {
-      theme = "ivy",
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
-      },
-    },
-  },
+  -- extensions = {
+  --   file_browser = {
+  --     theme = "ivy",
+  --     mappings = {
+  --       ["i"] = {
+  --         -- your custom insert mode mappings
+  --       },
+  --       ["n"] = {
+  --         -- your custom normal mode mappings
+  --       },
+  --     },
+  --   },
+  -- },
 })
 
 -- local extensions = { "themes", "terms", "file_browser" }
@@ -107,7 +103,7 @@ telescope.setup({
 -- end
 
 
-telescope.load_extension "file_browser"
+-- telescope.load_extension "file_browser"
 -- telescope.load_extension "themes"
 -- telescope.load_extension "terms"
 

@@ -14,7 +14,14 @@
 
 
 local cmp = require 'cmp'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local lspkind = require "lspkind"
+
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
+
 lspkind.init()
 
 cmp.setup({
@@ -23,6 +30,10 @@ cmp.setup({
             vim.fn["vsnip#anonymous"](args.body)
             -- vim.fn["UltiSnips#Anon"](args.body)
         end,
+    },
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
     },
     mapping = {
         ['<C-d>'] = cmp.mapping.scroll_docs( -4),
@@ -53,7 +64,8 @@ cmp.setup({
         -- Youtube: How to set up nice formatting for your sources.
         -- mode = 'symbol',
         format = lspkind.cmp_format {
-            with_text = true,
+            mode = "symbol_text",
+            -- with_text = true,
             menu = {
                 buffer = "[buf]",
                 nvim_lsp = "[LSP]",

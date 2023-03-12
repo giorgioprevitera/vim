@@ -34,7 +34,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 end
 
 
@@ -91,15 +91,21 @@ mason_lspconfig.setup_handlers({
                     },
                     python = {
                         { formatCommand = "black -", formatStdin = true },
-                        { lintCommand = "flake8 --max-line-length 160 --stdin-display-name ${INPUT} -", lintIgnoreExitCode = true,
+                        {
+                            lintCommand = "flake8 --max-line-length 160 --stdin-display-name ${INPUT} -",
+                            lintIgnoreExitCode = true,
                             lintStdin = true,
-                            lintFormats = { "%f:%l:%c: %m" } }
+                            lintFormats = { "%f:%l:%c: %m" }
+                        }
                     },
                     markdown = { prettier },
                     yaml = {
                         prettier,
-                        { lintCommand = "yamllint --strict --format parsable ${INPUT}", lintStdin = false,
-                            lintFormats = { "%f:%l:%c: [%t%*[a-z]] %m" } }
+                        {
+                            lintCommand = "yamllint --strict --format parsable ${INPUT}",
+                            lintStdin = false,
+                            lintFormats = { "%f:%l:%c: [%t%*[a-z]] %m" }
+                        }
                     },
                 }
             }
@@ -107,5 +113,4 @@ mason_lspconfig.setup_handlers({
         lspconfig[server_name].setup(config)
     end
 })
-
 -- lspconfig["terraform_lsp"].setup {}
