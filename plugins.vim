@@ -2,33 +2,34 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'https://github.com/luukvbaal/statuscol.nvim'
-
 Plug 'https://github.com/phelipetls/vim-jqplay'
 Plug 'https://github.com/aduros/ai.vim'
-
 Plug 'https://github.com/tommcdo/vim-lion'
-
 Plug 'https://github.com/folke/noice.nvim'
 Plug 'https://github.com/rcarriga/nvim-notify'
-
 Plug 'https://github.com/mickael-menu/zk-nvim'
+
+
+Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
+Plug 'https://github.com/MunifTanjim/nui.nvim'
+Plug 'https://github.com/nvim-lua/plenary.nvim'
+Plug 'https://github.com/kyazdani42/nvim-web-devicons'
+Plug 'https://github.com/hoob3rt/lualine.nvim'
 
 Plug 'https://github.com/SmiteshP/nvim-navic'
 Plug 'https://github.com/utilyre/barbecue.nvim'
 
-Plug 'https://github.com/sam4llis/nvim-tundra'
-Plug 'https://github.com/s1n7ax/nvim-window-picker'
 
-Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
-Plug 'https://github.com/MunifTanjim/nui.nvim'
+Plug 'https://github.com/s1n7ax/nvim-window-picker'
 
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
 
+
 Plug 'https://github.com/kevinhwang91/promise-async'
 Plug 'https://github.com/kevinhwang91/nvim-ufo'
 
-Plug 'https://github.com/hoob3rt/lualine.nvim'
 
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/folke/which-key.nvim'
@@ -56,12 +57,16 @@ Plug 'https://github.com/quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 
+" Plug 'dcampos/nvim-snippy'
+" Plug 'dcampos/cmp-snippy'
+
 " Vsnip
-Plug 'https://github.com/hrsh7th/cmp-vsnip'
+Plug 'https://github.com/hrsh7th/cmp-vsnip', {'commit': '1ae05c6'}
 Plug 'https://github.com/hrsh7th/vim-vsnip'
+
 Plug 'https://github.com/rafamadriz/friendly-snippets'
 
-Plug 'https://github.com/sbdchd/neoformat'
+" Plug 'https://github.com/sbdchd/neoformat'
 
 Plug 'https://github.com/Yggdroot/indentLine.git'                                                                  " Display indentation lines
 Plug 'https://github.com/alxpettit/detectindent.git'                                                               " Automatically detect indent settings
@@ -74,10 +79,9 @@ Plug 'https://github.com/dyng/ctrlsf.vim'
 " Plug 'https://github.com/windwp/windline.nvim'
 
 Plug 'https://github.com/kyazdani42/nvim-tree.lua'
-Plug 'https://github.com/kyazdani42/nvim-web-devicons'
+
 Plug 'https://github.com/lewis6991/gitsigns.nvim'
 Plug 'https://github.com/mg979/vim-visual-multi'                                                                   " Multiple cursors
-Plug 'https://github.com/nvim-lua/plenary.nvim'
 Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
@@ -89,7 +93,6 @@ Plug 'https://github.com/phaazon/hop.nvim'
 Plug 'https://github.com/TimUntersberger/neogit'
 Plug 'https://github.com/rbong/vim-flog', { 'on': 'Flog' }                                                         " Git branch viewer
 
-Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
 Plug 'https://github.com/folke/trouble.nvim'
@@ -98,7 +101,7 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 
 
-Plug 'https://github.com/vim-test/vim-test'
+" Plug 'https://github.com/vim-test/vim-test'
 " Plug 'https://github.com/rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/antoinemadec/FixCursorHold.nvim'
 Plug 'https://github.com/nvim-neotest/neotest'
@@ -106,6 +109,7 @@ Plug 'https://github.com/nvim-neotest/neotest-python'
 Plug 'https://github.com/nvim-neotest/neotest-go'
 
 " Colorschemes
+Plug 'https://github.com/sam4llis/nvim-tundra'
 Plug 'https://github.com/talha-akram/noctis.nvim'
 Plug 'https://github.com/tyrannicaltoucan/vim-deep-space'
 Plug 'https://github.com/sainnhe/sonokai'

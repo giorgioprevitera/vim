@@ -33,11 +33,13 @@ set cursorline
 set laststatus=3
 set cmdheight=0
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+let g:python3_host_prog = expand('~/.local/share/nvim-venv/bin/python')
+
 
 lua require("trouble").setup{}
 lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
-lua require('lsp_signature').setup()
+"lua require('lsp_signature').setup()
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('neo-tree')
@@ -299,7 +301,7 @@ if filereadable(expand("~/.config/nvim/local.vim"))
 endif
 
 " colorscheme tokyonight-night
-" colorscheme tokyonight
+colorscheme tokyonight
 colorscheme catppuccin-mocha
 " colorscheme noctis_uva
 set laststatus=3
