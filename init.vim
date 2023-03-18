@@ -37,7 +37,7 @@ lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
-lua require('neo-tree')
+lua require('neo-tree').setup {source_selector={winbar=true}}
 lua require('hop').setup()
 lua require('barbecue').setup({attach_navic = false})
 lua require("indent_blankline").setup { show_current_context = true }

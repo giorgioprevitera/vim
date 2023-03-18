@@ -79,6 +79,13 @@ mason_lspconfig.setup_handlers({
                 },
             }
         end
+        if server_name == "yamlls" then
+            config.settings = {
+                yaml = {
+                    keyOrdering = false,
+                }
+            }
+        end
         if server_name == "efm" then
             config.init_options = { documentFormatting = true }
             config.filetypes = { "python", "sh", "markdown", "yaml" }
@@ -90,9 +97,9 @@ mason_lspconfig.setup_handlers({
                         --{ lintCommand = "shellcheck -f gcc -x", lintSource = "shellcheck", lintIgnoreExitCode = true, lintFormats = {"%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m"} }
                     },
                     python = {
-                        { formatCommand = "black -", formatStdin = true },
+                        { formatCommand = "black --line-length 120 -", formatStdin = true },
                         {
-                            lintCommand = "flake8 --max-line-length 160 --stdin-display-name ${INPUT} -",
+                            lintCommand = "flake8 --max-line-length 120 --stdin-display-name ${INPUT} -",
                             lintIgnoreExitCode = true,
                             lintStdin = true,
                             lintFormats = { "%f:%l:%c: %m" }
