@@ -88,7 +88,7 @@ mason_lspconfig.setup_handlers({
         end
         if server_name == "efm" then
             config.init_options = { documentFormatting = true }
-            config.filetypes = { "python", "sh", "markdown", "yaml" }
+            config.filetypes = { "python", "sh", "markdown", "yaml", "go" }
             config.settings = {
                 rootMarkers = { ".git/" },
                 languages = {
@@ -114,6 +114,9 @@ mason_lspconfig.setup_handlers({
                             lintFormats = { "%f:%l:%c: [%t%*[a-z]] %m" }
                         }
                     },
+                    go = {
+                        { formatCommand = "goimports", formatStdin = true, }
+                    }
                 }
             }
         end
