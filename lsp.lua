@@ -1,8 +1,10 @@
 local navic = require("nvim-navic")
+local navbuddy = require("nvim-navbuddy")
 
 local on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
+        navbuddy.attach(client, bufnr)
     end
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

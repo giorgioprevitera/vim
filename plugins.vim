@@ -12,6 +12,7 @@ Plug 'https://github.com/stevearc/dressing.nvim'
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
 Plug 'https://github.com/SmiteshP/nvim-navic'
+Plug 'https://github.com/SmiteshP/nvim-navbuddy'
 Plug 'https://github.com/romgrk/barbar.nvim'
 Plug 'https://github.com/utilyre/barbecue.nvim', { 'branch': 'fix/E36' }
 Plug 'https://github.com/hoob3rt/lualine.nvim'

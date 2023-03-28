@@ -130,7 +130,8 @@ autocmd BufRead,BufNewFile *.sh.tpl set filetype=sh
 autocmd BufRead,BufNewFile *.sh.tpl set syntax=sh
 autocmd FileType terraform setlocal commentstring=#\ %s
 
-nnoremap <leader>n :Neogit<CR>
+nnoremap <leader>n :Navbuddy<CR>
+nnoremap <leader>go :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap s :HopWordAC<CR>
 nnoremap S :HopWordBC<CR>
