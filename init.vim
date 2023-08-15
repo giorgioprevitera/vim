@@ -6,6 +6,9 @@ source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/gitsigns.lua
 source ~/.config/nvim/lualine.lua
+source ~/.config/nvim/neotest.lua
+source ~/.config/nvim/macros.vim
+source ~/.config/nvim/neotree.lua
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -37,9 +40,8 @@ lua require('nvim-autopairs').setup()
 lua require('diffview').setup{}
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
-lua require('neo-tree').setup {source_selector={winbar=true}}
-lua require('hop').setup()
-lua require('barbecue').setup({attach_navic = false})
+lua require('flash').setup()
+lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require("indent_blankline").setup { show_current_context = true }
 
 
@@ -78,7 +80,8 @@ tnoremap <silent> <C-W>h <C-\><C-n><C-W>h
 tnoremap <silent> <C-W>L <C-\><C-n><C-W>L<CR>
 
 
-nnoremap <silent> <leader>rf :NeoTreeReveal<CR>
+nnoremap <silent> <leader>rf :Neotree reveal<CR>
+nnoremap <silent> <leader>rg :Neotree reveal git_status<CR>
 nnoremap <silent> <leader>p :Neotree toggle filesystem left<CR>
 
 "--------------------------------------------------
@@ -124,21 +127,63 @@ au BufRead,BufNewFile Dockerfile.* set filetype=Dockerfile
 au BufRead,BufNewFile *.sh.tpl set filetype=sh
 filetype plugin indent on
 " Terragrunt
-autocmd BufRead,BufNewFile terragrunt.hcl set filetype=terraform
+autocmd BufRead,BufNewFile terragrunt.hcl,*.tfvars set filetype=terraform
 " Terraform
 autocmd BufRead,BufNewFile *.sh.tpl set filetype=sh
 autocmd BufRead,BufNewFile *.sh.tpl set syntax=sh
 autocmd FileType terraform setlocal commentstring=#\ %s
+" Helm
+autocmd BufRead,BufNewFile */templates/*.yml,*/templates/*.yaml,*/templates/*.tpl,*.gotmpl,helmfile*.yaml set filetype=helm
 
 nnoremap <leader>n :Navbuddy<CR>
 nnoremap <leader>go :Neogit<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap s :HopWordAC<CR>
-nnoremap S :HopWordBC<CR>
+nnoremap s <cmd>lua require("flash").jump()<CR>
+nnoremap S <cmd>lua require("flash").treesitter()<CR>
+nnoremap <leader>tn <cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>
+nnoremap <leader>tp <cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>
 
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
 
-colorscheme catppuccin
+
+" lua require 'mellifluous'.setup({ dim_inactive = true, color_set = 'alduin', })
+" lua require 'mellifluous'.setup({ dim_inactive = true, color_set = 'mountain', })
+" lua require 'mellifluous'.setup({ dim_inactive = true, color_set = 'tender', })
+
+
+
+" colorscheme tokyonight
+"colorscheme mellifluous
+lua<<EOF
+require('nvim-tundra').setup({
+  plugins = {
+    telescope = true,
+    neogit = true,
+    cmp = true,
+    gitsigns = true,
+  },
+})
+EOF
+
+" lua<<EOF
+" require("catppuccin").setup({
+"     integrations = {
+"         cmp = true,
+"         gitsigns = true,
+"         nvimtree = true,
+"         telescope = false,
+"         mason = true,
+"         neogit = true,
+"         notify = false,
+"         mini = false,
+"         lsp_trouble = true,
+"     }
+" })
+" EOF
+" colorscheme catppuccin
+
+colorscheme tundra
+" source ~/.config/nvim/nightfox.lua
 set laststatus=3

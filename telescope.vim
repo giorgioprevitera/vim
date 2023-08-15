@@ -7,6 +7,8 @@ local actions = require("telescope.actions")
 local actions_layout = require("telescope.actions.layout")
 local present, telescope = pcall(require, "telescope")
 
+local trouble = require("trouble.providers.telescope")
+
 if not present then
    return
 end
@@ -37,10 +39,12 @@ telescope.setup({
     mappings = {
       n = {
         ["<C-h>"] = actions_layout.toggle_preview,
+        ["<c-t>"] = trouble.open_with_trouble,
       },
       i = {
         ["<esc>"] = actions.close,
         ["<C-h>"] = actions_layout.toggle_preview,
+        ["<c-t>"] = trouble.open_with_trouble,
       },
     },
     layout_config = {
