@@ -1,6 +1,14 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'https://github.com/catppuccin/nvim'
+Plug 'https://github.com/dikiaap/minimalist'
+Plug 'https://github.com/folke/tokyonight.nvim'
+" Plug 'https://github.com/EdenEast/nightfox.nvim'
+" Plug 'https://github.com/dasupradyumna/midnight.nvim'
+" Plug 'https://github.com/ramojus/mellifluous.nvim'
+Plug 'https://github.com/sam4llis/nvim-tundra'
+
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'https://github.com/nvim-neotest/neotest'
 Plug 'https://github.com/nvim-neotest/neotest-python'
@@ -47,13 +55,6 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 Plug 'https://github.com/folke/flash.nvim'
 
-Plug 'https://github.com/catppuccin/nvim'
-Plug 'https://github.com/dikiaap/minimalist'
-Plug 'https://github.com/folke/tokyonight.nvim'
-" Plug 'https://github.com/EdenEast/nightfox.nvim'
-" Plug 'https://github.com/dasupradyumna/midnight.nvim'
-" Plug 'https://github.com/ramojus/mellifluous.nvim'
-Plug 'https://github.com/sam4llis/nvim-tundra'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files

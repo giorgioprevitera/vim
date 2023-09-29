@@ -42,7 +42,7 @@ lua require('neogit').setup{ disable_context_highlighting = true, integrations =
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('flash').setup()
 lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
-lua require("indent_blankline").setup { show_current_context = true }
+lua require("ibl").setup { show_current_context = true }
 
 
 "--------------------------------------------------
