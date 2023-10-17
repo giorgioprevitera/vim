@@ -32,6 +32,7 @@ set cursorline
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 set foldmethod=indent
 set foldlevel=99
+set fillchars+=diff:╱
 
 let g:python3_host_prog = expand('~/.local/share/nvim-venv/bin/python')
 
@@ -45,6 +46,14 @@ lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
 
+
+"--------------------------------------------------
+" DiffView
+"--------------------------------------------------
+nnoremap <silent> <leader>dvc :DiffviewClose<CR>
+nnoremap <silent> <leader>dvo :DiffviewOpen<CR>
+nnoremap <silent> <leader>dvf :DiffviewFileHistory %<CR>
+vnoremap <silent> <leader>dvf :DiffviewFileHistory %<CR>
 
 "--------------------------------------------------
 " CtrlSF
