@@ -2,7 +2,7 @@ source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/lsp.lua
 source ~/.config/nvim/treesitter.lua
 source ~/.config/nvim/terraform.vim
-source ~/.config/nvim/telescope.vim
+source ~/.config/nvim/telescope_config.lua
 source ~/.config/nvim/cmp.lua
 source ~/.config/nvim/gitsigns.lua
 source ~/.config/nvim/lualine.lua
