@@ -42,9 +42,11 @@ lua require('diffview').setup{}
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('flash').setup()
+lua require('flash').toggle()
 lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
+lua require("project_nvim").setup{}
 
 
 "--------------------------------------------------
@@ -152,20 +154,12 @@ nnoremap s <cmd>lua require("flash").jump()<CR>
 nnoremap S <cmd>lua require("flash").treesitter()<CR>
 nnoremap <leader>tn <cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>
 nnoremap <leader>tp <cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>
+nnoremap <leader>fp <cmd>Telescope projects<CR>
 
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
 
-
-" lua require 'mellifluous'.setup({ dim_inactive = true, color_set = 'alduin', })
-" lua require 'mellifluous'.setup({ dim_inactive = true, color_set = 'mountain', })
-" lua require 'mellifluous'.setup({ dim_inactive = true, color_set = 'tender', })
-
-
-
-" colorscheme tokyonight
-"colorscheme mellifluous
 lua<<EOF
 require('nvim-tundra').setup({
   plugins = {
@@ -177,23 +171,13 @@ require('nvim-tundra').setup({
 })
 EOF
 
-" lua<<EOF
-" require("catppuccin").setup({
-"     integrations = {
-"         cmp = true,
-"         gitsigns = true,
-"         nvimtree = true,
-"         telescope = false,
-"         mason = true,
-"         neogit = true,
-"         notify = false,
-"         mini = false,
-"         lsp_trouble = true,
-"     }
-" })
-" EOF
-" colorscheme catppuccin
-
 colorscheme tundra
-" source ~/.config/nvim/nightfox.lua
 set laststatus=3
+
+"--------------------------------------------------
+" vim-visual-multi
+"--------------------------------------------------
+
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"] = '<C-j>'
+let g:VM_maps["Add Cursor Up"]   = '<C-k>'

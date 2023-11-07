@@ -31,6 +31,7 @@ Plug 'https://github.com/utilyre/barbecue.nvim' ", { 'branch': 'fix/E36' }
 Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'https://github.com/folke/which-key.nvim'
 Plug 'https://github.com/lukas-reineke/indent-blankline.nvim'
+Plug 'https://github.com/mg979/vim-visual-multi', {'branch': 'master'}
 
 Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
@@ -54,6 +55,7 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 Plug 'https://github.com/folke/flash.nvim'
+Plug 'https://github.com/ahmedkhalf/project.nvim'
 
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
