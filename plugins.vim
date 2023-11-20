@@ -21,6 +21,7 @@ Plug 'https://github.com/MunifTanjim/nui.nvim'
 Plug 'https://github.com/nvim-lua/plenary.nvim'
 Plug 'https://github.com/kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/stevearc/dressing.nvim'
+Plug 'https://github.com/folke/noice.nvim'
 
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
@@ -32,6 +33,7 @@ Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'https://github.com/folke/which-key.nvim'
 Plug 'https://github.com/lukas-reineke/indent-blankline.nvim'
 Plug 'https://github.com/mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'https://github.com/simrat39/symbols-outline.nvim'
 
 Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
@@ -55,8 +57,6 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 Plug 'https://github.com/folke/flash.nvim'
-Plug 'https://github.com/ahmedkhalf/project.nvim'
-
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
@@ -70,5 +70,6 @@ Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/windwp/nvim-autopairs'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/towolf/vim-helm'
+Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 
 call plug#end()

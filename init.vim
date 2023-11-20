@@ -9,6 +9,7 @@ source ~/.config/nvim/lualine.lua
 source ~/.config/nvim/neotest.lua
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/neotree.lua
+source ~/.config/nvim/noice_config.lua
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -46,8 +47,7 @@ lua require('flash').toggle()
 lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
-lua require("project_nvim").setup{}
-
+lua require("symbols-outline").setup()
 
 "--------------------------------------------------
 " DiffView

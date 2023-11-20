@@ -109,7 +109,7 @@ function MyTelescopeLspReferences()
 end
 
 vim.keymap.set('n', '<leader>fr', ':lua MyTelescopeLspReferences()<CR>')
-vim.keymap.set('n', '<C-t>', ':Telescope<CR>')
+vim.keymap.set('n', '<C-t>', '<cmd>lua require("telescope.builtin").builtin()<cr>')
 vim.keymap.set('n', '<C-p>', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 vim.keymap.set('n', '<C-b>', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 vim.keymap.set('n', '<leader>fa', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
