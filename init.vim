@@ -47,7 +47,7 @@ lua require('flash').toggle()
 lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
-lua require("symbols-outline").setup()
+lua require("outline").setup()
 
 "--------------------------------------------------
 " DiffView
@@ -155,6 +155,7 @@ nnoremap S <cmd>lua require("flash").treesitter()<CR>
 nnoremap <leader>tn <cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>
 nnoremap <leader>tp <cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>
 nnoremap <leader>fp <cmd>Telescope projects<CR>
+nnoremap <leader>so <cmd>Outline<CR>
 
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim

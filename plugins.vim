@@ -33,7 +33,7 @@ Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'https://github.com/folke/which-key.nvim'
 Plug 'https://github.com/lukas-reineke/indent-blankline.nvim'
 Plug 'https://github.com/mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'https://github.com/simrat39/symbols-outline.nvim'
+Plug 'https://github.com/hedyhli/outline.nvim'
 
 Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'

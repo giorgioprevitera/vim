@@ -133,6 +133,12 @@ ins_left {
     padding = { right = 1 },
 }
 
+ins_left {
+    'branch',
+    icon = '',
+    color = { fg = colors.violet, gui = 'bold' },
+}
+
 
 ins_left {
     'filename',
@@ -141,23 +147,10 @@ ins_left {
 }
 
 ins_left {
-    'branch',
-    icon = '',
-    color = { fg = colors.violet, gui = 'bold' },
-}
-
-ins_left {
     -- filesize component
     'filesize',
     cond = conditions.buffer_not_empty,
 }
-
-ins_left { 'location' }
-
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
-
-
-
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
@@ -231,6 +224,10 @@ ins_right {
     },
     cond = conditions.hide_in_width,
 }
+
+ins_right { 'location' }
+
+ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_right {
     function()
