@@ -10,6 +10,7 @@ source ~/.config/nvim/neotest.lua
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/neotree.lua
 source ~/.config/nvim/noice_config.lua
+source ~/.config/nvim/fold.lua
 
 set completeopt=menu,menuone,noselect
 set termguicolors
@@ -168,8 +169,11 @@ require('nvim-tundra').setup({
     neogit = true,
     cmp = true,
     gitsigns = true,
+    lsp = true,
+    treesitter = true,
   },
 })
+vim.g.tundra_biome = 'arctic'
 EOF
 
 colorscheme tundra
@@ -182,3 +186,6 @@ set laststatus=3
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<C-j>'
 let g:VM_maps["Add Cursor Up"]   = '<C-k>'
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true

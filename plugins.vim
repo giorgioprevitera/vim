@@ -13,6 +13,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'https://github.com/nvim-neotest/neotest'
 Plug 'https://github.com/nvim-neotest/neotest-python'
 Plug 'https://github.com/nvim-neotest/neotest-go'
+Plug 'https://github.com/nvim-neotest/nvim-nio'
 
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
@@ -40,11 +41,14 @@ Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
 Plug 'https://github.com/hrsh7th/cmp-buffer'
 Plug 'https://github.com/hrsh7th/cmp-path'
 Plug 'https://github.com/hrsh7th/cmp-cmdline'
-Plug 'https://github.com/hrsh7th/cmp-vsnip', {'commit': '1ae05c6'}
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp-signature-help'
-Plug 'https://github.com/hrsh7th/vim-vsnip'
 Plug 'https://github.com/onsails/lspkind-nvim'
+Plug 'https://github.com/hrsh7th/cmp-vsnip' ", {'commit': '1ae05c6'}
+Plug 'https://github.com/hrsh7th/vim-vsnip'
 Plug 'https://github.com/rafamadriz/friendly-snippets'
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'https://github.com/quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'https://github.com/honza/vim-snippets'
 
 Plug 'https://github.com/dyng/ctrlsf.vim'
 Plug 'https://github.com/lewis6991/gitsigns.nvim'
@@ -57,6 +61,7 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 Plug 'https://github.com/folke/flash.nvim'
+" Plug 'https://github.com/github/copilot.vim'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
@@ -69,7 +74,10 @@ Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/windwp/nvim-autopairs'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
+Plug 'https://github.com/kevinhwang91/nvim-ufo'
+Plug 'https://github.com/kevinhwang91/promise-async'
 Plug 'https://github.com/towolf/vim-helm'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/udalov/kotlin-vim'
 
 call plug#end()
