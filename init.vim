@@ -49,6 +49,7 @@ lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
 lua require("outline").setup()
+lua require('dap-go').setup()
 
 "--------------------------------------------------
 " DiffView

@@ -9,11 +9,14 @@ Plug 'https://github.com/folke/tokyonight.nvim'
 " Plug 'https://github.com/ramojus/mellifluous.nvim'
 Plug 'https://github.com/sam4llis/nvim-tundra'
 
-Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'https://github.com/antoinemadec/FixCursorHold.nvim'
 Plug 'https://github.com/nvim-neotest/neotest'
 Plug 'https://github.com/nvim-neotest/neotest-python'
-Plug 'https://github.com/nvim-neotest/neotest-go'
+Plug 'https://github.com/fredrikaverpil/neotest-golang'
 Plug 'https://github.com/nvim-neotest/nvim-nio'
+Plug 'https://github.com/mfussenegger/nvim-dap'
+Plug 'https://github.com/rcarriga/nvim-dap-ui'
+Plug 'https://github.com/leoluz/nvim-dap-go'
 
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
