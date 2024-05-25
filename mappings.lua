@@ -1,42 +1,48 @@
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local opts = { noremap = true, silent = true }
+local opts = { silent = true }
 
 -- Mappings.
-buf_set_keymap('i', '<C-F>t', '<Esc>:CtrlSFToggle<CR>', opts)
-buf_set_keymap('<C-F>o',':CtrlSFOpen<CR>', opts)
+vim.keymap.set('i', '<C-F>t', '<Esc>:CtrlSFToggle<CR>', opts)
+vim.keymap.set('n', '<C-F>o', ':CtrlSFOpen<CR>', opts)
+vim.keymap.set('n', '<C-F>t ', ':CtrlSFToggle<CR>', opts)
 
-buf_set_keymap('<C-F>t ',':CtrlSFToggle<CR>', opts)
-buf_set_keymap('<leader>gb',':Git blame<CR>', opts)
 
--- nnoremap <leader>go :Neogit<CR>
--- nnoremap <leader>n :Navbuddy<CR>
--- nnoremap <leader>tn <cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>
--- nnoremap <leader>tp <cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>
--- nnoremap <leader>tr :TroubleToggle<CR>
--- nnoremap <silent>    <A-,> :BufferPrevious<CR>
--- nnoremap <silent>    <A-.> :BufferNext<CR>
--- nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
--- nnoremap <silent>    <A->> :BufferMoveNext<CR>
--- nnoremap <silent>    <A-b> :BufferPick<CR>
--- nnoremap <silent>    <A-c> :BufferClose<CR>
--- nnoremap <silent>    <A-o> :BufferCloseAllButCurrent<CR>
--- nnoremap <silent> <leader>dvc :DiffviewClose<CR>
--- nnoremap <silent> <leader>dvf :DiffviewFileHistory %<CR>
--- nnoremap <silent> <leader>dvo :DiffviewOpen<CR>
--- nnoremap <silent> <leader>p :Neotree toggle filesystem left<CR>
--- nnoremap <silent> <leader>rf :Neotree reveal<CR>
--- nnoremap <silent> <leader>rg :Neotree reveal git_status<CR>
--- nnoremap S <cmd>lua require("flash").treesitter()<CR>
--- nnoremap s <cmd>lua require("flash").jump()<CR>
+vim.keymap.set('n', '<leader>dt', require("dapui").toggle, opts)
+vim.keymap.set('n', '<leader>dvc', ':DiffviewClose<CR>', opts)
+vim.keymap.set('n', '<leader>dvo', ':DiffviewOpen<CR>', opts)
+vim.keymap.set('n', '<leader>dvf', ':DiffviewFileHistory %<CR>', opts)
+vim.keymap.set('v', '<leader>dvf', ':DiffviewFileHistory %<CR>', opts)
+vim.keymap.set('n', '<leader>fp', '<cmd>Telescope projects<CR>', opts)
+vim.keymap.set('n', '<leader>gb', ':Git blame<CR>', opts)
+vim.keymap.set('n', '<leader>go', ':Neogit<CR>', opts)
+vim.keymap.set('n', '<leader>gb', ':Git blame<CR>', opts)
+vim.keymap.set('n', '<leader>nb', ':Navbuddy<CR>', opts)
+vim.keymap.set('n', '<leader>nr', ':Neotest run last<CR>', opts)
+vim.keymap.set('n', '<leader>nt', ':Neotest summary<CR>', opts)
+vim.keymap.set('n', '<leader>p', ':Neotree toggle filesystem left<CR>', opts)
+vim.keymap.set('n', '<leader>rf', ':Neotree reveal<CR>', opts)
+vim.keymap.set('n', '<leader>rg', ':Neotree reveal git_status<CR>', opts)
+vim.keymap.set('n', '<leader>so', '<cmd>Outline<CR>', opts)
+vim.keymap.set('n', '<leader>tn', function() require("trouble").next({ skip_groups = true, jump = true }) end, opts)
+vim.keymap.set('n', '<leader>tp', function() require("trouble").previous({ skip_groups = true, jump = true }) end, opts)
+vim.keymap.set('n', '<leader>tr', ':TroubleToggle<CR>', opts)
+
+
+vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>', opts)
+vim.keymap.set('n', '<A-.>', ':BufferNext<CR>', opts)
+vim.keymap.set('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
+vim.keymap.set('n', '<A->>', ':BufferMoveNext<CR>', opts)
+vim.keymap.set('n', '<A-c>', ':BufferClose<CR>', opts)
+vim.keymap.set('n', '<A-o>', ':BufferCloseAllButCurrent<CR>', opts)
+vim.keymap.set('n', '<A-b>', ':BufferPick<CR>', opts)
+
+
+vim.keymap.set('n', 's', require("flash").jump, opts)
+vim.keymap.set('n', 'S', require("flash").treesitter, opts)
+
 -- noremap  <silent> <M-`> :FloatermToggle<CR>
 -- noremap! <silent> <M-`> <Esc>:FloatermToggle<CR>
-
 -- tnoremap <silent> <C-W>L <C-\><C-n><C-W>L<CR>
 -- tnoremap <silent> <C-W>h <C-\><C-n><C-W>h
 -- tnoremap <silent> <C-W>k <C-\><C-n><C-W>k
 -- tnoremap <silent> <M-`> <C-\><C-n>:FloatermToggle<CR>
 -- tnoremap <silent> <M-z> <C-\><C-n>:FloatermUpdate --width=0.9 --height=0.9<CR>
-
--- vnoremap <silent> <leader>dvf :DiffviewFileHistory %<CR>
-
-

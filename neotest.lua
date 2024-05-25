@@ -15,5 +15,3 @@ require("neotest").setup({
         require("neotest-golang")(),
     }
 })
-
-require("dapui").setup()
