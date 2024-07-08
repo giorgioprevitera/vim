@@ -3,7 +3,13 @@ local opts = { silent = true }
 -- Mappings.
 vim.keymap.set('i', '<C-F>t', '<Esc>:CtrlSFToggle<CR>', opts)
 vim.keymap.set('n', '<C-F>o', ':CtrlSFOpen<CR>', opts)
-vim.keymap.set('n', '<C-F>t ', ':CtrlSFToggle<CR>', opts)
+vim.keymap.set('n', '<C-F>t', ':CtrlSFToggle<CR>', opts)
+vim.keymap.set('n', '<C-F>w', ':CtrlSFCwordPath<CR>', opts)
+vim.keymap.set('n', '<C-F>p', ':CtrlSFPwordPath<CR>', opts)
+vim.keymap.set('n', '<C-F><C-S>', '<Plug>CtrlSFPrompt', opts)
+vim.keymap.set('v', '<C-F><C-S>', '<Plug>CtrlSFVwordPath', opts)
+vim.keymap.set('n', '<C-F><C-F>', '<Plug>CtrlSFCwordPath', opts)
+vim.keymap.set('v', '<C-F><C-F>', '<Plug>CtrlSFVwordExec', opts)
 
 
 vim.keymap.set('n', '<leader>dt', require("dapui").toggle, opts)
@@ -24,7 +30,7 @@ vim.keymap.set('n', '<leader>rg', ':Neotree reveal git_status<CR>', opts)
 vim.keymap.set('n', '<leader>so', '<cmd>Outline<CR>', opts)
 vim.keymap.set('n', '<leader>tn', function() require("trouble").next({ skip_groups = true, jump = true }) end, opts)
 vim.keymap.set('n', '<leader>tp', function() require("trouble").previous({ skip_groups = true, jump = true }) end, opts)
-vim.keymap.set('n', '<leader>tr', ':TroubleToggle<CR>', opts)
+vim.keymap.set('n', '<leader>tr', ':Trouble diagnostics toggle<CR>', opts)
 
 
 vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>', opts)
