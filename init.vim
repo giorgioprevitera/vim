@@ -45,14 +45,29 @@ lua require('diffview').setup{}
 lua require('neogit').setup{ disable_context_highlighting = true, integrations = { diffview = true } }
 lua require("which-key").setup {plugins={spelling={enabled=true}}}
 lua require('flash').setup()
-lua require('flash').toggle()
+" lua require('flash').toggle()
 lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
 lua require("outline").setup()
+lua require('dap-python').test_runner = 'pytest'
+lua << EOF
+require('dap-python').resolve_python = function()
+  return '/Users/giorgio/.asdf/shims/python'
+end
+EOF
+lua require('dap-python').setup('/Users/giorgio/.asdf/shims/python')
 lua require('dap-go').setup()
 lua require("dapui").setup()
+lua require('glance').setup()
 
+"--------------------------------------------------
+" CtrlSF
+"--------------------------------------------------
+let g:ctrlsf_auto_preview = 1
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
 
 "--------------------------------------------------
 " Terminal
@@ -101,6 +116,8 @@ autocmd BufRead,BufNewFile *.sh.tpl set syntax=sh
 autocmd FileType terraform setlocal commentstring=#\ %s
 " Helm
 autocmd BufRead,BufNewFile */templates/*.yml,*/templates/*.yaml,*/templates/*.tpl,*.gotmpl,helmfile*.yaml set filetype=helm
+" Go templates
+au BufRead,BufNewFile *.tmpl set filetype=html
 
 
 if filereadable(expand("~/.config/nvim/local.vim"))
@@ -121,8 +138,9 @@ require('nvim-tundra').setup({
 vim.g.tundra_biome = 'arctic'
 EOF
 
-colorscheme tundra
+colorscheme carbonfox
 set laststatus=3
+colorscheme carbonfox
 
 "--------------------------------------------------
 " vim-visual-multi

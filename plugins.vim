@@ -4,7 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/catppuccin/nvim'
 Plug 'https://github.com/dikiaap/minimalist'
 Plug 'https://github.com/folke/tokyonight.nvim'
-" Plug 'https://github.com/EdenEast/nightfox.nvim'
+Plug 'https://github.com/EdenEast/nightfox.nvim'
 " Plug 'https://github.com/dasupradyumna/midnight.nvim'
 " Plug 'https://github.com/ramojus/mellifluous.nvim'
 Plug 'https://github.com/sam4llis/nvim-tundra'
@@ -17,6 +17,7 @@ Plug 'https://github.com/nvim-neotest/nvim-nio'
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'https://github.com/rcarriga/nvim-dap-ui'
 Plug 'https://github.com/leoluz/nvim-dap-go'
+Plug 'https://github.com/mfussenegger/nvim-dap-python'
 
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
@@ -38,6 +39,7 @@ Plug 'https://github.com/folke/which-key.nvim'
 Plug 'https://github.com/lukas-reineke/indent-blankline.nvim'
 Plug 'https://github.com/mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://github.com/hedyhli/outline.nvim'
+Plug 'https://github.com/DNLHC/glance.nvim'
 
 Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
@@ -64,6 +66,7 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 Plug 'https://github.com/folke/flash.nvim'
+Plug 'https://github.com/ibhagwan/fzf-lua'
 " Plug 'https://github.com/github/copilot.vim'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
