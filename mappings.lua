@@ -8,7 +8,7 @@ vim.keymap.set('n', '<C-F>w', ':CtrlSFCwordPath<CR>', opts)
 vim.keymap.set('n', '<C-F>p', ':CtrlSFPwordPath<CR>', opts)
 vim.keymap.set('n', '<C-F><C-S>', '<Plug>CtrlSFPrompt', opts)
 vim.keymap.set('v', '<C-F><C-S>', '<Plug>CtrlSFVwordPath', opts)
-vim.keymap.set('n', '<C-F><C-F>', '<Plug>CtrlSFCwordPath', opts)
+vim.keymap.set('n', '<C-F><C-F>', '<Plug>CtrlSFCwordPath<CR>', opts)
 vim.keymap.set('v', '<C-F><C-F>', '<Plug>CtrlSFVwordExec', opts)
 
 
