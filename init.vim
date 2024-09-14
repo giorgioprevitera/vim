@@ -50,12 +50,6 @@ lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
 lua require("outline").setup()
-lua require('dap-python').test_runner = 'pytest'
-lua << EOF
-require('dap-python').resolve_python = function()
-  return '/Users/giorgio/.asdf/shims/python'
-end
-EOF
 lua require('dap-python').setup('/Users/giorgio/.asdf/shims/python')
 lua require('dap-go').setup()
 lua require("dapui").setup()
@@ -138,9 +132,9 @@ require('nvim-tundra').setup({
 vim.g.tundra_biome = 'arctic'
 EOF
 
-colorscheme carbonfox
+colorscheme tundra
 set laststatus=3
-colorscheme carbonfox
+colorscheme tundra
 
 "--------------------------------------------------
 " vim-visual-multi

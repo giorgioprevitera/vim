@@ -71,6 +71,32 @@ for type, icon in pairs(signs) do
 end
 
 mason.setup {}
+
+require('mason-tool-installer').setup {
+    ensure_installed = {
+        "bash-language-server",
+        "black",
+        "efm",
+        "flake8",
+        "gopls",
+        "jdtls",
+        "jedi-language-server",
+        "json-lsp",
+        "kotlin-language-server",
+        "ktlint",
+        "lua-language-server",
+        "luaformatter",
+        "shellcheck",
+        "shfmt",
+        "terraform-ls",
+        "tflint",
+        "yaml-language-server",
+        -- Debuggers
+        "delve",
+        "debugpy",
+    }
+}
+
 mason_lspconfig.setup_handlers({
     function(server_name)
         local config = make_config()

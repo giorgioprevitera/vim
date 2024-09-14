@@ -30,6 +30,7 @@ Plug 'https://github.com/folke/noice.nvim'
 
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
+Plug 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim'
 Plug 'https://github.com/SmiteshP/nvim-navic'
 Plug 'https://github.com/SmiteshP/nvim-navbuddy'
 Plug 'https://github.com/romgrk/barbar.nvim'

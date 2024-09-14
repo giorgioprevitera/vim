@@ -1,7 +1,33 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "bash", "comment", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "gomod", "gosum", "help", "jq", "json", "json5", "jsonc", "lua", "make", "markdown", "markdown_inline", "python", "terraform", "toml", "vim", "yaml" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = {
+        "bash",
+        "comment",
+        "dockerfile",
+        "git_config",
+        "git_rebase",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "gomod",
+        "gosum",
+        "help",
+        "jq",
+        "json",
+        "json5",
+        "jsonc",
+        "lua",
+        "make",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "terraform",
+        "toml",
+        "vim",
+        "yaml"
+    },                             -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
-        enable = true, -- false will disable the whole extension
+        enable = true,             -- false will disable the whole extension
         disable = { "c", "rust" }, -- list of language that will be disabled
     },
     incremental_selection = {
