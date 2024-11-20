@@ -11,7 +11,6 @@ require 'nvim-treesitter.configs'.setup {
         "go",
         "gomod",
         "gosum",
-        "help",
         "jq",
         "json",
         "json5",
@@ -34,9 +33,9 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         keymaps = {
             init_selection = "gnn",
-            node_incremental = "grn",
+            node_incremental = "v",
             scope_incremental = "grc",
-            node_decremental = "grm",
+            node_decremental = "V",
         },
     },
     indent = {

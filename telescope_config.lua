@@ -112,30 +112,6 @@ telescope.setup({
     -- },
 })
 
-function MyTelescopeLspReferences()
-    local opts = {
-        preview = {
-            hide_on_startup = false,
-        },
-    }
-    local theme = require('telescope.themes').get_cursor(opts)
-    theme['layout_config']['width'] = 160
-    theme['layout_config']['height'] = 20
-    require('telescope.builtin').lsp_references(theme)
-end
-
-vim.keymap.set('n', '<leader>fr', ':lua MyTelescopeLspReferences()<CR>')
-vim.keymap.set('n', '<C-t>', '<cmd>lua require("telescope.builtin").builtin()<cr>')
-vim.keymap.set('n', '<C-p>', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-vim.keymap.set('n', '<C-b>', '<cmd>lua require("telescope.builtin").buffers()<cr>')
-vim.keymap.set('n', '<leader>fa', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-vim.keymap.set('n', '<leader>fgb', '<cmd>lua require("telescope.builtin").git_branches()<cr>')
-vim.keymap.set('n', '<leader>fgc', '<cmd>lua require("telescope.builtin").git_commits()<cr>')
-vim.keymap.set('n', '<leader>fgs', '<cmd>lua require("telescope.builtin").git_status()<cr>')
-vim.keymap.set('n', '<leader>fh', '<cmd>lua require("telescope.builtin").command_history()<cr>')
-vim.keymap.set('n', '<leader>fd', '<cmd> lua require("telescope.builtin").lsp_definitions()<cr>')
-vim.keymap.set('n', '<leader>fs', '<cmd> lua require("telescope.builtin").lsp_document_symbols()<cr>')
-vim.keymap.set('n', '<leader>c', '<cmd>lua require("telescope.builtin").commands()<cr>')
 
 -- local extensions = { "themes", "terms", "file_browser" }
 -- for _, ext in ipairs(extensions) do

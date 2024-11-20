@@ -76,16 +76,18 @@ require('mason-tool-installer').setup {
     ensure_installed = {
         "bash-language-server",
         "black",
+        "dockerfile-language-server",
         "efm",
         "flake8",
         "gopls",
+        "hadolint",
         "jdtls",
         "jedi-language-server",
         "json-lsp",
         "kotlin-language-server",
         "ktlint",
         "lua-language-server",
-        "luaformatter",
+        -- "luaformatter",
         "shellcheck",
         "shfmt",
         "terraform-ls",
@@ -102,7 +104,7 @@ mason_lspconfig.setup_handlers({
         local config = make_config()
         if server_name == "sumneko_lua" then
             config.settings = {
-                Lua = {
+                lua = {
                     diagnostics = {
                         globals = { 'vim' },
                     },
@@ -123,13 +125,40 @@ mason_lspconfig.setup_handlers({
                         ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
                         ["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
                     },
-
+                    customTags = {
+                        "!fn",
+                        "!And",
+                        "!If",
+                        "!Not",
+                        "!Equals",
+                        "!Or",
+                        "!FindInMap sequence",
+                        "!Base64",
+                        "!Cidr",
+                        "!Ref",
+                        "!Ref Scalar",
+                        "!Sub",
+                        "!GetAtt",
+                        "!GetAZs",
+                        "!ImportValue",
+                        "!Select",
+                        "!Split",
+                        "!Join sequence"
+                    },
                 }
             }
         end
         if server_name == "efm" then
             config.init_options = { documentFormatting = true }
-            config.filetypes = { "python", "sh", "markdown", "yaml", "go", "html" }
+            config.filetypes = {
+                "python",
+                "sh",
+                "markdown",
+                "yaml",
+                "go",
+                "html",
+                "dockerfile"
+            }
             config.settings = {
                 rootMarkers = { ".git/" },
                 languages = {
@@ -141,9 +170,9 @@ mason_lspconfig.setup_handlers({
                         --{ lintCommand = "shellcheck -f gcc -x", lintSource = "shellcheck", lintIgnoreExitCode = true, lintFormats = {"%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m"} }
                     },
                     python = {
-                        { formatCommand = "black --line-length 120 -", formatStdin = true },
+                        { formatCommand = "black --line-length 160 -", formatStdin = true },
                         {
-                            lintCommand = "flake8 --max-line-length 120 --stdin-display-name ${INPUT} -",
+                            lintCommand = "flake8 --max-line-length 160 --stdin-display-name ${INPUT} -",
                             lintIgnoreExitCode = true,
                             lintStdin = true,
                             lintFormats = { "%f:%l:%c: %m" }
@@ -160,6 +189,24 @@ mason_lspconfig.setup_handlers({
                     },
                     go = {
                         { formatCommand = "goimports", formatStdin = true, }
+                    },
+                    dockerfile = {
+                        prettier,
+                        {
+                            lintCommand = "hadolint --no-color ${INPUT}",
+                            lintFormats = { "%f:%l %m" }
+                        }
+                    }
+                }
+            }
+        end
+        if server_name == "pylsp" then
+            config.settings = {
+                pylsp = {
+                    plugins = {
+                        pycodestyle = {
+                            maxLineLength = 160
+                        }
                     }
                 }
             }

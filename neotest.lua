@@ -15,8 +15,3 @@ require("neotest").setup({
         require("neotest-golang")(),
     }
 })
-
-require('dap-python').test_runner = 'pytest'
-require('dap-python').resolve_python = function()
-    return '/Users/giorgio/.asdf/shims/python'
-end

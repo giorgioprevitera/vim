@@ -10,15 +10,17 @@ source ~/.config/nvim/neotest.lua
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/neotree.lua
 source ~/.config/nvim/noice_config.lua
-source ~/.config/nvim/fold.lua
 source ~/.config/nvim/mappings.lua
+source ~/.config/nvim/fold.lua
+source ~/.config/nvim/fzf_config.lua
+source ~/.config/nvim/debugger.lua
 
 set completeopt=menu,menuone,noselect
 set termguicolors
 set background=dark
 set nu
 set mouse=a
-set clipboard=unnamed
+set clipboard=unnamedplus
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -50,9 +52,6 @@ lua require('barbecue').setup({attach_navic = false, theme = 'tokyonight'})
 lua require('barbar').setup({sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }})
 lua require("ibl").setup {}
 lua require("outline").setup()
-lua require('dap-python').setup('/Users/giorgio/.asdf/shims/python')
-lua require('dap-go').setup()
-lua require("dapui").setup()
 lua require('glance').setup()
 
 "--------------------------------------------------
@@ -114,6 +113,15 @@ autocmd BufRead,BufNewFile */templates/*.yml,*/templates/*.yaml,*/templates/*.tp
 au BufRead,BufNewFile *.tmpl set filetype=html
 
 
+"--------------------------------------------------
+" vim-visual-multi
+"--------------------------------------------------
+
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"] = '<C-j>'
+let g:VM_maps["Add Cursor Up"]   = '<C-k>'
+
+
 if filereadable(expand("~/.config/nvim/local.vim"))
   source ~/.config/nvim/local.vim
 endif
@@ -129,20 +137,19 @@ require('nvim-tundra').setup({
     treesitter = true,
   },
 })
-vim.g.tundra_biome = 'arctic'
+-- vim.g.tundra_biome = 'jungle'
 EOF
+
+let g:onedark_config = {
+    \ 'style': 'warmer',
+\}
+
+" let g:material_style = 'deep ocean'
+" let g:material_style = 'ocean'
+" let g:material_style = 'darker'
+let g:material_style = 'warmer'
 
 colorscheme tundra
 set laststatus=3
 colorscheme tundra
-
-"--------------------------------------------------
-" vim-visual-multi
-"--------------------------------------------------
-
-let g:VM_maps = {}
-let g:VM_maps["Add Cursor Down"] = '<C-j>'
-let g:VM_maps["Add Cursor Up"]   = '<C-k>'
-
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+set laststatus=3

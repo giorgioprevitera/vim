@@ -1,15 +1,17 @@
 "-------- Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'https://github.com/catppuccin/nvim'
-Plug 'https://github.com/dikiaap/minimalist'
-Plug 'https://github.com/folke/tokyonight.nvim'
-Plug 'https://github.com/EdenEast/nightfox.nvim'
+" Plug 'https://github.com/catppuccin/nvim'
+" Plug 'https://github.com/dikiaap/minimalist'
+" Plug 'https://github.com/folke/tokyonight.nvim'
+" Plug 'https://github.com/EdenEast/nightfox.nvim'
 " Plug 'https://github.com/dasupradyumna/midnight.nvim'
 " Plug 'https://github.com/ramojus/mellifluous.nvim'
 Plug 'https://github.com/sam4llis/nvim-tundra'
+" Plug 'https://github.com/navarasu/onedark.nvim'
+" Plug 'https://github.com/marko-cerovac/material.nvim'
 
-Plug 'https://github.com/antoinemadec/FixCursorHold.nvim'
+" Plug 'https://github.com/antoinemadec/FixCursorHold.nvim'
 Plug 'https://github.com/nvim-neotest/neotest'
 Plug 'https://github.com/nvim-neotest/neotest-python'
 Plug 'https://github.com/fredrikaverpil/neotest-golang'
@@ -18,6 +20,7 @@ Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'https://github.com/rcarriga/nvim-dap-ui'
 Plug 'https://github.com/leoluz/nvim-dap-go'
 Plug 'https://github.com/mfussenegger/nvim-dap-python'
+Plug 'https://github.com/mechatroner/rainbow_csv'
 
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
@@ -31,6 +34,7 @@ Plug 'https://github.com/folke/noice.nvim'
 Plug 'https://github.com/williamboman/mason.nvim'
 Plug 'https://github.com/williamboman/mason-lspconfig.nvim'
 Plug 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim'
+Plug 'https://github.com/jay-babu/mason-nvim-dap.nvim'
 Plug 'https://github.com/SmiteshP/nvim-navic'
 Plug 'https://github.com/SmiteshP/nvim-navbuddy'
 Plug 'https://github.com/romgrk/barbar.nvim'
@@ -42,7 +46,8 @@ Plug 'https://github.com/mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://github.com/hedyhli/outline.nvim'
 Plug 'https://github.com/DNLHC/glance.nvim'
 
-Plug 'https://github.com/hrsh7th/nvim-cmp'
+" Plug 'https://github.com/hrsh7th/nvim-cmp'
+Plug 'https://github.com/iguanacucumber/magazine.nvim'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
 Plug 'https://github.com/hrsh7th/cmp-buffer'
 Plug 'https://github.com/hrsh7th/cmp-path'
@@ -68,13 +73,15 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/RRethy/nvim-treesitter-textsubjects'
 Plug 'https://github.com/folke/flash.nvim'
 Plug 'https://github.com/ibhagwan/fzf-lua'
+Plug 'https://github.com/junegunn/fzf'
 " Plug 'https://github.com/github/copilot.vim'
 
 Plug 'https://github.com/iamcco/markdown-preview.nvim.git', {  'for': 'markdown', 'do': 'cd app & yarn install'  } " Markdown preview plugin
 Plug 'https://github.com/mzlogin/vim-markdown-toc'                                                                 " Plugin to generate table of contents for Markdown files
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/shumphrey/fugitive-gitlab.vim'
+" Plug 'https://github.com/shumphrey/fugitive-gitlab.vim'
+Plug 'https://github.com/tommcdo/vim-fubitive'
 Plug 'https://github.com/tpope/vim-rhubarb.git'                                                                    " Github integration
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -85,6 +92,5 @@ Plug 'https://github.com/kevinhwang91/nvim-ufo'
 Plug 'https://github.com/kevinhwang91/promise-async'
 Plug 'https://github.com/towolf/vim-helm'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
-Plug 'https://github.com/udalov/kotlin-vim'
 
 call plug#end()
